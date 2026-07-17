@@ -1,4 +1,4 @@
-baseURL = "https://<YOUR_GITHUB_USERNAME>.github.io/muslim-flashcard/"
+baseURL = "https://tegarimansyah.github.io/muslim-flashcard/"
 languageCode = "id"
 title = "Kumpulan Doa Doa Dalam Islam"
 theme = "muslim-flashcard-theme"
