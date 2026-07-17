@@ -269,7 +269,40 @@
         <button class="back-btn" onclick="goBack()">←</button>
         
         <div class="story-content" id="storyContent">
-            <!-- Story slides will be loaded here -->
+            <!-- Server-side rendered story slides -->
+            {{ $groupId := .File.BaseFileName }}
+            {{ range $.Site.Data.doa.groups }}
+                {{ if eq .id $groupId }}
+                    {{ $groupData := . }}
+                    {{ range $index, $card := .cards }}
+                        <div class="story-slide{{ if eq $index 0 }} active{{ end }}">
+                            <div class="group-header">
+                                <div class="group-icon">{{ $groupData.icon }}</div>
+                                <h2 class="group-title">{{ $card.title }}</h2>
+                                <div class="group-badge">{{ $groupData.title }}</div>
+                            </div>
+
+                            <div class="doa-content">
+                                <div class="section-label">📜 Doa (Arab)</div>
+                                <div class="arabic-text">{{ $card.arabic }}</div>
+
+                                <div class="section-label">📝 Bacaan Latin</div>
+                                <p class="latin-text">{{ $card.latin }}</p>
+
+                                <div class="section-label">🌍 Arti Bahasa Indonesia</div>
+                                <p class="translation-text">{{ $card.translation }}</p>
+
+                                <div class="section-label">📚 Asal Usul dan Latar Belakang</div>
+                                <div class="background-text">{{ $card.background }}</div>
+
+                                <div class="source-tag">
+                                    <strong>📖 Sumber:</strong> {{ $card.source }}
+                                </div>
+                            </div>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
         </div>
 
         <div class="tap-zones">
@@ -280,72 +313,18 @@
 
     <script>
         let currentSlide = 0;
-        let totalSlides = 0;
-        let doaData = [];
-        let groupData = null;
+        const totalSlides = document.querySelectorAll('.story-slide').length;
 
-        // Load doa data
-        fetch('/doa.json')
-            .then(response => response.json())
-            .then(data => {
-                const groupId = window.location.pathname.split('/').pop().replace('/', '');
-                groupData = data.groups.find(g => g.id === groupId);
-                if (groupData) {
-                    doaData = groupData.cards;
-                    totalSlides = doaData.length;
-                    initializeStory();
-                }
-            })
-            .catch(error => console.error('Error loading doa data:', error));
-
-        function initializeStory() {
-            // Create progress bars
-            const progressContainer = document.getElementById('progressContainer');
-            progressContainer.innerHTML = '';
-            for (let i = 0; i < totalSlides; i++) {
-                const bar = document.createElement('div');
-                bar.className = 'progress-bar';
-                bar.innerHTML = '<div class="progress-fill"></div>';
-                progressContainer.appendChild(bar);
-            }
-
-            // Create story slides
-            const storyContent = document.getElementById('storyContent');
-            storyContent.innerHTML = '';
-
-            doaData.forEach((doa, index) => {
-                const slide = document.createElement('div');
-                slide.className = 'story-slide' + (index === 0 ? ' active' : '');
-                slide.innerHTML = `
-                    <div class="group-header">
-                        <div class="group-icon">${groupData.icon}</div>
-                        <h2 class="group-title">${doa.title}</h2>
-                        <div class="group-badge">${groupData.title}</div>
-                    </div>
-
-                    <div class="doa-content">
-                        <div class="section-label">📜 Doa (Arab)</div>
-                        <div class="arabic-text">${doa.arabic}</div>
-
-                        <div class="section-label">📝 Bacaan Latin</div>
-                        <p class="latin-text">${doa.latin}</p>
-
-                        <div class="section-label">🌍 Arti Bahasa Indonesia</div>
-                        <p class="translation-text">${doa.translation}</p>
-
-                        <div class="section-label">📚 Asal Usul dan Latar Belakang</div>
-                        <div class="background-text">${doa.background}</div>
-
-                        <div class="source-tag">
-                            <strong>📖 Sumber:</strong> ${doa.source}
-                        </div>
-                    </div>
-                `;
-                storyContent.appendChild(slide);
-            });
-
-            updateProgress();
+        // Initialize progress bars
+        const progressContainer = document.getElementById('progressContainer');
+        for (let i = 0; i < totalSlides; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'progress-bar';
+            bar.innerHTML = '<div class="progress-fill"></div>';
+            progressContainer.appendChild(bar);
         }
+
+        updateProgress();
 
         function updateProgress() {
             const slides = document.querySelectorAll('.story-slide');

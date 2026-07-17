@@ -286,7 +286,51 @@
         <button class="back-btn" onclick="goBack()">←</button>
         
         <div class="story-content" id="storyContent">
-            <!-- Story slides will be loaded here -->
+            <!-- Server-side rendered story slides -->
+            {{ $groupId := .File.BaseFileName }}
+            {{ range $.Site.Data.doa.groups }}
+                {{ if eq .id $groupId }}
+                    {{ $groupData := . }}
+                    {{ range $index, $card := .cards }}
+                        <div class="story-slide{{ if eq $index 0 }} active{{ end }}">
+                            <div class="group-header">
+                                <div class="group-icon">{{ $groupData.icon }}</div>
+                                <h2 class="group-title">{{ $groupData.title }}</h2>
+                            </div>
+
+                            <h3 class="doa-title">{{ $card.title }}</h3>
+
+                            <div class="memorize-controls">
+                                <button class="btn-memo active" onclick="toggleMemo({{ $index }}, 'arabic', this)">
+                                    👁️ Arab
+                                </button>
+                                <button class="btn-memo" onclick="toggleMemo({{ $index }}, 'latin', this)">
+                                    🔤 Latin
+                                </button>
+                                <button class="btn-memo" onclick="toggleMemo({{ $index }}, 'translation', this)">
+                                    🌍 Arti
+                                </button>
+                            </div>
+
+                            <div id="memo-arabic-{{ $index }}" class="memo-section active">
+                                <div class="arabic-text">{{ $card.arabic }}</div>
+                            </div>
+
+                            <div id="memo-latin-{{ $index }}" class="memo-section">
+                                <p class="latin-text">{{ $card.latin }}</p>
+                            </div>
+
+                            <div id="memo-translation-{{ $index }}" class="memo-section">
+                                <p class="translation-text">{{ $card.translation }}</p>
+                            </div>
+
+                            <div class="memo-hint">
+                                💡 Klik tombol di atas untuk menampilkan/menyembunyikan bagian yang ingin dihafal
+                            </div>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
         </div>
 
         <div class="tap-zones">
@@ -297,83 +341,18 @@
 
     <script>
         let currentSlide = 0;
-        let totalSlides = 0;
-        let doaData = [];
-        let groupData = null;
+        const totalSlides = document.querySelectorAll('.story-slide').length;
 
-        // Load doa data
-        fetch('/doa.json')
-            .then(response => response.json())
-            .then(data => {
-                const groupId = window.location.pathname.split('/').pop().replace('/', '');
-                groupData = data.groups.find(g => g.id === groupId);
-                if (groupData) {
-                    doaData = groupData.cards;
-                    totalSlides = doaData.length;
-                    initializeStory();
-                }
-            })
-            .catch(error => console.error('Error loading doa data:', error));
-
-        function initializeStory() {
-            // Create progress bars
-            const progressContainer = document.getElementById('progressContainer');
-            progressContainer.innerHTML = '';
-            for (let i = 0; i < totalSlides; i++) {
-                const bar = document.createElement('div');
-                bar.className = 'progress-bar';
-                bar.innerHTML = '<div class="progress-fill"></div>';
-                progressContainer.appendChild(bar);
-            }
-
-            // Create story slides
-            const storyContent = document.getElementById('storyContent');
-            storyContent.innerHTML = '';
-
-            doaData.forEach((doa, index) => {
-                const slide = document.createElement('div');
-                slide.className = 'story-slide' + (index === 0 ? ' active' : '');
-                slide.innerHTML = `
-                    <div class="group-header">
-                        <div class="group-icon">${groupData.icon}</div>
-                        <h2 class="group-title">${groupData.title}</h2>
-                    </div>
-
-                    <h3 class="doa-title">${doa.title}</h3>
-
-                    <div class="memorize-controls">
-                        <button class="btn-memo active" onclick="toggleMemo(${index}, 'arabic', this)">
-                            👁️ Arab
-                        </button>
-                        <button class="btn-memo" onclick="toggleMemo(${index}, 'latin', this)">
-                            🔤 Latin
-                        </button>
-                        <button class="btn-memo" onclick="toggleMemo(${index}, 'translation', this)">
-                            🌍 Arti
-                        </button>
-                    </div>
-
-                    <div id="memo-arabic-${index}" class="memo-section active">
-                        <div class="arabic-text">${doa.arabic}</div>
-                    </div>
-
-                    <div id="memo-latin-${index}" class="memo-section">
-                        <p class="latin-text">${doa.latin}</p>
-                    </div>
-
-                    <div id="memo-translation-${index}" class="memo-section">
-                        <p class="translation-text">${doa.translation}</p>
-                    </div>
-
-                    <div class="memo-hint">
-                        💡 Klik tombol di atas untuk menampilkan/menyembunyikan bagian yang ingin dihafal
-                    </div>
-                `;
-                storyContent.appendChild(slide);
-            });
-
-            updateProgress();
+        // Initialize progress bars
+        const progressContainer = document.getElementById('progressContainer');
+        for (let i = 0; i < totalSlides; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'progress-bar';
+            bar.innerHTML = '<div class="progress-fill"></div>';
+            progressContainer.appendChild(bar);
         }
+
+        updateProgress();
 
         function toggleMemo(slideIndex, type, button) {
             // Find all memo sections in the current slide
@@ -393,7 +372,7 @@
             // Remove active class from all buttons
             buttons.forEach(btn => btn.classList.remove('active'));
             
-            // Show selected section and activate button
+            // Show selected section and active button
             if (type === 'arabic') {
                 arabicSection.classList.add('active');
                 button.classList.add('active');

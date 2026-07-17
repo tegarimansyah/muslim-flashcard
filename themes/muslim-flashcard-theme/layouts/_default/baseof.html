@@ -93,6 +93,8 @@
             transition: all 0.3s ease;
             text-align: left;
             width: 100%;
+            border: 2px solid var(--gray-light);
+            background: var(--white);
         }
         .option-icon {
             font-size: 2.5rem;
@@ -106,21 +108,9 @@
             color: var(--gray-medium);
             font-size: 0.9rem;
         }
-        .btn-study {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            color: var(--white);
-        }
-        .btn-study:hover {
+        .btn-study:hover, .btn-memorize:hover {
+            border-color: var(--primary-color);
             transform: scale(1.02);
-            box-shadow: var(--shadow);
-        }
-        .btn-memorize {
-            background: linear-gradient(135deg, var(--accent-color), #6d28d9);
-            color: var(--white);
-        }
-        .btn-memorize:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow);
         }
     </style>
 </head>
