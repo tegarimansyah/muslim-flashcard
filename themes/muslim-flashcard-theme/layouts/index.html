@@ -19,48 +19,6 @@
         })
         .catch(error => {
             console.error('Error loading doa data:', error);
-            // Fallback: Use hardcoded data
-            window.doaData = {
-                "groups": [
-                    {
-                        "id": "maksiat-berdosa",
-                        "title": "Ketika Merasa Terlalu Banyak Maksiat dan Berdosa",
-                        "description": "Doa-doa untuk memohon ampunan dan taubat",
-                        "icon": "🤲",
-                        "color": "#059669",
-                        "cards": [
-                            {
-                                "id": "taubat-nasuh",
-                                "title": "Doa Taubat Nasuha",
-                                "arabic": "رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ",
-                                "latin": "Rabbana zhalamna anfusana wa illam taghfir lana wa tarhamna lanakunanna minal khasirin",
-                                "translation": "Ya Tuhan kami, kami telah menzalimi diri kami sendiri, dan jika Engkau tidak mengampuni kami dan memberi rahmat kepada kami, niscaya kami termasuk orang-orang yang merugi",
-                                "background": "Doa ini diajarkan oleh Allah SWT dalam Surah Al-A'raf ayat 23. Diucapkan oleh Nabi Adam AS dan Hawa setelah mereka melanggar perintah Allah dengan memakan buah khuldi di surga. Doa ini menunjukkan keikhlasan dalam memohon ampunan atas segala kesalahan yang diperbuat.",
-                                "source": "Qur'an Surah Al-A'raf: 23"
-                            },
-                            {
-                                "id": "astaghfirullah",
-                                "title": "Istighfar",
-                                "arabic": "أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ",
-                                "latin": "Astaghfirullaha al-'Azima alladzi la ilaha illa Huwal Hayyul Qayyumu wa atubu ilaih",
-                                "translation": "Aku memohon ampun kepada Allah yang Maha Agung, tiada Tuhan selain Dia, Yang Maha Hidup lagi Maha Berdiri Sendiri, dan aku bertaubat kepada-Nya",
-                                "background": "Istighfar adalah doa yang sangat dianjurkan untuk selalu dibaca, terutama setelah melakukan kesalahan. Nabi Muhammad SAW bersabda bahwa barangsiapa yang membanyakkan istighfar, Allah akan menjadikan baginya kelapangan dari setiap kesempitan dan jalan keluar dari setiap kesulitan.",
-                                "source": "Hadits Riwayat Tirmidzi"
-                            },
-                            {
-                                "id": "doa-taubat-umum",
-                                "title": "Doa Taubat Umum",
-                                "arabic": "اللَّهُمَّ إِنِّي ظَلَمْتُ نَفْسِي ظُلْمًا كَثِيرًا، وَلَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ، فَاغْفِرْ لِي مَغْفِرَةً مِنْ عِنْدِكَ، وَارْحَمْنِي، إِنَّكَ أَنْتَ الْغَفُورُ الرَّحِيمُ",
-                                "latin": "Allahumma inni zhalamtu nafsi zhaluman katsiran, wa la yaghfirudzununuba illa anta, faghfir li maghfiratan min 'indika, warhamni, innaka antal Ghafurur Rahim",
-                                "translation": "Ya Allah, sesungguhnya aku telah menzalimi diriku sendiri dengan kezaliman yang banyak, dan tidak ada yang dapat mengampuni dosa-dosa selain Engkau, maka ampunilah aku dengan ampunan dari sisi-Mu, dan sayangilah aku, sesungguhnya Engkau Maha Pengampun lagi Maha Penyayang",
-                                "background": "Doa ini diajarkan oleh Nabi Muhammad SAW sebagai doa taubat yang paling utama. Doa ini menunjukkan pengakuan atas kesalahan yang diperbuat dan kepasrahan total kepada Allah dalam memohon ampunan. Dibaca setelah shalat atau kapan saja merasa telah berbuat salah.",
-                                "source": "Hadits Riwayat Bukhari & Muslim"
-                            }
-                        ]
-                    }
-                ]
-            };
-            renderGroups(window.doaData.groups);
         });
 
     function renderGroups(groups) {
@@ -78,7 +36,7 @@
                 <h2>${group.title}</h2>
                 <p class="group-description">${group.description}</p>
                 <p class="card-count">${group.cards.length} doa</p>
-                <button onclick="showFirstDoaModal('${group.id}')" class="btn-explore">
+                <button onclick="showOptionModal('${group.id}')" class="btn-explore">
                     Lihat Doa →
                 </button>
             `;
