@@ -12,5 +12,6 @@ theme = "muslim-flashcard-theme"
     [markup.goldmark.renderer]
       unsafe = true
 
-# Use absolute URLs with custom domain
-relativeURLs = false
+# Use relative URLs - works across all domains
+relativeURLs = true
+canonifyURLs = true
