@@ -11,13 +11,50 @@
             <h2>{{ $group.title }}</h2>
             <p class="group-description">{{ $group.description }}</p>
             <p class="card-count">{{ len $group.cards }} doa</p>
-            <a href="/doa/{{ $group.id }}/" class="btn-explore">
+            <!-- Changed: Now shows first doa modal instead of navigating -->
+            <button onclick="showFirstDoaModal('{{ $group.id }}', '{{ $group.cards 0.id }}')" class="btn-explore">
                 Lihat Doa →
-            </a>
+            </button>
         </div>
         {{ end }}
     </div>
 </div>
+
+<!-- Store doa data in JavaScript for modal functionality -->
+<script>
+window.doaData = {
+    {{ range $group := $.Site.Data.doa.groups }}
+    "{{ $group.id }}": [
+        {{ range $card := $group.cards }}
+        {
+            id: "{{ $card.id }}",
+            title: "{{ $card.title }}",
+            arabic: "{{ $card.arabic }}",
+            latin: "{{ $card.latin }}",
+            translation: "{{ $card.translation }}",
+            background: "{{ $card.background }}",
+            source: "{{ $card.source }}",
+            groupColor: "{{ $group.color }}",
+            groupIcon: "{{ $group.icon }}",
+            groupTitle: "{{ $group.title }}",
+            cards: [
+                {{ range $c := $group.cards }}
+                {
+                    id: "{{ $c.id }}",
+                    title: "{{ $c.title }}"
+                }{{ if not $c.Last }}{{ end }}
+                {{ end }}
+            ]
+        }{{ if not $card.Last }}{{ end }}
+        {{ end }}
+    ],
+    {{ end }}
+};
+
+function showFirstDoaModal(groupId, cardId) {
+    showDoaModal(groupId, cardId);
+}
+</script>
 
 <script>
     // Search functionality
