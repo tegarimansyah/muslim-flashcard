@@ -252,7 +252,26 @@
         <div class="progress-container" id="progressContainer"></div>
         
         <div class="story-content" id="storyContent">
-            <!-- Content will be loaded dynamically -->
+            <!-- Server-side rendered story slides -->
+            {{ $groupId := .File.BaseFileName }}
+            {{ range $.Site.Data.doa.groups }}
+                {{ if eq .id $groupId }}
+                    {{ $groupData := . }}
+                    {{ range $index, $card := .cards }}
+                        <div class="story-slide{{ if eq $index 0 }} active{{ end }}">
+                            <div class="group-header">
+                                <div class="group-icon">{{ $groupData.icon }}</div>
+                                <p class="group-title">{{ $groupData.title }}</p>
+                            </div>
+                            <h3 class="doa-title">{{ $card.title }}</h3>
+                            
+                            <div class="arabic-text">{{ $card.arabic }}</div>
+                            <p class="latin-text">{{ $card.latin }}</p>
+                            <p class="translation-text">{{ $card.translation }}</p>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
         </div>
 
         <div class="tap-zones">
@@ -262,73 +281,46 @@
     </div>
 
     <script>
-        // Get content type from URL parameter
+        // Parse URL parameter for content type
         const urlParams = new URLSearchParams(window.location.search);
         const contentType = urlParams.get('type') || 'arabic';
         
         let currentSlide = 0;
-        let totalSlides = 0;
+        const totalSlides = document.querySelectorAll('.story-slide').length;
         let isPaused = false;
         let slideTimer = null;
-        let doaData = [];
-        let groupData = null;
 
-        // Load doa data
-        fetch('/doa.json')
-            .then(response => response.json())
-            .then(data => {
-                const groupId = window.location.pathname.split('/').pop().replace('/', '');
-                groupData = data.groups.find(g => g.id === groupId);
-                if (groupData) {
-                    doaData = groupData.cards;
-                    totalSlides = doaData.length;
-                    initializeStory();
-                }
-            })
-            .catch(error => console.error('Error loading doa data:', error));
-
-        function initializeStory() {
-            // Create progress bars
-            const progressContainer = document.getElementById('progressContainer');
-            progressContainer.innerHTML = '';
-            for (let i = 0; i < totalSlides; i++) {
-                const bar = document.createElement('div');
-                bar.className = 'progress-bar';
-                bar.innerHTML = '<div class="progress-fill"></div>';
-                progressContainer.appendChild(bar);
+        // Hide all content sections initially
+        document.querySelectorAll('.story-slide').forEach(slide => {
+            const arabicText = slide.querySelector('.arabic-text');
+            const latinText = slide.querySelector('.latin-text');
+            const translationText = slide.querySelector('.translation-text');
+            
+            arabicText.style.display = 'none';
+            latinText.style.display = 'none';
+            translationText.style.display = 'none';
+            
+            // Show only selected content type
+            if (contentType === 'arabic') {
+                arabicText.style.display = 'block';
+            } else if (contentType === 'latin') {
+                latinText.style.display = 'block';
+            } else if (contentType === 'indonesia') {
+                translationText.style.display = 'block';
             }
+        });
 
-            // Create story slides
-            const storyContent = document.getElementById('storyContent');
-            storyContent.innerHTML = '';
-
-            doaData.forEach((doa, index) => {
-                const slide = document.createElement('div');
-                slide.className = 'story-slide' + (index === 0 ? ' active' : '');
-                
-                let content = '';
-                if (contentType === 'arabic') {
-                    content = `<div class="arabic-text">${doa.arabic}</div>`;
-                } else if (contentType === 'latin') {
-                    content = `<p class="latin-text">${doa.latin}</p>`;
-                } else if (contentType === 'indonesia') {
-                    content = `<p class="translation-text">${doa.translation}</p>`;
-                }
-
-                slide.innerHTML = `
-                    <div class="group-header">
-                        <div class="group-icon">${groupData.icon}</div>
-                        <p class="group-title">${groupData.title}</p>
-                    </div>
-                    <h3 class="doa-title">${doa.title}</h3>
-                    ${content}
-                `;
-                storyContent.appendChild(slide);
-            });
-
-            updateProgress();
-            startSlideTimer();
+        // Initialize progress bars
+        const progressContainer = document.getElementById('progressContainer');
+        for (let i = 0; i < totalSlides; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'progress-bar';
+            bar.innerHTML = '<div class="progress-fill"></div>';
+            progressContainer.appendChild(bar);
         }
+
+        updateProgress();
+        startSlideTimer();
 
         function togglePause() {
             isPaused = !isPaused;
