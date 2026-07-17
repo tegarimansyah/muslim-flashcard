@@ -1,0 +1,13 @@
+baseURL = "https://<YOUR_GITHUB_USERNAME>.github.io/muslim-flashcard/"
+languageCode = "id"
+title = "Kumpulan Doa Doa Dalam Islam"
+theme = "muslim-flashcard-theme"
+
+[params]
+  description = "Kumpulan doa-doa dalam Islam untuk berbagai situasi"
+  author = "Muslim Flashcard"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

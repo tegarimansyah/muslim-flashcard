@@ -1,0 +1,20 @@
+# Hugo
+public/
+resources/
+.hugo_build.lock
+
+# Executable
+hugo.exe
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (if using npm)
+node_modules/

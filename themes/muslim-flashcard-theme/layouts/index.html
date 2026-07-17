@@ -1,0 +1,43 @@
+{{ define "main" }}
+<div class="container">
+    <div class="search-section">
+        <input type="text" id="searchInput" placeholder="🔍 Cari doa..." class="search-input">
+    </div>
+
+    <div class="groups-grid" id="groupsGrid">
+        {{ range $index, $group := $.Site.Data.doa.groups }}
+        <div class="group-card" data-group-id="{{ $group.id }}" style="border-color: {{ $group.color }}">
+            <div class="group-icon" style="background-color: {{ $group.color }}">{{ $group.icon }}</div>
+            <h2>{{ $group.title }}</h2>
+            <p class="group-description">{{ $group.description }}</p>
+            <p class="card-count">{{ len $group.cards }} doa</p>
+            <a href="/doa/{{ $group.id }}/" class="btn-explore">
+                Lihat Doa →
+            </a>
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<script>
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    const groupsGrid = document.getElementById('groupsGrid');
+
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const groupCards = groupsGrid.querySelectorAll('.group-card');
+
+        groupCards.forEach(card => {
+            const title = card.querySelector('h2').textContent.toLowerCase();
+            const description = card.querySelector('.group-description').textContent.toLowerCase();
+
+            if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+</script>
+{{ end }}
