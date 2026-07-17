@@ -24,6 +24,7 @@
             background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
             height: 100vh;
             overflow: hidden;
+            user-select: none;
         }
 
         .story-container {
@@ -221,25 +222,6 @@
             flex: 1;
             cursor: pointer;
         }
-
-        .tap-left:active {
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        .tap-right:active {
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        /* Responsive */
-        @media (max-width: 480px) {
-            .story-container {
-                max-width: 100%;
-            }
-
-            .arabic-text {
-                font-size: 1.5rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -275,8 +257,9 @@
         </div>
 
         <div class="tap-zones">
-            <div class="tap-zone tap-left" onclick="previousStory()"></div>
-            <div class="tap-zone tap-right" onclick="nextStory()"></div>
+            <div class="tap-zone" id="tap-left"></div>
+            <div class="tap-zone" id="tap-center"></div>
+            <div class="tap-zone" id="tap-right"></div>
         </div>
     </div>
 
@@ -289,6 +272,8 @@
         const totalSlides = document.querySelectorAll('.story-slide').length;
         let isPaused = false;
         let slideTimer = null;
+        let isTouchHeld = false;
+        let pausedTouchStart = 0;
 
         // Hide all content sections initially
         document.querySelectorAll('.story-slide').forEach(slide => {
@@ -319,13 +304,108 @@
             progressContainer.appendChild(bar);
         }
 
+        // Touch/hold detection for pause
+        const tapCenter = document.getElementById('tap-center');
+
+        function pauseForHold() {
+            if (!isPaused && !isTouchHeld) {
+                isPaused = true;
+                isTouchHeld = true;
+                pausedTouchStart = Date.now();
+                
+                // Pause current progress animation
+                const progressBars = document.querySelectorAll('.progress-bar');
+                const currentProgressBar = progressBars[currentSlide];
+                const currentProgressFill = currentProgressBar.querySelector('.progress-fill');
+                
+                currentProgressBar.classList.add('paused');
+                
+                // Get current computed width
+                const computedStyle = window.getComputedStyle(currentProgressFill);
+                const currentWidth = computedStyle.getPropertyValue('width');
+                currentProgressFill.style.width = currentWidth;
+                currentProgressFill.style.transition = 'none';
+                
+                clearInterval(slideTimer);
+                
+                document.getElementById('pauseBtn').textContent = '▶️';
+            }
+        }
+
+        function resumeAfterHold() {
+            if (isPaused && isTouchHeld) {
+                isTouchHeld = false;
+                const holdDuration = Date.now() - pausedTouchStart;
+                
+                // Only resume if hold was longer than brief tap
+                if (holdDuration > 200) {
+                    isPaused = false;
+                    
+                    // Resume progress animation from current point
+                    const progressBars = document.querySelectorAll('.progress-bar');
+                    const currentProgressBar = progressBars[currentSlide];
+                    const currentProgressFill = currentProgressBar.querySelector('.progress-fill');
+                    
+                    // Calculate remaining time based on current width
+                    const currentWidth = parseFloat(currentProgressFill.style.width);
+                    const remainingPercentage = 100 - currentWidth;
+                    const remainingTime = (remainingPercentage / 100) * 8000;
+                    
+                    currentProgressBar.classList.remove('paused');
+                    currentProgressFill.style.transition = `width ${remainingTime}ms linear`;
+                    currentProgressFill.style.width = '100%';
+                    
+                    // Restart timer with adjusted duration
+                    slideTimer = setInterval(() => {
+                        if (!isPaused) {
+                            nextStory();
+                        }
+                    }, remainingTime);
+                    
+                    document.getElementById('pauseBtn').textContent = '⏸️';
+                } else {
+                    // Brief tap - treat as manual pause toggle
+                    isPaused = false;
+                    isTouchHeld = false;
+                    togglePauseUI();
+                }
+            }
+        }
+
+        // Touch events
+        tapCenter.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            pauseForHold();
+        });
+
+        tapCenter.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            resumeAfterHold();
+        });
+
+        tapCenter.addEventListener('mousedown', () => {
+            pauseForHold();
+        });
+
+        tapCenter.addEventListener('mouseup', () => {
+            resumeAfterHold();
+        });
+
+        // Click handlers for navigation zones
+        document.getElementById('tap-left').addEventListener('click', () => {
+            if (!isTouchHeld) previousStory();
+        });
+
+        document.getElementById('tap-right').addEventListener('click', () => {
+            if (!isTouchHeld) nextStory();
+        });
+
         updateProgress();
         startSlideTimer();
 
         function togglePause() {
             isPaused = !isPaused;
-            const pauseBtn = document.getElementById('pauseBtn');
-            pauseBtn.textContent = isPaused ? '▶️' : '⏸️';
+            togglePauseUI();
             
             if (isPaused) {
                 clearInterval(slideTimer);
@@ -338,6 +418,11 @@
                 });
                 startSlideTimer();
             }
+        }
+
+        function togglePauseUI() {
+            const pauseBtn = document.getElementById('pauseBtn');
+            pauseBtn.textContent = isPaused ? '▶️' : '⏸️';
         }
 
         function startSlideTimer() {
@@ -376,7 +461,9 @@
                 } else if (index < currentSlide) {
                     slide.classList.add('prev');
                     progressBars[index].classList.remove('active');
-                    progressBars[index].querySelector('.progress-fill').style.width = '100%';
+                    // Keep previous progress in previous state
+                    progressBars[index].querySelector('.progress-fill').style.width = '50%';
+                    progressBars[index].querySelector('.progress-fill').style.transition = 'none';
                 } else {
                     slide.classList.add('next');
                     progressBars[index].classList.remove('active');
