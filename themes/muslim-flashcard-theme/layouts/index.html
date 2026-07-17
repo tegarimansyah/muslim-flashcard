@@ -5,14 +5,13 @@
     </div>
 
     <div class="groups-grid" id="groupsGrid">
-        {{ range $index, $group := $.Site.Data.doa.groups }}
+        {{ range $group := $.Site.Data.doa.groups }}
         <div class="group-card" data-group-id="{{ $group.id }}" style="border-color: {{ $group.color }}">
             <div class="group-icon" style="background-color: {{ $group.color }}">{{ $group.icon }}</div>
             <h2>{{ $group.title }}</h2>
             <p class="group-description">{{ $group.description }}</p>
             <p class="card-count">{{ len $group.cards }} doa</p>
-            <!-- Changed: Now shows first doa modal instead of navigating -->
-            <button onclick="showFirstDoaModal('{{ $group.id }}', '{{ $group.cards 0.id }}')" class="btn-explore">
+            <button onclick="showFirstDoaModal('{{ $group.id }}')" class="btn-explore">
                 Lihat Doa →
             </button>
         </div>
@@ -20,40 +19,30 @@
     </div>
 </div>
 
-<!-- Store doa data in JavaScript for modal functionality -->
 <script>
-window.doaData = {
+    // Doa data will be populated dynamically
+    window.doaData = {};
+    
     {{ range $group := $.Site.Data.doa.groups }}
-    "{{ $group.id }}": [
-        {{ range $card := $group.cards }}
-        {
-            id: "{{ $card.id }}",
-            title: "{{ $card.title }}",
-            arabic: "{{ $card.arabic }}",
-            latin: "{{ $card.latin }}",
-            translation: "{{ $card.translation }}",
-            background: "{{ $card.background }}",
-            source: "{{ $card.source }}",
-            groupColor: "{{ $group.color }}",
-            groupIcon: "{{ $group.icon }}",
-            groupTitle: "{{ $group.title }}",
-            cards: [
-                {{ range $c := $group.cards }}
-                {
-                    id: "{{ $c.id }}",
-                    title: "{{ $c.title }}"
-                }{{ if not $c.Last }}{{ end }}
-                {{ end }}
-            ]
-        }{{ if not $card.Last }}{{ end }}
-        {{ end }}
-    ],
+    window.doaData["{{ $group.id }}"] = {
+        groupColor: "{{ $group.color }}",
+        groupIcon: "{{ $group.icon }}",
+        groupTitle: "{{ $group.title }}",
+        cards: []
+    };
+    
+    {{ range $card := $group.cards }}
+    window.doaData["{{ $group.id }}"].cards.push({
+        id: "{{ $card.id }}",
+        title: "{{ $card.title }}",
+        arabic: "{{ $card.arabic }}",
+        latin: "{{ $card.latin }}",
+        translation: "{{ $card.translation }}",
+        background: "{{ $card.background }}",
+        source: "{{ $card.source }}"
+    });
     {{ end }}
-};
-
-function showFirstDoaModal(groupId, cardId) {
-    showDoaModal(groupId, cardId);
-}
+    {{ end }}
 </script>
 
 <script>
