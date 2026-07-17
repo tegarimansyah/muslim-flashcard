@@ -30,13 +30,19 @@
             card.className = 'group-card';
             card.setAttribute('data-group-id', group.id);
             card.style.borderColor = group.color;
+            card.style.cursor = 'pointer';
+            
+            // Make entire card clickable
+            card.addEventListener('click', function(e) {
+                showOptionModal(group.id);
+            });
             
             card.innerHTML = `
                 <div class="group-icon" style="background-color: ${group.color}">${group.icon}</div>
                 <h2>${group.title}</h2>
                 <p class="group-description">${group.description}</p>
                 <p class="card-count">${group.cards.length} doa</p>
-                <button onclick="showOptionModal('${group.id}')" class="btn-explore">
+                <button class="btn-explore">
                     Lihat Doa →
                 </button>
             `;
