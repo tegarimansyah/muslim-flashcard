@@ -4,374 +4,197 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="/css/styles.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #059669;
-            --dark-color: #1f2937;
-            --light-color: #f9fafb;
-            --white: #ffffff;
-            --gray-light: #e5e7eb;
-            --gray-medium: #9ca3af;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .story-container {
-            height: 100vh;
-            max-width: 450px;
+        .container {
+            max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            background: var(--dark-color);
+            padding: 1rem;
         }
 
-        .progress-container {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            display: flex;
-            gap: 5px;
-            z-index: 100;
+        .breadcrumb {
+            padding: 1rem 0;
         }
 
-        .progress-bar {
-            flex: 1;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 2px;
-            overflow: hidden;
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        .progress-bar.active .progress-fill {
-            animation: progress 5s linear;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: var(--white);
-            width: 0;
-        }
-
-        @keyframes progress {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        .story-content {
-            height: 100%;
-            position: relative;
-            overflow-y: auto;
-            scrollbar-width: none;
-        }
-
-        .story-content::-webkit-scrollbar {
-            display: none;
-        }
-
-        .story-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.3s ease;
-            overflow-y: auto;
-            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-            color: var(--white);
-            padding: 2rem 1.5rem;
-            opacity: 0;
-            transform: translateX(100%);
-        }
-
-        .story-slide.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .story-slide.prev {
-            transform: translateX(-100%);
-        }
-
-        .story-slide.next {
-            transform: translateX(100%);
-        }
-
-        .back-btn {
-            position: absolute;
-            top: 50px;
-            left: 15px;
-            background: rgba(0, 0, 0, 0.5);
-            color: var(--white);
-            border: none;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 101;
-            font-size: 1.2rem;
-            transition: background 0.3s ease;
-        }
-
-        .back-btn:hover {
-            background: rgba(0, 0, 0, 0.8);
+        .breadcrumb a:hover {
+            color: #047857;
         }
 
         .group-header {
             text-align: center;
-            margin-bottom: 2rem;
-            padding-top: 2rem;
-        }
-
-        .group-icon {
-            font-size: 3rem;
+            padding: 2rem 0;
             margin-bottom: 1rem;
         }
 
-        .group-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .group-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary-color), #047857);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .doa-content {
+        .group-icon-large {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .group-header h1 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .group-description {
+            color: var(--gray-medium);
+            font-size: 1.1rem;
+        }
+
+        .doa-section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--gray-light);
+            transition: all 0.3s ease;
+        }
+
+        .doa-section:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .doa-section h2 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gray-light);
         }
 
         .section-label {
             font-size: 1.1rem;
             font-weight: 700;
-            color: #10b981;
+            color: var(--primary-color);
             margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .arabic-text {
+        .arabic-text-large {
             font-family: 'Traditional Arabic', 'Arial Unicode MS', sans-serif;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             text-align: right;
             direction: rtl;
             line-height: 2.2;
+            color: var(--dark-color);
             padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
             border-radius: 12px;
             border-right: 4px solid var(--primary-color);
+            margin-bottom: 1.5rem;
         }
 
         .latin-text {
             font-style: italic;
-            color: #d1d5db;
+            color: #4b5563;
             line-height: 1.8;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
         }
 
         .translation-text {
-            color: var(--white);
+            color: var(--dark-color);
             line-height: 1.8;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
         }
 
         .background-text {
-            color: #d1d5db;
+            color: #4b5563;
             line-height: 1.8;
-            font-size: 0.95rem;
-            background: rgba(16, 185, 129, 0.1);
+            font-size: 1rem;
+            background: var(--light-color);
             padding: 1.5rem;
             border-radius: 12px;
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--secondary-color);
+            margin-bottom: 1.5rem;
         }
 
         .source-tag {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: #1f2937;
-            padding: 0.8rem 1.2rem;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            color: #92400e;
+            padding: 1rem 1.5rem;
             border-radius: 8px;
             font-weight: 600;
-            font-size: 0.9rem;
             text-align: center;
-            margin-top: 1rem;
-        }
-
-        .tap-zones {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            z-index: 50;
-        }
-
-        .tap-zone {
-            flex: 1;
-            cursor: pointer;
-        }
-
-        .tap-left:active {
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        .tap-right:active {
-            background: rgba(0, 0, 0, 0.1);
+            display: inline-block;
         }
 
         /* Responsive */
-        @media (max-width: 480px) {
-            .story-container {
-                max-width: 100%;
+        @media (max-width: 768px) {
+            .doa-section {
+                padding: 1.5rem;
             }
 
-            .arabic-text {
-                font-size: 1.4rem;
-            }
-
-            .group-title {
+            .arabic-text-large {
                 font-size: 1.5rem;
             }
 
-            .progress-container {
-                top: 5px;
+            .group-header h1 {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="story-container">
-        <div class="progress-container" id="progressContainer"></div>
-        
-        <button class="back-btn" onclick="goBack()">←</button>
-        
-        <div class="story-content" id="storyContent">
-            <!-- Server-side rendered story slides -->
-            {{ $groupId := .File.BaseFileName }}
-            {{ range $.Site.Data.doa.groups }}
-                {{ if eq .id $groupId }}
-                    {{ $groupData := . }}
-                    {{ range $index, $card := .cards }}
-                        <div class="story-slide{{ if eq $index 0 }} active{{ end }}">
-                            <div class="group-header">
-                                <div class="group-icon">{{ $groupData.icon }}</div>
-                                <h2 class="group-title">{{ $card.title }}</h2>
-                                <div class="group-badge">{{ $groupData.title }}</div>
-                            </div>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/">← Kembali ke Beranda</a>
+        </div>
 
-                            <div class="doa-content">
-                                <div class="section-label">📜 Doa (Arab)</div>
-                                <div class="arabic-text">{{ $card.arabic }}</div>
+        {{ $groupId := .File.BaseFileName }}
+        {{ range $.Site.Data.doa.groups }}
+            {{ if eq .id $groupId }}
+                {{ $groupData := . }}
+                <div class="group-header">
+                    <div class="group-icon-large" style="background-color: {{ $groupData.color }}">{{ $groupData.icon }}</div>
+                    <h1>{{ $groupData.title }}</h1>
+                    <p class="group-description">{{ $groupData.description }}</p>
+                </div>
 
-                                <div class="section-label">📝 Bacaan Latin</div>
-                                <p class="latin-text">{{ $card.latin }}</p>
+                {{ range $card := .cards }}
+                    <div class="doa-section">
+                        <h2>{{ $card.title }}</h2>
 
-                                <div class="section-label">🌍 Arti Bahasa Indonesia</div>
-                                <p class="translation-text">{{ $card.translation }}</p>
+                        <div class="section-label">📜 Doa (Arab)</div>
+                        <div class="arabic-text-large">{{ $card.arabic }}</div>
 
-                                <div class="section-label">📚 Asal Usul dan Latar Belakang</div>
-                                <div class="background-text">{{ $card.background }}</div>
+                        <div class="section-label">📝 Bacaan Latin</div>
+                        <p class="latin-text">{{ $card.latin }}</p>
 
-                                <div class="source-tag">
-                                    <strong>📖 Sumber:</strong> {{ $card.source }}
-                                </div>
-                            </div>
+                        <div class="section-label">🌍 Arti Bahasa Indonesia</div>
+                        <p class="translation-text">{{ $card.translation }}</p>
+
+                        <div class="section-label">📚 Asal Usul dan Latar Belakang</div>
+                        <div class="background-text">{{ $card.background }}</div>
+
+                        <div class="source-tag">
+                            <strong>📖 Sumber:</strong> {{ $card.source }}
                         </div>
-                    {{ end }}
+                    </div>
                 {{ end }}
             {{ end }}
-        </div>
-
-        <div class="tap-zones">
-            <div class="tap-zone tap-left" onclick="previousStory()"></div>
-            <div class="tap-zone tap-right" onclick="nextStory()"></div>
-        </div>
+        {{ end }}
     </div>
-
-    <script>
-        let currentSlide = 0;
-        const totalSlides = document.querySelectorAll('.story-slide').length;
-
-        // Initialize progress bars
-        const progressContainer = document.getElementById('progressContainer');
-        for (let i = 0; i < totalSlides; i++) {
-            const bar = document.createElement('div');
-            bar.className = 'progress-bar';
-            bar.innerHTML = '<div class="progress-fill"></div>';
-            progressContainer.appendChild(bar);
-        }
-
-        updateProgress();
-
-        function updateProgress() {
-            const slides = document.querySelectorAll('.story-slide');
-            const progressBars = document.querySelectorAll('.progress-bar');
-            
-            slides.forEach((slide, index) => {
-                slide.classList.remove('active', 'prev', 'next');
-                if (index === currentSlide) {
-                    slide.classList.add('active');
-                    progressBars[index].classList.add('active');
-                } else if (index < currentSlide) {
-                    slide.classList.add('prev');
-                    progressBars[index].classList.remove('active');
-                    progressBars[index].querySelector('.progress-fill').style.width = '100%';
-                } else {
-                    slide.classList.add('next');
-                    progressBars[index].classList.remove('active');
-                }
-            });
-        }
-
-        function nextStory() {
-            if (currentSlide < totalSlides - 1) {
-                currentSlide++;
-                updateProgress();
-            } else {
-                goBack();
-            }
-        }
-
-        function previousStory() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateProgress();
-            }
-        }
-
-        function goBack() {
-            window.location.href = '/';
-        }
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowRight') nextStory();
-            if (e.key === 'ArrowLeft') previousStory();
-            if (e.key === 'Escape') goBack();
-        });
-    </script>
 </body>
 </html>
