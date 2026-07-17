@@ -1,4 +1,4 @@
-baseURL = "https://tegarimansyah.github.io/muslim-flashcard/"
+baseURL = "https://dzikir.ethiqshub.com/"
 languageCode = "id"
 title = "Kumpulan Doa Doa Dalam Islam"
 theme = "muslim-flashcard-theme"
@@ -11,3 +11,6 @@ theme = "muslim-flashcard-theme"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+# Use absolute URLs with custom domain
+relativeURLs = false
