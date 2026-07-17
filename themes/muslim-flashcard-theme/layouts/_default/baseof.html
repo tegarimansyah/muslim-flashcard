@@ -1,34 +1,187 @@
-        // Doa viewer functions
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🕌 Kumpulan Doa Doa Dalam Islam</h1>
+            <p>Kumpulan doa-doa untuk berbagai situasi dalam kehidupan sehari-hari</p>
+        </div>
+    </header>
+
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Muslim Flashcard - Dibuat dengan ❤️ untuk umat</p>
+        </div>
+    </footer>
+
+    <!-- Modal system -->
+    <div id="doa-viewer-modal" class="modal">
+        <div class="modal-content modal-fullscreen">
+            <div class="modal-header doa-viewer-header">
+                <button class="back-btn" onclick="closeDoaViewer()">
+                    ← Kembali
+                </button>
+                <div class="group-info">
+                    <div id="viewer-group-icon" class="group-icon-small"></div>
+                    <span id="viewer-group-title"></span>
+                </div>
+            </div>
+            <div class="modal-body doa-viewer-content">
+                <div id="doa-slide-container" class="doa-slide-container"></div>
+                <button class="nav-btn prev" onclick="navigateDoa('prev')">←</button>
+                <button class="nav-btn next" onclick="navigateDoa('next')">→</button>
+            </div>
+            <div class="navigation-dots"></div>
+        </div>
+    </div>
+
+    <!-- Option Modal -->
+    <div id="option-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="option-modal-title">Doa Title</h2>
+                <button class="close-btn" onclick="closeModal('option-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="option-buttons">
+                    <button onclick="showStudyModal()" class="btn-option btn-study">
+                        <span class="option-icon">📖</span>
+                        <div class="option-text">
+                            <h3>Lihat untuk Pahami</h3>
+                            <p>Pelajari asal usul dan makna doa</p>
+                        </div>
+                    </button>
+                    <button onclick="showMemorizeModal()" class="btn-option btn-memorize">
+                        <span class="option-icon">🧠</span>
+                        <div class="option-text">
+                            <h3>Membaca dan Menghafal</h3>
+                            <p>Latih hafalan dengan tampilan sederhana</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Study Modal -->
+    <div id="study-modal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="study-modal-title">Doa Title</h2>
+                <button class="close-btn" onclick="closeModal('study-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="study-content">
+                    <div class="section-label">📜 Doa (Arab)</div>
+                    <div id="study-arabic" class="arabic-text-large"></div>
+                    <div class="section-label">📝 Bacaan Latin</div>
+                    <p id="study-latin" class="latin-text"></p>
+                    <div class="section-label">🌍 Arti Bahasa Indonesia</div>
+                    <p id="study-translation" class="translation-text"></p>
+                    <div class="section-label">📚 Asal Usul dan Latar Belakang</div>
+                    <div id="study-background" class="background-text"></div>
+                    <div class="source-tag">
+                        <strong>Sumber:</strong> <span id="study-source"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Memorize Modal -->
+    <div id="memorize-modal" class="modal">
+        <div class="modal-content modal-memorize">
+            <div class="modal-header">
+                <h2 id="memorize-modal-title">Menghafal: Doa Title</h2>
+                <button class="close-btn" onclick="closeModal('memorize-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="memorize-container">
+                    <div class="memorize-controls">
+                        <button class="btn-memo btn-memo-arabic" onclick="toggleMemoArabic()">
+                            👁️ Tampilkan Arab
+                        </button>
+                        <button class="btn-memo btn-memo-latin" onclick="toggleMemoLatin()">
+                            🔤 Tampilkan Latin
+                        </button>
+                        <button class="btn-memo btn-memo-translation" onclick="toggleMemoTranslation()">
+                            🌍 Tampilkan Arti
+                        </button>
+                    </div>
+                    <div class="memorize-content">
+                        <div id="memo-arabic" class="memo-section memo-hidden">
+                            <div class="memo-label">Arab:</div>
+                            <div class="arabic-text-large"></div>
+                        </div>
+                        <div id="memo-latin" class="memo-section memo-hidden">
+                            <div class="memo-label">Latin:</div>
+                            <p class="latin-text"></p>
+                        </div>
+                        <div id="memo-translation" class="memo-section memo-hidden">
+                            <div class="memo-label">Arti:</div>
+                            <p class="translation-text"></p>
+                        </div>
+                        <div class="memo-hint">
+                            <p>💡 Klik tombol di atas untuk menampilkan/menyembunyikan bagian yang ingin dihafal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentGroup = null;
+        let currentCardIndex = 0;
+        let currentDoaData = null;
+
+        window.openModal = function(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        window.closeModal = function(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        };
+
         function showDoaModal(groupId, cardId) {
             if (!window.doaData || !window.doaData.groups) {
                 console.error('Doa data not loaded');
                 return;
             }
-
             const groupData = window.doaData.groups.find(g => g.id === groupId);
             if (!groupData) {
                 console.error('Group not found:', groupId);
                 return;
             }
-
             currentGroup = groupId;
             currentDoaData = groupData;
-
-            // Find card index
             currentCardIndex = groupData.cards.findIndex(card => card.id === cardId);
-            if (currentCardIndex === -1) {
-                currentCardIndex = 0;
-            }
+            if (currentCardIndex === -1) currentCardIndex = 0;
 
-            // Update group info in header
             document.getElementById('viewer-group-icon').style.backgroundColor = groupData.color;
             document.getElementById('viewer-group-icon').textContent = groupData.icon;
             document.getElementById('viewer-group-title').textContent = groupData.title;
 
-            // Build doa slides
             const slideContainer = document.getElementById('doa-slide-container');
             slideContainer.innerHTML = '';
-
             groupData.cards.forEach(card => {
                 const slide = document.createElement('div');
                 slide.className = 'doa-slide';
@@ -51,7 +204,6 @@
                 slideContainer.appendChild(slide);
             });
 
-            // Build navigation dots
             const dotsContainer = document.querySelector('.navigation-dots');
             dotsContainer.innerHTML = '';
             groupData.cards.forEach((card, index) => {
@@ -61,7 +213,489 @@
                 dotsContainer.appendChild(dot);
             });
 
-            // Show initial slide
             goToSlide(currentCardIndex);
             openModal('doa-viewer-modal');
         }
+
+        function goToSlide(index) {
+            currentCardIndex = index;
+            const slideContainer = document.getElementById('doa-slide-container');
+            const offset = -currentCardIndex * 100;
+            slideContainer.style.transform = `translateX(${offset}%)`;
+            document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentCardIndex);
+            });
+            document.querySelector('.nav-btn.prev').style.opacity = currentCardIndex === 0 ? '0.3' : '1';
+            document.querySelector('.nav-btn.next').style.opacity = currentCardIndex === currentDoaData.cards.length - 1 ? '0.3' : '1';
+        }
+
+        function navigateDoa(direction) {
+            if (direction === 'prev' && currentCardIndex > 0) {
+                goToSlide(currentCardIndex - 1);
+            } else if (direction === 'next' && currentCardIndex < currentDoaData.cards.length - 1) {
+                goToSlide(currentCardIndex + 1);
+            }
+        }
+
+        function closeDoaViewer() {
+            closeModal('doa-viewer-modal');
+            currentGroup = null;
+            currentDoaData = null;
+        }
+
+        function openOptionModalForCard(cardId) {
+            if (!currentDoaData) return;
+            const card = currentDoaData.cards.find(c => c.id === cardId);
+            if (!card) return;
+            document.getElementById('option-modal-title').textContent = card.title;
+            window.currentCard = card;
+            closeModal('doa-viewer-modal');
+            openModal('option-modal');
+        }
+
+        function showStudyModal() {
+            if (!window.currentCard) return;
+            const card = window.currentCard;
+            document.getElementById('study-modal-title').textContent = card.title;
+            document.getElementById('study-arabic').textContent = card.arabic;
+            document.getElementById('study-latin').textContent = card.latin;
+            document.getElementById('study-translation').textContent = card.translation;
+            document.getElementById('study-background').textContent = card.background;
+            document.getElementById('study-source').textContent = card.source;
+            closeModal('option-modal');
+            openModal('study-modal');
+        }
+
+        function showMemorizeModal() {
+            if (!window.currentCard) return;
+            const card = window.currentCard;
+            document.getElementById('memorize-modal-title').textContent = 'Menghafal: ' + card.title;
+            document.getElementById('memo-arabic').querySelector('.arabic-text-large').textContent = card.arabic;
+            document.getElementById('memo-latin').querySelector('.latin-text').textContent = card.latin;
+            document.getElementById('memo-translation').querySelector('.translation-text').textContent = card.translation;
+            document.getElementById('memo-arabic').classList.add('memo-hidden');
+            document.getElementById('memo-latin').classList.add('memo-hidden');
+            document.getElementById('memo-translation').classList.add('memo-hidden');
+            closeModal('option-modal');
+            openModal('memorize-modal');
+        }
+
+        function toggleMemoArabic() {
+            document.getElementById('memo-arabic').classList.toggle('memo-hidden');
+        }
+
+        function toggleMemoLatin() {
+            document.getElementById('memo-latin').classList.toggle('memo-hidden');
+        }
+
+        function toggleMemoTranslation() {
+            document.getElementById('memo-translation').classList.toggle('memo-hidden');
+        }
+
+        function showFirstDoaModal(groupId) {
+            if (window.doaData && window.doaData.groups) {
+                const groupData = window.doaData.groups.find(g => g.id === groupId);
+                if (groupData && groupData.cards.length > 0) {
+                    showDoaModal(groupId, groupData.cards[0].id);
+                }
+            }
+        }
+
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            if (document.getElementById('doa-viewer-modal').classList.contains('active')) {
+                if (e.key === 'ArrowLeft') navigateDoa('prev');
+                if (e.key === 'ArrowRight') navigateDoa('next');
+            }
+        });
+
+        let touchStartX = 0;
+        document.getElementById('doa-viewer-modal').addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.getElementById('doa-viewer-modal').addEventListener('touchend', function(e) {
+            const touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) navigateDoa('next');
+                else navigateDoa('prev');
+            }
+        });
+    </script>
+
+    <style>
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+        .modal.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: slideUp 0.3s ease;
+            max-width: 600px;
+            width: 90%;
+        }
+        .modal-large {
+            max-width: 800px;
+        }
+        .modal-fullscreen {
+            max-width: 900px;
+            width: 95%;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .modal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 2px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h2 {
+            color: var(--dark-color);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--gray-medium);
+            cursor: pointer;
+            transition: color 0.3s ease;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .close-btn:hover {
+            background-color: var(--gray-light);
+            color: var(--dark-color);
+        }
+        .modal-body {
+            padding: 2rem;
+            flex: 1;
+            overflow-y: auto;
+        }
+        .doa-viewer-header {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 2px solid var(--gray-light);
+        }
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            color: var(--gray-medium);
+            cursor: pointer;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background-color: var(--gray-light);
+            color: var(--dark-color);
+        }
+        .doa-viewer-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+        }
+        .doa-slide-container {
+            display: flex;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        .doa-slide {
+            min-width: 100%;
+            padding: 0 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .doa-slide-content {
+            width: 100%;
+            max-width: 700px;
+        }
+        .navigation-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: var(--white);
+            border-top: 1px solid var(--gray-light);
+        }
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gray-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .nav-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .nav-btn:hover {
+            background: var(--white);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .nav-btn.prev {
+            left: 1rem;
+        }
+        .nav-btn.next {
+            right: 1rem;
+        }
+        .group-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-medium);
+            font-size: 0.85rem;
+        }
+        .group-icon-small {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        .option-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .btn-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            width: 100%;
+        }
+        .option-icon {
+            font-size: 2.5rem;
+        }
+        .option-text h3 {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            margin-bottom: 0.3rem;
+        }
+        .option-text p {
+            color: var(--gray-medium);
+            font-size: 0.9rem;
+        }
+        .btn-study {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: var(--white);
+        }
+        .btn-study:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow);
+        }
+        .btn-memorize {
+            background: linear-gradient(135deg, var(--accent-color), #6d28d9);
+            color: var(--white);
+        }
+        .btn-memorize:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow);
+        }
+        .study-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .section-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .arabic-text-large {
+            font-family: 'Traditional Arabic', 'Arial Unicode MS', sans-serif;
+            font-size: 2rem;
+            text-align: right;
+            direction: rtl;
+            line-height: 2.2;
+            color: var(--dark-color);
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+        }
+        .latin-text {
+            font-style: italic;
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .translation-text {
+            color: var(--dark-color);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .background-text {
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 1rem;
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary-color);
+        }
+        .source-tag {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            color: #92400e;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .memo-section {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: var(--light-color);
+            transition: all 0.3s ease;
+        }
+        .memo-hidden {
+            display: none;
+        }
+        .memo-label {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .memo-hint {
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            color: #3730a3;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        .memorize-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .memorize-controls {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+        .btn-memo {
+            padding: 1rem 0.5rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .btn-memo-arabic {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: var(--white);
+        }
+        .btn-memo-latin {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: var(--white);
+        }
+        .btn-memo-translation {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: var(--white);
+        }
+        .btn-memo:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow);
+        }
+        .memorize-content {
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+    </style>
+</body>
+</html>
