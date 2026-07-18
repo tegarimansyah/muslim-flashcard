@@ -1,0 +1,65 @@
+<!-- Basic SEO Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{{- $description := .Description | default .Params.description | default .Site.Params.description -}}
+{{- $author := .Params.author | default .Site.Params.author | default "Tegar Imansyah" -}}
+{{- $og_image := .Params.og_image | default .Params.image | default "/images/og-image.png" | absURL -}}
+
+{{ if .IsHome }}
+<title>{{ .Site.Title }} | Kumpulan Doa & Dzikir Islami</title>
+{{ else }}
+<title>{{ .Title }} | {{ .Site.Title }}</title>
+{{ end }}
+
+<meta name="description" content="{{ $description }}">
+<meta name="author" content="{{ $author }}">
+<meta name="robots" content="index, follow">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:image" content="{{ $og_image }}">
+<meta property="og:locale" content="id_ID">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ .Permalink }}">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta name="twitter:description" content="{{ $description }}">
+<meta name="twitter:image" content="{{ $og_image }}">
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- JSON-LD Structured Data Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ if .IsHome }}WebSite{{ else }}WebPage{{ end }}",
+  "name": "{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}",
+  "description": "{{ $description }}",
+  "url": "{{ .Permalink }}",
+  "inLanguage": "id",
+  "author": {
+    "@type": "Person",
+    "name": "{{ $author }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EthiqsHub",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ "/images/og-image.png" | absURL }}"
+    }
+  }
+}
+</script>
