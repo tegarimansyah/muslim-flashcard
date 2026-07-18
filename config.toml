@@ -1,11 +1,11 @@
 baseURL = "https://dzikir.ethiqshub.com/"
 languageCode = "id"
-title = "Kumpulan Doa Doa Dalam Islam"
+title = "Dzikir with EthiqsHub"
 theme = "muslim-flashcard-theme"
 
 [params]
   description = "Kumpulan doa-doa dalam Islam untuk berbagai situasi"
-  author = "Muslim Flashcard"
+  author = "Tegar Imansyah"
 
 [markup]
   [markup.goldmark]
