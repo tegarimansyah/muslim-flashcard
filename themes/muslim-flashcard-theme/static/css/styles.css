@@ -274,6 +274,51 @@ footer p {
     opacity: 0.9;
 }
 
+/* Footer Links */
+.footer-links {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+    align-items: center;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    line-height: 1.5;
+}
+
+.footer-link:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.github-icon {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+
+.footer-divider {
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 300;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
