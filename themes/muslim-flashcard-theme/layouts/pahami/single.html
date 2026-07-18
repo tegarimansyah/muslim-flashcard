@@ -154,6 +154,28 @@
                 font-size: 1.5rem;
             }
         }
+
+        /* Star Doa Button */
+        .star-doa-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-medium);
+            transition: all 0.25s ease;
+            padding: 0.25rem;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .star-doa-btn:hover {
+            transform: scale(1.15);
+            color: #f59e0b;
+        }
+        .star-doa-btn.starred {
+            color: #f59e0b;
+        }
     </style>
 </head>
 <body>
@@ -174,7 +196,10 @@
 
                 {{ range $card := .cards }}
                     <div class="doa-section">
-                        <h2>{{ $card.title }}</h2>
+                        <h2 style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 100%;">
+                            <span>{{ $card.title }}</span>
+                            <button class="star-doa-btn" data-doa-id="{{ $card.id }}" title="Star Doa">☆</button>
+                        </h2>
 
                         <div class="section-label">📜 Doa (Arab)</div>
                         <div class="arabic-text-large">{{ $card.arabic }}</div>
@@ -196,5 +221,48 @@
             {{ end }}
         {{ end }}
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function getStarredDoas() {
+                try {
+                    return JSON.parse(localStorage.getItem('starredDoas')) || [];
+                } catch (e) {
+                    return [];
+                }
+            }
+
+            function saveStarredDoas(doas) {
+                localStorage.setItem('starredDoas', JSON.stringify(doas));
+            }
+
+            const starred = getStarredDoas();
+            const buttons = document.querySelectorAll('.star-doa-btn');
+
+            buttons.forEach(btn => {
+                const doaId = btn.getAttribute('data-doa-id');
+                if (starred.includes(doaId)) {
+                    btn.classList.add('starred');
+                    btn.textContent = '⭐';
+                } else {
+                    btn.textContent = '☆';
+                }
+
+                btn.addEventListener('click', function() {
+                    let currentStarred = getStarredDoas();
+                    if (currentStarred.includes(doaId)) {
+                        currentStarred = currentStarred.filter(id => id !== doaId);
+                        btn.classList.remove('starred');
+                        btn.textContent = '☆';
+                    } else {
+                        currentStarred.push(doaId);
+                        btn.classList.add('starred');
+                        btn.textContent = '⭐';
+                    }
+                    saveStarredDoas(currentStarred);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
