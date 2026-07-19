@@ -102,7 +102,7 @@ muslim-flashcard/
 │           └── doa.json # Main content file
 ├── .github/
 │   └── ISSUE_TEMPLATE/  # GitHub issue templates
-└── config.toml          # Hugo configuration
+└── hugo.toml            # Hugo configuration
 ```
 
 ## License

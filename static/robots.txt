@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dzikir.ethiqshub.com/sitemap.xml
