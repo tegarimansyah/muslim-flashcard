@@ -309,6 +309,14 @@
             margin-top: 0.25rem;
         }
 
+        .personal-note-block {
+            margin-top: 1.25rem;
+        }
+
+        .source-tag + .personal-note-block {
+            margin-top: 1.5rem;
+        }
+
         .personal-note-textarea {
             width: 100%;
             min-height: 140px;
@@ -463,7 +471,7 @@
                 {{ end }}
 
                 {{ if or (eq $type "personal") $card.personal }}
-                <div class="amalan-block">
+                <div class="amalan-block personal-note-block">
                     <div class="section-label">Doa Pribadimu</div>
                     <textarea
                         class="personal-note-textarea"
