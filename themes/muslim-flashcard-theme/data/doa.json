@@ -3,7 +3,8 @@
     {
       "id": "maksiat-berdosa",
       "title": "Bertaubat dari Maksiat",
-      "description": "Doa-doa untuk memohon ampunan dan taubat",
+      "description": "Langkah pembersihan diri dan pemutusan lingkaran dosa saat hati dipenuhi penyesalan setelah melanggar batasan Allah.",
+      "category": "Kondisi Hati & Spiritual",
       "icon": "🤲",
       "color": "#059669",
       "cards": [
@@ -40,10 +41,29 @@
       ]
     },
     {
-      "id": "setelah-shalat",
-      "title": "Doa Setelah Shalat",
-      "description": "Doa-doa wirid dan dzikir setelah melaksanakan shalat",
+      "id": "sebelum-shalat",
+      "title": "Sesaat Sebelum Shalat",
+      "description": "Amalan penenang pikiran dan persiapan batin untuk membangun kekhusyukan sebelum takbiratul ihram.",
+      "category": "Ibadah & Rutinitas",
       "icon": "🕌",
+      "color": "#0891b2",
+      "cards": []
+    },
+    {
+      "id": "dalam-shalat",
+      "title": "Saat Dalam Shalat",
+      "description": "Panduan menjaga fokus pikiran, mengatasi bisikan setan (khinzib), dan menghayati setiap gerakan serta bacaan shalat.",
+      "category": "Ibadah & Rutinitas",
+      "icon": "🛐",
+      "color": "#0891b2",
+      "cards": []
+    },
+    {
+      "id": "setelah-shalat",
+      "title": "Sesaat Setelah Shalat",
+      "description": "Rangkaian dzikir ma'tsur dan waktu mustajab untuk memohon kebaikan dunia serta akhirat setelah salam.",
+      "category": "Ibadah & Rutinitas",
+      "icon": "🧎",
       "color": "#0891b2",
       "cards": [
         {
@@ -52,7 +72,7 @@
           "arabic": "أَسْتَغْفِرُ اللَّهَ (٣×)",
           "latin": "Astaghfirullahu (3x)",
           "translation": "Aku memohon ampun kepada Allah (3 kali)",
-          "background": "Dibaca 3 kali setelah selesai shalat fardhu sebelum membaca dzikir and doa lainnya. Ini adalah permulaan dari wirid setelah shalat untuk membersihkan diri dari segala kelalaian dalam shalat.",
+          "background": "Dibaca 3 kali setelah selesai shalat fardhu sebelum membaca dzikir dan doa lainnya. Ini adalah permulaan dari wirid setelah shalat untuk membersihkan diri dari segala kelalaian dalam shalat.",
           "source": "Hadits Riwayat Tirmidzi",
           "category": "shalat"
         },
@@ -71,7 +91,8 @@
     {
       "id": "pagi-malam",
       "title": "Dzikir Pagi & Petang",
-      "description": "Doa-doa perlindungan dan berkah untuk memulai dan mengakhiri hari",
+      "description": "Benteng perlindungan harian dan pembuka pintu rezeki yang dibaca di awal dan di penghujung hari.",
+      "category": "Ibadah & Rutinitas",
       "icon": "🌅",
       "color": "#d97706",
       "cards": [
@@ -90,8 +111,8 @@
           "title": "Doa Petang Hari",
           "arabic": "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ. رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذِهِ اللَّيْلَةِ وَخَيْرَ مَا بَعْدَهَا، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذِهِ اللَّيْلَةِ وَشَرِّ مَا بَعْدَهَا، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ",
           "latin": "Amsayna wa amsal mulku lillah, walhamdu lillah, la ilaha illallahu wahdahu la syarikalahu, lahul mulku wa lahul hamdu wa huwa 'ala kulli syai'in qadir. Rabbi as'aluka khaira ma fi hadzil laili wa khaira ma ba'daha, wa a'udzu bika min syarri ma fi hadzil laili wa syarri ma ba'daha, Rabbi a'udzu bika minal kasali wa su'il kibari, Rabbi a'udzu bika min 'adabin fin nar wa 'adabin fil qabri",
-          "translation": "Kami telah memasuki waktu petang dan kerajaan milik Allah, segala puji bagi Allah. Tiada Tuhan selain Allah semata, tiada sekutu bagi-Nya. Bagi-Nya kerajaan and bagi-Nya pujian dan Dia Maha Kuasa atas segala sesuatu. Ya Tuhan, aku memohon kepada-Mu kebaikan pada malam ini dan kebaikan setelahnya, dan aku berlindung kepada-Mu dari kejahatan malam ini dan kejahatan setelahnya. Ya Tuhan, aku berlindung kepada-Mu dari kemalasan dan kejelekan kesombongan. Ya Tuhan, aku berlindung kepada-Mu dari siksa neraka dan siksa kubur",
-          "background": "Doa petang ini dibaca setiap sore hari sebagai penutup hari dan persiapan untuk malam. Mirip dengan doa pagi, namun disesuaikan untuk waktu petang dan malam hari.",
+          "translation": "Kami telah memasuki waktu petang dan kerajaan milik Allah, segala puji bagi Allah. Tiada Tuhan selain Allah semata, tiada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian dan Dia Maha Kuasa atas segala sesuatu. Ya Tuhan, aku memohon kepada-Mu kebaikan pada malam ini dan kebaikan setelahnya, dan aku berlindung kepada-Mu dari kejahatan malam ini dan kejahatan setelahnya. Ya Tuhan, aku berlindung kepada-Mu dari kemalasan dan kejelekan kesombongan. Ya Tuhan, aku berlindung kepada-Mu dari siksa neraka dan siksa kubur",
+          "background": "Doa petang ini dibaca setiap sore hari sebagai penutup hari dan persiapan untuk malam. Mirip dengan doa pagi, namun disesuaikan untuk waktu petang and malam hari.",
           "source": "Hadits Riwayat Muslim",
           "category": "petang"
         }
@@ -99,8 +120,9 @@
     },
     {
       "id": "sebelum-tidur",
-      "title": "Doa Sebelum Tidur",
-      "description": "Doa-doa untuk ketenangan tidur dan perlindungan malam",
+      "title": "Sesaat Sebelum Tidur",
+      "description": "Amalan penyerahan diri (tawakkal) dan perlindungan dari gangguan jin/mimpi buruk saat ruh digenggam sementara.",
+      "category": "Ibadah & Rutinitas",
       "icon": "🌙",
       "color": "#7c3aed",
       "cards": [
@@ -117,7 +139,7 @@
         {
           "id": "ayat-kursi-tidur",
           "title": "Ayat Kursi",
-          "arabic": "اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+          "arabic": "اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ hِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
           "latin": "Allahu la ilaha illa huwal hayyul qayyum, la ta'khudhuhu sinatun wa la naum, lahu ma fis samawati wa ma fil ard, man dzalladzi yasyfa'u 'indahu illa bi idznih, ya'lamu ma bayna aidihim wa ma khalfahum, wa la yuhithuna bisyai'in min 'ilmihi illa bima sya', wasi'a kursiyyuhus samawati wal ard, wa la ya'uduhu hifzuhuma, wahuwal 'aliyyul 'azim",
           "translation": "Allah, tidak ada Tuhan selain Dia. Yang Maha Hidup, Yang Maha Berdiri Sendiri. Tidak mengantuk dan tidak tidur. Milik-Nya apa yang ada di langit dan di bumi. Tiada yang dapat memberi syafaat di sisi-Nya tanpa izin-Nya. Dia mengetahui apa yang ada di hadapan dan di belakang mereka. Dan mereka tidak mengetahui sesuatu dari ilmu-Nya melainkan apa yang Dia kehendaki. Kursi-Nya meliputi langit dan bumi. Dan Dia tidak merasa berat memelihara keduanya. Dan Dia Maha Tinggi, Maha Agung",
           "background": "Ayat Kursi (Surah Al-Baqarah: 255) adalah ayat paling agung dalam Al-Qur'an. Dibaca sebelum tidur untuk perlindungan dari gangguan setan dan kejahatan malam. Nabi Muhammad SAW bersabda bahwa barangsiapa membacanya saat tidur, maka dia akan dalam perlindungan Allah dan setan tidak akan mendekatinya sampai pagi.",
@@ -128,8 +150,9 @@
     },
     {
       "id": "sakit",
-      "title": "Doa Saat Sakit",
-      "description": "Doa-doa untuk kesembuhan dan ketenangan saat sakit",
+      "title": "Saat Sakit",
+      "description": "Ikhtiar batin untuk menggugurkan dosa melalui kesabaran dan doa memohon kesembuhan fisik dari penyakit.",
+      "category": "Krisis & Musibah",
       "icon": "🤒",
       "color": "#dc2626",
       "cards": [
@@ -157,8 +180,9 @@
     },
     {
       "id": "musafir",
-      "title": "Doa Musafir",
-      "description": "Doa-doa untuk keamanan dan kemudahan dalam bepergian",
+      "title": "Saat Safar",
+      "description": "Panduan memanfaatkan waktu mustajab di perjalanan dan memohon keselamatan hingga sampai ke tujuan.",
+      "category": "Ibadah & Rutinitas",
       "icon": "✈️",
       "color": "#0891b2",
       "cards": [
@@ -173,6 +197,168 @@
           "category": "musafir"
         }
       ]
+    },
+    {
+      "id": "orang-lain-meninggal",
+      "title": "Saat Orang Lain Meninggal Dunia",
+      "description": "Respons terbaik, kalimat istirja, dan doa bagi jenazah serta keluarga yang ditinggalkan sebagai wujud empati tertinggi.",
+      "category": "Sosial & Keluarga",
+      "icon": "🖤",
+      "color": "#4b5563",
+      "cards": []
+    },
+    {
+      "id": "futur",
+      "title": "Saat Futur",
+      "description": "Strategi memantik kembali semangat ibadah yang sedang hambar atau lesu tanpa membuat batin tertekan (burnout).",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "📉",
+      "color": "#059669",
+      "cards": []
+    },
+    {
+      "id": "marah",
+      "title": "Saat Marah",
+      "description": "Manajemen emosi spontan secara fisik dan lisan untuk meredam hasutan setan saat amarah memuncak.",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "😡",
+      "color": "#059669",
+      "cards": []
+    },
+    {
+      "id": "ragu-pilihan-sulit",
+      "title": "Saat Ragu dan Pilihan Sulit",
+      "description": "Langkah penyerahan keputusan kepada Allah melalui Shalat Istikharah saat menghadapi persimpangan jalan hidup.",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "❓",
+      "color": "#059669",
+      "cards": []
+    },
+    {
+      "id": "umroh-makkah",
+      "title": "Saat Umroh di Makkah",
+      "description": "Panduan amalan, doa, dan fokus ibadah selama berada di tanah haram Makkah dan di depan Ka'bah.",
+      "category": "Ibadah Khusus",
+      "icon": "🕋",
+      "color": "#2563eb",
+      "cards": []
+    },
+    {
+      "id": "ziarah-madinah",
+      "title": "Saat Berziarah di Madinah",
+      "description": "Adab berkunjung ke Masjid Nabawi, memberi salam kepada Rasulullah, dan meresapi kedamaian kota Madinah.",
+      "category": "Ibadah Khusus",
+      "icon": "🕌",
+      "color": "#2563eb",
+      "cards": []
+    },
+    {
+      "id": "hati-sempit-cemas-sedih",
+      "title": "Saat Hati Merasa Sempit (Cemas & Sedih)",
+      "description": "Panduan menenangkan pikiran saat dirundung gelisah, ekspektasi yang gagal, atau tekanan hidup yang membuat dada sesak.",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "🥺",
+      "color": "#059669",
+      "cards": []
+    },
+    {
+      "id": "hati-bahagia-nikmat",
+      "title": "Saat Hati Sedang Bahagia (Mendapat Nikmat)",
+      "description": "Respons terbaik saat meraih keberhasilan atau rezeki agar terhindar dari sifat ujub/sombong dan penyakit 'Ain.",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "😊",
+      "color": "#059669",
+      "cards": []
+    },
+    {
+      "id": "kerugian-musibah",
+      "title": "Saat Mengalami Kerugian atau Musibah",
+      "description": "Langkah pertama untuk menjaga stabilitas mental (sabar pada hentakan pertama) saat kehilangan harta benda atau kegagalan bisnis.",
+      "category": "Krisis & Musibah",
+      "icon": "💔",
+      "color": "#dc2626",
+      "cards": []
+    },
+    {
+      "id": "takut-khawatir",
+      "title": "Saat Menghadapi Rasa Takut & Khawatir",
+      "description": "Amalan untuk mengusir rasa takut terhadap masa depan, ancaman manusia, atau situasi mencekam agar hati kembali berani.",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "😰",
+      "color": "#059669",
+      "cards": []
+    },
+    {
+      "id": "memulai-pekerjaan-usaha",
+      "title": "Saat Memulai Pekerjaan atau Usaha",
+      "description": "Penataan niat and amalan sebelum bekerja agar energi yang dikeluarkan bernilai pahala dan menjemput rezeki yang berkah.",
+      "category": "Aktivitas & Finansial",
+      "icon": "💼",
+      "color": "#4f46e5",
+      "cards": []
+    },
+    {
+      "id": "terlilit-utang-finansial",
+      "title": "Saat Terlilit Utang atau Kesulitan Finansial",
+      "description": "Ikhtiar batin untuk mengurai beban pikiran akibat tekanan ekonomi dan memohon jalan keluar yang tidak disangka-sangka.",
+      "category": "Aktivitas & Finansial",
+      "icon": "💸",
+      "color": "#4f46e5",
+      "cards": []
+    },
+    {
+      "id": "konflik-dizalimi-difitnah",
+      "title": "Saat Menghadapi Konflik (Dizalimi/Difitnah)",
+      "description": "Manajemen hati saat disakiti oleh orang lain, agar tetap elegan, tidak membalas dengan keburukan, dan memanfaatkan doa mustajab.",
+      "category": "Sosial & Keluarga",
+      "icon": "🛡️",
+      "color": "#4b5563",
+      "cards": []
+    },
+    {
+      "id": "ingin-bersiap-menikah",
+      "title": "Saat Ingin / Bersiap Menikah",
+      "description": "Panduan mengelola kecemasan menjelang akad, meluruskan niat, serta memohon pilihan terbaik di fase pra-nikah.",
+      "category": "Sosial & Keluarga",
+      "icon": "💍",
+      "color": "#4b5563",
+      "cards": []
+    },
+    {
+      "id": "masalah-rumah-tangga",
+      "title": "Saat Ada Masalah di Rumah Tangga",
+      "description": "Peta tindakan batin saat menghadapi konflik dengan pasangan, ujian keharmonisan, atau badai dalam keluarga.",
+      "category": "Krisis & Musibah",
+      "icon": "🏠",
+      "color": "#dc2626",
+      "cards": []
+    },
+    {
+      "id": "menjenguk-orang-sakit",
+      "title": "Saat Menjenguk Orang Sakit",
+      "description": "Adab kunjungan dan doa kesembuhan yang dibaca di hadapan orang yang sakit sebagai bentuk dukungan moral yang kuat.",
+      "category": "Sosial & Keluarga",
+      "icon": "🤝",
+      "color": "#4b5563",
+      "cards": []
+    },
+    {
+      "id": "menyiapkan-kematian-diri",
+      "title": "Menyiapkan Kematian Diri Sendiri",
+      "description": "Panduan produktif mempersiapkan bekal akhirat, menyusun wasiat syar'i, dan mengikis kecemasan terhadap ajal melalui husnuzan kepada Allah.",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "⚰️",
+      "color": "#059669",
+      "cards": []
+    },
+    {
+      "id": "keluarga-meninggal-dunia",
+      "title": "Ketika Keluarga Meninggal Dunia",
+      "description": "Langkah pertama mengelola syok dan duka mendalam saat kehilangan orang tercinta, serta adab awal memperlakukan jenazah keluarga.",
+      "category": "Krisis & Musibah",
+      "icon": "😢",
+      "color": "#dc2626",
+      "cards": []
     }
   ]
 }
