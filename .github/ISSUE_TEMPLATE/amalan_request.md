@@ -1,12 +1,12 @@
 ---
-name: Dzikir Request
-about: Sarankan doa atau dzikir untuk ditambahkan
-title: '[DZIKIR] '
+name: Amalan Request
+about: Sarankan amalan (doa, dzikir, bacaan) untuk ditambahkan
+title: '[AMALAN] '
 labels: 'content'
 assignees: ''
 ---
 
-## Kategori Dzikir/Doa
+## Kategori Amalan
 Pilih kategori yang paling sesuai:
 - [ ] Taubat dan Ampun
 - [ ] Pagi dan Petang
@@ -16,10 +16,10 @@ Pilih kategori yang paling sesuai:
 - [ ] Musafir
 - [ ] Lainnya (jelaskan di bawah)
 
-## Nama Doa/Dzikir
-Masukkan nama doa atau dzikir yang ingin ditambahkan
+## Nama Amalan
+Masukkan nama amalan yang ingin ditambahkan
 
-## Teks Doa (Arab)
+## Teks Arab
 ```
 Tuliskan teks Arab di sini
 ```
@@ -33,14 +33,14 @@ Tuliskan terjemahan bahasa Indonesia
 ## Sumber/Rujukan
 - [ ] Al-Qur'an (sebutkan surat dan ayat)
 - [ ] Hadits (sebutkan sumber)
-- [ ] Doa ma'thur (sebutkan sumber)
+- [ ] Doa/dzikir ma'thur (sebutkan sumber)
 - [ ] Lainnya (jelaskan)
 
 ## Asal Usul/Latar Belakang
-Jelaskan sejarah, konteks, atau latar belakang doa ini
+Jelaskan sejarah, konteks, atau latar belakang amalan ini
 
 ## Relevansi
-Jelaskan mengapa doa ini penting untuk ditambahkan
+Jelaskan mengapa amalan ini penting untuk ditambahkan
 
 ## Referensi Tambahan
 Tambahkan link referensi atau sumber lain jika ada

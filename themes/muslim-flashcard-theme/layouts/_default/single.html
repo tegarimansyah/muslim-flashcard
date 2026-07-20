@@ -15,7 +15,7 @@
     <div class="cards-grid">
         {{ range $index, $card := .Params.cards }}
         <div class="flashcard" data-card-id="{{ $card.id }}" style="position: relative;">
-            <button class="star-doa-btn" data-doa-id="{{ $card.id }}" title="Star Doa" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray-medium); transition: all 0.25s ease; z-index: 5; line-height: 1; padding: 0.25rem;">☆</button>
+            <button class="star-amalan-btn" data-amalan-id="{{ $card.id }}" title="Star Amalan" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray-medium); transition: all 0.25s ease; z-index: 5; line-height: 1; padding: 0.25rem;">☆</button>
             <div class="flashcard-content">
                 <h3 style="padding-right: 2.2rem;">{{ $card.title }}</h3>
                 <p class="card-latin">{{ $card.latin }}</p>
@@ -45,7 +45,7 @@
                     <span class="option-icon">📖</span>
                     <div class="option-text">
                         <h3>Lihat untuk Pahami</h3>
-                        <p>Pelajari asal usul dan makna doa</p>
+                        <p>Pelajari asal usul dan makna amalan</p>
                     </div>
                 </button>
 
@@ -70,7 +70,7 @@
         </div>
         <div class="modal-body">
             <div class="study-content">
-                <div class="section-label">📜 Doa (Arab)</div>
+                <div class="section-label">📜 Arab</div>
                 <div class="arabic-text-large">{{ $card.arabic }}</div>
 
                 <div class="section-label">📝 Bacaan Latin</div>
@@ -181,24 +181,24 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        function getStarredDoas() {
+        function getStarredAmalan() {
             try {
-                return JSON.parse(localStorage.getItem('starredDoas')) || [];
+                return JSON.parse(localStorage.getItem('starredAmalan') || localStorage.getItem('starredDoas')) || [];
             } catch (e) {
                 return [];
             }
         }
 
-        function saveStarredDoas(doas) {
-            localStorage.setItem('starredDoas', JSON.stringify(doas));
+        function saveStarredAmalan(amalans) {
+            localStorage.setItem('starredAmalan', JSON.stringify(amalans)); localStorage.removeItem('starredDoas');
         }
 
-        const starred = getStarredDoas();
-        const buttons = document.querySelectorAll('.star-doa-btn');
+        const starred = getStarredAmalan();
+        const buttons = document.querySelectorAll('.star-amalan-btn');
 
         buttons.forEach(btn => {
-            const doaId = btn.getAttribute('data-doa-id');
-            if (starred.includes(doaId)) {
+            const amalanId = btn.getAttribute('data-amalan-id');
+            if (starred.includes(amalanId)) {
                 btn.classList.add('starred');
                 btn.textContent = '⭐';
             } else {
@@ -206,27 +206,27 @@
             }
 
             btn.addEventListener('click', function() {
-                let currentStarred = getStarredDoas();
-                if (currentStarred.includes(doaId)) {
-                    currentStarred = currentStarred.filter(id => id !== doaId);
+                let currentStarred = getStarredAmalan();
+                if (currentStarred.includes(amalanId)) {
+                    currentStarred = currentStarred.filter(id => id !== amalanId);
                     btn.classList.remove('starred');
                     btn.textContent = '☆';
                 } else {
-                    currentStarred.push(doaId);
+                    currentStarred.push(amalanId);
                     btn.classList.add('starred');
                     btn.textContent = '⭐';
                 }
-                saveStarredDoas(currentStarred);
+                saveStarredAmalan(currentStarred);
             });
         });
     });
 </script>
 <style>
-    .star-doa-btn:hover {
+    .star-amalan-btn:hover {
         transform: scale(1.15);
         color: #f59e0b !important;
     }
-    .star-doa-btn.starred {
+    .star-amalan-btn.starred {
         color: #f59e0b !important;
     }
 </style>

@@ -1,7 +1,14 @@
-{{ range site.Data.doa.groups }}
+{{ range site.Data.amalan.groups }}
   {{ $detail := index site.Data.groups .id }}
   {{ $cards := slice }}
-  {{ with $detail }}{{ $cards = .cards | default (slice) }}{{ end }}
+  {{ with $detail }}
+    {{ range (.cards | default (slice)) }}
+      {{/* Default true: only exclude when menghafal is explicitly false (pahami-only) */}}
+      {{ if not (eq .menghafal false) }}
+        {{ $cards = $cards | append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
   {{ $page := dict
     "kind" "page"
     "path" .id

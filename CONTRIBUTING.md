@@ -5,11 +5,11 @@ Thank you for your interest in contributing to Muslim Flashcard!
 ## How to Contribute
 
 ### Reporting Issues
-- Use GitHub issue templates for bugs, feature requests, or dzikir requests
+- Use GitHub issue templates for bugs, feature requests, or amalan requests
 - Include clear steps to reproduce and screenshots when possible
 
 ### Content Contributions
-1. **Dzikir request issue** — use the `[DZIKIR]` template
+1. **Amalan request issue** — use the `[AMALAN]` template
 2. **Direct contribution** — edit JSON under `data/` (see below)
 
 ### Code Contributions
@@ -25,7 +25,7 @@ Content is **JSON-only**. Hugo Content Adapters generate pages at build time —
 
 ```
 data/
-├── doa.json                 # Index of all groups (source of truth for listing)
+├── amalan.json                 # Index of all groups (source of truth for listing)
 └── groups/
     ├── maksiat-berdosa.json # Cards for one group
     ├── setelah-shalat.json
@@ -42,11 +42,11 @@ content/
 
 | File | Role |
 |------|------|
-| `data/doa.json` | Index only: `id`, `title`, `description`, `category`, `icon`, `color`, `file`, `count` |
-| `data/groups/<id>.json` | Full group + `cards[]` (arabic, latin, translation, background, source) |
+| `data/amalan.json` | Index only: `id`, `title`, `description`, `category`, `icon`, `color`, `file`, `count` |
+| `data/groups/<id>.json` | Full group + `cards[]` (arabic, latin, translation, background, source, optional `menghafal`) |
 | `_content.gotmpl` | Registers virtual pages from JSON (Hugo ≥ 0.123) |
 
-Both **Pahami** and **Menghafal** share the same group JSON; only layouts differ.
+Both modes share the same group JSON. **Pahami** shows all cards; **Menghafal** skips cards with `"menghafal": false`.
 
 ---
 
@@ -70,7 +70,7 @@ Both **Pahami** and **Menghafal** share the same group JSON; only layouts differ
 
 ### 2. Register it in the index
 
-Add an entry to `data/doa.json` → `groups`:
+Add an entry to `data/amalan.json` → `groups`:
 
 ```json
 {
@@ -99,30 +99,37 @@ No new markdown files needed.
 
 ---
 
-## Adding a New Doa (to an existing group)
+## Adding a New Amalan (to an existing group)
 
 Edit `data/groups/<group-id>.json` and append to `cards`:
 
 ```json
 {
   "id": "unique-id",
-  "title": "Nama Doa",
+  "title": "Nama Amalan",
   "arabic": "النص العربي",
   "latin": "Transliterasi latin",
   "translation": "Arti dalam Bahasa Indonesia",
   "background": "Asal usul dan konteks",
   "source": "Qur'an / Hadits reference",
-  "category": "category-name"
+  "category": "category-name",
+  "menghafal": true
 }
 ```
 
-Then update `count` for that group in `data/doa.json`.
+| Field | Required | Notes |
+|-------|----------|--------|
+| `id` … `category` | yes | Core amalan content |
+| `menghafal` | no | Default `true`. Set `false` for pahami-only items (story, background-only cards, etc.) that should not appear in mode Menghafal |
+
+Then update `count` for that group in `data/amalan.json` (total cards, including pahami-only).
 
 ### Content guidelines
 - Accurate Arabic with proper diacritics
 - Reliable sources (Qur'an, authentic hadits)
 - Clear Indonesian translation and background
 - Unique `id` within the whole project (kebab-case)
+- Use `"menghafal": false` for content that only belongs on Pahami
 
 ---
 
@@ -171,7 +178,7 @@ muslim-flashcard/
 │   ├── menghafal/          # Content adapter (no stub .md pages)
 │   └── pahami/             # Content adapter (no stub .md pages)
 ├── data/
-│   ├── doa.json            # Group index
+│   ├── amalan.json            # Group index
 │   └── groups/             # Per-group JSON (cards)
 ├── themes/
 │   └── muslim-flashcard-theme/

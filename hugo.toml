@@ -6,7 +6,7 @@ theme = "muslim-flashcard-theme"
 disableKinds = ["taxonomy", "term"]
 
 [params]
-  description = "Kumpulan doa-doa dalam Islam untuk berbagai situasi"
+  description = "Kumpulan amalan Islami untuk berbagai situasi"
   author = "Tegar Imansyah"
 
 [markup]

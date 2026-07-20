@@ -1,4 +1,4 @@
-{{ range site.Data.doa.groups }}
+{{ range site.Data.amalan.groups }}
   {{ $detail := index site.Data.groups .id }}
   {{ $cards := slice }}
   {{ with $detail }}{{ $cards = .cards | default (slice) }}{{ end }}

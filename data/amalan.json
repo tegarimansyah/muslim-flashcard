@@ -71,14 +71,34 @@
       "count": 2
     },
     {
-      "id": "musafir",
-      "title": "Saat Safar",
-      "description": "Panduan memanfaatkan waktu mustajab di perjalanan dan memohon keselamatan hingga sampai ke tujuan.",
-      "category": "Ibadah & Rutinitas",
-      "icon": "✈️",
-      "color": "#0891b2",
-      "file": "groups/musafir.json",
-      "count": 1
+      "id": "menjenguk-orang-sakit",
+      "title": "Saat Menjenguk Orang Sakit",
+      "description": "Adab kunjungan dan doa kesembuhan yang dibaca di hadapan orang yang sakit sebagai bentuk dukungan moral yang kuat.",
+      "category": "Sosial & Keluarga",
+      "icon": "🤝",
+      "color": "#4b5563",
+      "file": "groups/menjenguk-orang-sakit.json",
+      "count": 0
+    },
+    {
+      "id": "menyiapkan-kematian-diri",
+      "title": "Menyiapkan Kematian Diri Sendiri",
+      "description": "Panduan produktif mempersiapkan bekal akhirat, menyusun wasiat syar'i, dan mengikis kecemasan terhadap ajal melalui husnuzan kepada Allah.",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "⚰️",
+      "color": "#059669",
+      "file": "groups/menyiapkan-kematian-diri.json",
+      "count": 0
+    },
+    {
+      "id": "keluarga-meninggal-dunia",
+      "title": "Ketika Keluarga Meninggal Dunia",
+      "description": "Langkah pertama mengelola syok dan duka mendalam saat kehilangan orang tercinta, serta adab awal memperlakukan jenazah keluarga.",
+      "category": "Krisis & Musibah",
+      "icon": "😢",
+      "color": "#dc2626",
+      "file": "groups/keluarga-meninggal-dunia.json",
+      "count": 0
     },
     {
       "id": "orang-lain-meninggal",
@@ -89,6 +109,16 @@
       "color": "#4b5563",
       "file": "groups/orang-lain-meninggal.json",
       "count": 0
+    },
+    {
+      "id": "musafir",
+      "title": "Saat Safar",
+      "description": "Panduan memanfaatkan waktu mustajab di perjalanan dan memohon keselamatan hingga sampai ke tujuan.",
+      "category": "Ibadah & Rutinitas",
+      "icon": "✈️",
+      "color": "#0891b2",
+      "file": "groups/musafir.json",
+      "count": 1
     },
     {
       "id": "futur",
@@ -228,36 +258,6 @@
       "icon": "🏠",
       "color": "#dc2626",
       "file": "groups/masalah-rumah-tangga.json",
-      "count": 0
-    },
-    {
-      "id": "menjenguk-orang-sakit",
-      "title": "Saat Menjenguk Orang Sakit",
-      "description": "Adab kunjungan dan doa kesembuhan yang dibaca di hadapan orang yang sakit sebagai bentuk dukungan moral yang kuat.",
-      "category": "Sosial & Keluarga",
-      "icon": "🤝",
-      "color": "#4b5563",
-      "file": "groups/menjenguk-orang-sakit.json",
-      "count": 0
-    },
-    {
-      "id": "menyiapkan-kematian-diri",
-      "title": "Menyiapkan Kematian Diri Sendiri",
-      "description": "Panduan produktif mempersiapkan bekal akhirat, menyusun wasiat syar'i, dan mengikis kecemasan terhadap ajal melalui husnuzan kepada Allah.",
-      "category": "Kondisi Hati & Spiritual",
-      "icon": "⚰️",
-      "color": "#059669",
-      "file": "groups/menyiapkan-kematian-diri.json",
-      "count": 0
-    },
-    {
-      "id": "keluarga-meninggal-dunia",
-      "title": "Ketika Keluarga Meninggal Dunia",
-      "description": "Langkah pertama mengelola syok dan duka mendalam saat kehilangan orang tercinta, serta adab awal memperlakukan jenazah keluarga.",
-      "category": "Krisis & Musibah",
-      "icon": "😢",
-      "color": "#dc2626",
-      "file": "groups/keluarga-meninggal-dunia.json",
       "count": 0
     }
   ]

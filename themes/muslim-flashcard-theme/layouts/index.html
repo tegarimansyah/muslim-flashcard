@@ -194,7 +194,7 @@
     }
 </style>
 
-{{ $groups := site.Data.doa.groups }}
+{{ $groups := site.Data.amalan.groups }}
 {{ $categories := slice }}
 {{ range $groups }}
   {{ if and .category (not (in $categories .category)) }}
@@ -210,7 +210,7 @@
 
     <div class="search-section">
         <div class="search-filter-container">
-            <input type="text" id="searchInput" placeholder="Cari doa atau situasi..." class="search-input" aria-label="Cari doa">
+            <input type="text" id="searchInput" placeholder="Cari amalan atau situasi..." class="search-input" aria-label="Cari amalan">
             <select id="categoryFilter" class="category-select" aria-label="Filter kategori">
                 <option value="">Semua Kategori</option>
                 {{ range sort $categories }}
@@ -231,36 +231,36 @@
             <h2>{{ .title }}</h2>
             <p class="group-description">{{ .description }}</p>
             <button type="button" class="btn-explore" onclick="showOptionModal('{{ .id }}')">
-                Buka {{ $count }} Doa
+                Buka {{ $count }} Amalan
             </button>
         </div>
         {{ end }}
     </div>
 </div>
 
-<!-- Starred Doa Detail Modal -->
-<div id="starred-doa-modal" class="modal">
+<!-- Starred Amalan Detail Modal -->
+<div id="starred-amalan-modal" class="modal">
     <div class="modal-content modal-large">
         <div class="modal-header">
-            <h2 id="starred-doa-title">Detail Doa</h2>
-            <button class="close-btn" onclick="closeModal('starred-doa-modal')">&times;</button>
+            <h2 id="starred-amalan-title">Detail Amalan</h2>
+            <button class="close-btn" onclick="closeModal('starred-amalan-modal')">&times;</button>
         </div>
         <div class="modal-body">
             <div class="study-content">
-                <div class="section-label">📜 Doa (Arab)</div>
-                <div id="starred-doa-arabic" class="arabic-text-large"></div>
+                <div class="section-label">📜 Arab</div>
+                <div id="starred-amalan-arabic" class="arabic-text-large"></div>
 
                 <div class="section-label">📝 Bacaan Latin</div>
-                <p id="starred-doa-latin" class="latin-text"></p>
+                <p id="starred-amalan-latin" class="latin-text"></p>
 
                 <div class="section-label">🌍 Arti Bahasa Indonesia</div>
-                <p id="starred-doa-translation" class="translation-text"></p>
+                <p id="starred-amalan-translation" class="translation-text"></p>
 
                 <div class="section-label">📚 Asal Usul dan Latar Belakang</div>
-                <div id="starred-doa-background" class="background-text"></div>
+                <div id="starred-amalan-background" class="background-text"></div>
 
-                <div class="source-tag" id="starred-doa-source-container">
-                    <strong>📖 Sumber:</strong> <span id="starred-doa-source"></span>
+                <div class="source-tag" id="starred-amalan-source-container">
+                    <strong>📖 Sumber:</strong> <span id="starred-amalan-source"></span>
                 </div>
             </div>
         </div>
@@ -278,15 +278,15 @@
   {{- end -}}
 {{- end -}}
 <script>
-    window.doaData = {{ dict "groups" $full | jsonify | safeJS }};
+    window.amalanData = {{ dict "groups" $full | jsonify | safeJS }};
 
     function getStarredGroups() {
         try { return JSON.parse(localStorage.getItem('starredGroups')) || []; }
         catch (e) { return []; }
     }
 
-    function getStarredDoas() {
-        try { return JSON.parse(localStorage.getItem('starredDoas')) || []; }
+    function getStarredAmalan() {
+        try { return JSON.parse(localStorage.getItem('starredAmalan') || localStorage.getItem('starredDoas')) || []; }
         catch (e) { return []; }
     }
 
@@ -294,14 +294,15 @@
         localStorage.setItem('starredGroups', JSON.stringify(groups));
     }
 
-    function saveStarredDoas(doas) {
-        localStorage.setItem('starredDoas', JSON.stringify(doas));
+    function saveStarredAmalan(list) {
+        localStorage.setItem('starredAmalan', JSON.stringify(list));
+        localStorage.removeItem('starredDoas');
     }
 
-    function getDoaById(doaId) {
-        if (!window.doaData || !window.doaData.groups) return null;
-        for (const group of window.doaData.groups) {
-            const card = (group.cards || []).find(c => c.id === doaId);
+    function getAmalanById(amalanId) {
+        if (!window.amalanData || !window.amalanData.groups) return null;
+        for (const group of window.amalanData.groups) {
+            const card = (group.cards || []).find(c => c.id === amalanId);
             if (card) return { card, group };
         }
         return null;
@@ -319,28 +320,28 @@
         renderFavorites();
     }
 
-    function toggleStarDoa(doaId) {
-        let starred = getStarredDoas();
-        if (starred.includes(doaId)) {
-            starred = starred.filter(id => id !== doaId);
+    function toggleStarAmalan(amalanId) {
+        let starred = getStarredAmalan();
+        if (starred.includes(amalanId)) {
+            starred = starred.filter(id => id !== amalanId);
         } else {
-            starred.push(doaId);
+            starred.push(amalanId);
         }
-        saveStarredDoas(starred);
+        saveStarredAmalan(starred);
         renderFavorites();
     }
 
-    function openStarredDoaModal(doaId) {
-        const detail = getDoaById(doaId);
+    function openStarredAmalanModal(amalanId) {
+        const detail = getAmalanById(amalanId);
         if (!detail) return;
         const { card } = detail;
-        document.getElementById('starred-doa-title').textContent = card.title;
-        document.getElementById('starred-doa-arabic').textContent = card.arabic;
-        document.getElementById('starred-doa-latin').textContent = card.latin;
-        document.getElementById('starred-doa-translation').textContent = card.translation;
-        document.getElementById('starred-doa-background').textContent = card.background;
-        document.getElementById('starred-doa-source').textContent = card.source;
-        openModal('starred-doa-modal');
+        document.getElementById('starred-amalan-title').textContent = card.title;
+        document.getElementById('starred-amalan-arabic').textContent = card.arabic;
+        document.getElementById('starred-amalan-latin').textContent = card.latin;
+        document.getElementById('starred-amalan-translation').textContent = card.translation;
+        document.getElementById('starred-amalan-background').textContent = card.background;
+        document.getElementById('starred-amalan-source').textContent = card.source;
+        openModal('starred-amalan-modal');
     }
 
     function updateStarButtons() {
@@ -363,11 +364,11 @@
         grid.innerHTML = '';
 
         const starredGroups = getStarredGroups();
-        const starredDoas = getStarredDoas();
+        const starredAmalan = getStarredAmalan();
         let hasFavorites = false;
 
         starredGroups.forEach(groupId => {
-            const group = window.doaData.groups.find(g => g.id === groupId);
+            const group = window.amalanData.groups.find(g => g.id === groupId);
             if (!group) return;
             hasFavorites = true;
 
@@ -379,7 +380,7 @@
                     <span class="fav-icon">${group.icon}</span>
                     <div class="fav-text">
                         <div class="fav-name">${group.title}</div>
-                        <div class="fav-type">Grup Doa</div>
+                        <div class="fav-type">Grup Amalan</div>
                     </div>
                 </div>
                 <button class="fav-star" title="Unstar">⭐</button>
@@ -392,8 +393,8 @@
             grid.appendChild(favCard);
         });
 
-        starredDoas.forEach(doaId => {
-            const detail = getDoaById(doaId);
+        starredAmalan.forEach(amalanId => {
+            const detail = getAmalanById(amalanId);
             if (!detail) return;
             hasFavorites = true;
             const { card, group } = detail;
@@ -406,15 +407,15 @@
                     <span class="fav-icon">${group.icon || '🤲'}</span>
                     <div class="fav-text">
                         <div class="fav-name">${card.title}</div>
-                        <div class="fav-type">Doa</div>
+                        <div class="fav-type">Amalan</div>
                     </div>
                 </div>
                 <button class="fav-star" title="Unstar">⭐</button>
             `;
-            favCard.addEventListener('click', () => openStarredDoaModal(doaId));
+            favCard.addEventListener('click', () => openStarredAmalanModal(amalanId));
             favCard.querySelector('.fav-star').addEventListener('click', (e) => {
                 e.stopPropagation();
-                toggleStarDoa(doaId);
+                toggleStarAmalan(amalanId);
             });
             grid.appendChild(favCard);
         });

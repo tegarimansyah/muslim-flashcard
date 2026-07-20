@@ -1,10 +1,10 @@
 # Muslim Flashcard
 
-Kumpulan doa-doa dalam Islam untuk berbagai situasi dalam kehidupan sehari-hari.
+Kumpulan amalan Islami (doa, dzikir, dan bacaan) untuk berbagai situasi dalam kehidupan sehari-hari.
 
 ## Fitur
 
-- 📚 Kumpulan doa Islami terorganisir per kategori
+- 📚 Kumpulan amalan Islami terorganisir per kategori
 - 📖 Mode **Pahami** — asal usul dan penjelasan lengkap
 - 🧠 Mode **Menghafal** — tampilan story interaktif
 - 🎨 Desain responsif
@@ -17,9 +17,9 @@ Satu sumber data JSON; halaman digenerate Hugo Content Adapters (tanpa file mark
 
 ```
 data/
-├── doa.json              # Index grup
+├── amalan.json              # Index grup
 └── groups/
-    └── <group-id>.json   # Detail + daftar doa
+    └── <group-id>.json   # Detail + daftar amalan
 ```
 
 | Mode | URL |
@@ -27,11 +27,12 @@ data/
 | Pahami | `/pahami/<group-id>/` |
 | Menghafal | `/menghafal/<group-id>/?type=arabic\|latin\|indonesia` |
 
-## Cara Menambah Doa
+## Cara Menambah Amalan
 
 1. Edit `data/groups/<group-id>.json` — tambah item di `cards`
-2. Update `count` di `data/doa.json` untuk grup tersebut
-3. Lihat [CONTRIBUTING.md](CONTRIBUTING.md) untuk grup baru dan format lengkap
+2. Update `count` di `data/amalan.json` untuk grup tersebut
+3. Set `"menghafal": false` jika item hanya untuk mode Pahami (default: tampil di keduanya)
+4. Lihat [CONTRIBUTING.md](CONTRIBUTING.md) untuk grup baru dan format lengkap
 
 ## Pengembangan Lokal
 
