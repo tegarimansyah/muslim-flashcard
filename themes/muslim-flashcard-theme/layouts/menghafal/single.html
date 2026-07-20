@@ -241,9 +241,9 @@
                         <p class="group-title">{{ $groupTitle }}</p>
                     </div>
                     <h3 class="amalan-title">{{ $card.title }}</h3>
-                    <div class="arabic-text">{{ $card.arabic }}</div>
-                    <p class="latin-text">{{ $card.latin }}</p>
-                    <p class="translation-text">{{ $card.translation }}</p>
+                    {{ with $card.arabic }}<div class="arabic-text">{{ . }}</div>{{ end }}
+                    {{ with $card.latin }}<p class="latin-text">{{ . }}</p>{{ end }}
+                    {{ with $card.translation }}<p class="translation-text">{{ . }}</p>{{ end }}
                 </div>
             {{ else }}
                 <div class="story-slide active">
@@ -276,22 +276,21 @@
         let isTouchHeld = false;
         let pausedTouchStart = 0;
 
-        // Hide all content sections initially
+        // Hide all content sections initially; show only selected type when present
         document.querySelectorAll('.story-slide').forEach(slide => {
             const arabicText = slide.querySelector('.arabic-text');
             const latinText = slide.querySelector('.latin-text');
             const translationText = slide.querySelector('.translation-text');
-            
-            arabicText.style.display = 'none';
-            latinText.style.display = 'none';
-            translationText.style.display = 'none';
-            
-            // Show only selected content type
-            if (contentType === 'arabic') {
+
+            if (arabicText) arabicText.style.display = 'none';
+            if (latinText) latinText.style.display = 'none';
+            if (translationText) translationText.style.display = 'none';
+
+            if (contentType === 'arabic' && arabicText) {
                 arabicText.style.display = 'block';
-            } else if (contentType === 'latin') {
+            } else if (contentType === 'latin' && latinText) {
                 latinText.style.display = 'block';
-            } else if (contentType === 'indonesia') {
+            } else if (contentType === 'indonesia' && translationText) {
                 translationText.style.display = 'block';
             }
         });

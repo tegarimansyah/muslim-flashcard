@@ -168,6 +168,44 @@
             margin-bottom: 0.35rem;
         }
 
+        .type-badge {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.6rem;
+            border-radius: 5px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .type-badge.guidance {
+            background: var(--leaf-mist, #d9f0e3);
+            color: #059669;
+        }
+
+        .type-badge.bacaan {
+            background: #fde68a;
+            color: #92400e;
+        }
+
+        .type-badge.personal {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .amalan-block ul,
+        .amalan-block ol {
+            padding-left: 1.3rem;
+            margin: 0.6rem 0;
+            line-height: 1.7;
+        }
+
+        .amalan-block li {
+            margin-bottom: 0.3rem;
+        }
+
         .star-amalan-btn {
             background: var(--parchment);
             border: 1.5px solid var(--line-strong);
@@ -271,6 +309,32 @@
             margin-top: 0.25rem;
         }
 
+        .personal-note-textarea {
+            width: 100%;
+            min-height: 140px;
+            padding: 1rem 1.1rem;
+            border: 1.5px solid var(--line);
+            border-radius: var(--radius-sm);
+            background: var(--parchment);
+            color: var(--ink);
+            font-family: var(--font-body);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            resize: vertical;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .personal-note-textarea:focus {
+            outline: none;
+            border-color: var(--leaf);
+            box-shadow: 0 0 0 3px rgba(27, 94, 69, 0.12);
+        }
+
+        .personal-note-textarea::placeholder {
+            color: var(--ink-soft);
+            opacity: 0.7;
+        }
+
         .empty-state {
             text-align: center;
             padding: 2.5rem 1.5rem;
@@ -332,38 +396,84 @@
 
         <div class="amalan-list">
         {{ range $i, $card := .Params.cards }}
-            <article class="amalan-section">
+            {{/* Resolve type: explicit type, else personal flag, else bacaan if arabic/latin, else guidance */}}
+            {{ $type := $card.type | default "" }}
+            {{ if not $type }}
+              {{ if $card.personal }}
+                {{ $type = "personal" }}
+              {{ else if or $card.arabic $card.latin }}
+                {{ $type = "bacaan" }}
+              {{ else }}
+                {{ $type = "guidance" }}
+              {{ end }}
+            {{ end }}
+            {{ $badgeLabel := dict "guidance" "Panduan" "bacaan" "Bacaan" "personal" "Pribadi" }}
+            <article class="amalan-section" data-type="{{ $type }}">
                 <div class="amalan-section-head">
                     <div>
-                        <span class="amalan-index">Amalan {{ add $i 1 }}</span>
+                        <span class="amalan-index">
+                            Amalan {{ add $i 1 }}
+                            <span class="type-badge {{ $type }}">{{ index $badgeLabel $type | default $type }}</span>
+                        </span>
                         <h2>{{ $card.title }}</h2>
                     </div>
                     <button class="star-amalan-btn" data-amalan-id="{{ $card.id }}" title="Simpan amalan" type="button" aria-label="Simpan amalan">☆</button>
                 </div>
 
+                {{/* Markdown body for guidance / personal (or optional body on bacaan) */}}
+                {{ with $card.body }}
                 <div class="amalan-block">
-                    <div class="section-label">Latar belakang</div>
-                    <div class="background-text">{{ $card.background }}</div>
+                    <div class="section-label">{{ if eq $type "bacaan" }}Latar belakang{{ else }}Pembahasan{{ end }}</div>
+                    <div class="background-text">{{ . | markdownify }}</div>
                 </div>
+                {{ else }}
+                  {{ with $card.background }}
+                  <div class="amalan-block">
+                      <div class="section-label">{{ if eq $type "bacaan" }}Latar belakang{{ else }}Pembahasan{{ end }}</div>
+                      <div class="background-text">{{ . | markdownify }}</div>
+                  </div>
+                  {{ end }}
+                {{ end }}
 
-                <div class="amalan-block">
-                    <div class="section-label">Arab</div>
-                    <div class="arabic-text-large">{{ $card.arabic }}</div>
-                </div>
+                {{ if or (eq $type "bacaan") $card.arabic }}
+                  {{ with $card.arabic }}
+                  <div class="amalan-block">
+                      <div class="section-label">Arab</div>
+                      <div class="arabic-text-large">{{ . }}</div>
+                  </div>
+                  {{ end }}
+                  {{ with $card.latin }}
+                  <div class="amalan-block">
+                      <div class="section-label">Latin</div>
+                      <p class="latin-text">{{ . }}</p>
+                  </div>
+                  {{ end }}
+                  {{ with $card.translation }}
+                  <div class="amalan-block">
+                      <div class="section-label">Arti</div>
+                      <p class="translation-text">{{ . }}</p>
+                  </div>
+                  {{ end }}
+                {{ end }}
 
-                <div class="amalan-block">
-                    <div class="section-label">Latin</div>
-                    <p class="latin-text">{{ $card.latin }}</p>
-                </div>
-
-                <div class="amalan-block">
-                    <div class="section-label">Arti</div>
-                    <p class="translation-text">{{ $card.translation }}</p>
-                </div>
-
+                {{ with $card.source }}
                 <div class="source-tag">
-                    <strong>Sumber:</strong> {{ $card.source }}
+                    <strong>Sumber:</strong> {{ . }}
                 </div>
+                {{ end }}
+
+                {{ if or (eq $type "personal") $card.personal }}
+                <div class="amalan-block">
+                    <div class="section-label">Doa Pribadimu</div>
+                    <textarea
+                        class="personal-note-textarea"
+                        data-amalan-id="{{ $card.id }}"
+                        placeholder="Tuliskan doa pribadimu di sini..."
+                        aria-label="Doa pribadi"
+                    ></textarea>
+                    <p class="translation-text" style="font-size:0.82rem;margin-top:0.5rem;opacity:0.7">Tersimpan otomatis di perangkatmu.</p>
+                </div>
+                {{ end }}
             </article>
         {{ else }}
             <div class="amalan-section empty-state">
@@ -391,6 +501,18 @@
             function saveStarredAmalan(list) {
                 localStorage.setItem('starredAmalan', JSON.stringify(list)); localStorage.removeItem('starredDoas');
             }
+
+            document.querySelectorAll('.personal-note-textarea').forEach(function(ta) {
+                var id = ta.getAttribute('data-amalan-id');
+                var key = 'personalNote:' + id;
+                try {
+                    var saved = localStorage.getItem(key);
+                    if (saved) ta.value = saved;
+                } catch (e) {}
+                ta.addEventListener('input', function() {
+                    try { localStorage.setItem(key, ta.value); } catch (e) {}
+                });
+            });
 
             const starred = getStarredAmalan();
             document.querySelectorAll('.star-amalan-btn').forEach(function(btn) {

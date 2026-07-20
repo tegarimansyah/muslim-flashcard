@@ -3,8 +3,10 @@
   {{ $cards := slice }}
   {{ with $detail }}
     {{ range (.cards | default (slice)) }}
-      {{/* Default true: only exclude when menghafal is explicitly false (pahami-only) */}}
-      {{ if not (eq .menghafal false) }}
+      {{/* Skip pahami-only: menghafal:false, or type guidance/personal */}}
+      {{ $type := .type | default "" }}
+      {{ $skip := or (eq .menghafal false) (eq $type "guidance") (eq $type "personal") (eq .personal true) }}
+      {{ if not $skip }}
         {{ $cards = $cards | append . }}
       {{ end }}
     {{ end }}
