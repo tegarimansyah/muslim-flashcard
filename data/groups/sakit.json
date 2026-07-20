@@ -1,0 +1,30 @@
+{
+  "id": "sakit",
+  "title": "Saat Sakit",
+  "description": "Ikhtiar batin untuk menggugurkan dosa melalui kesabaran dan doa memohon kesembuhan fisik dari penyakit.",
+  "category": "Krisis & Musibah",
+  "icon": "🤒",
+  "color": "#dc2626",
+  "cards": [
+    {
+      "id": "doa-sakit",
+      "title": "Doa Kesembuhan",
+      "arabic": "لَا إِلَهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ، لَا إِlهَ إِلَّا اللَّهُ رَبُّ السَّمَاوَاتِ وَالْأَرْضِ، رَبُّ الْعَرْشِ الْكَرِيمِ",
+      "latin": "La ilaha illallahu al-'Azim al-Halim, la ilaha illallahu Rabbul 'Arsy al-'Azim, la ilaha illallahu Rabbus samawati wal ard, Rabbul 'Arsy al-Karim",
+      "translation": "Tiada Tuhan selain Allah Yang Maha Agung lagi Maha Penyantun. Tiada Tuhan selain Allah Rabb 'Arsy yang agung. Tiada Tuhan selain Allah Rabb langit dan bumi, Rabb 'Arsy yang mulia",
+      "background": "Doa ini diajarkan oleh Nabi Muhammad SAW untuk dibaca saat sakit. Doa ini menekankan keesaan Allah dan kekuasaan-Nya atas segala penyakit. Dibaca dengan penuh keyakinan bahwa Allah Maha Menyembuhkan.",
+      "source": "Hadits Riwayat Bukhari & Muslim",
+      "category": "sakit"
+    },
+    {
+      "id": "ruqyah-sakit",
+      "title": "Doa Ruqyah",
+      "arabic": "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ",
+      "latin": "A'udzu bikalimatillahit-tammah, min kulli syaithanin wa hammah, wa min kulli 'aynin lammah",
+      "translation": "Aku berlindung dengan kalimat-kalimat Allah yang sempurna dari setiap setan dan hewan yang menyengat, dan dari setiap mata yang jahat",
+      "background": "Doa ini dibaca untuk perlindungan dari gangguan setan, penyakit, dan kejahatan manusia. Dapat dibaca untuk diri sendiri atau untuk orang lain yang sakit. Nabi Muhammad SAW sering membaca doa ini untuk meruqyah",
+      "source": "Hadits Riwayat Bukhari",
+      "category": "sakit"
+    }
+  ]
+}

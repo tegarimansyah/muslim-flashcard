@@ -1,120 +1,197 @@
 # Contribution Guidelines
 
-## Getting Started
-
-Thank you for your interest in contributing to Muslim Flashcard! This project is open-source and welcomes contributions from everyone.
+Thank you for your interest in contributing to Muslim Flashcard!
 
 ## How to Contribute
 
 ### Reporting Issues
-- Use the provided GitHub issue templates for bugs, feature requests, or dzikir requests
-- Provide clear, detailed information and steps to reproduce
-- Include screenshots or screencasts when possible
+- Use GitHub issue templates for bugs, feature requests, or dzikir requests
+- Include clear steps to reproduce and screenshots when possible
 
 ### Content Contributions
-We're always looking to expand our collection of doa and dzikir. You can contribute content by:
-
-1. **Creating a dzikir request issue**: Use the `[DZIKIR]` template to suggest new doa
-2. **Direct contribution**: Fork the repository and add new doa to `themes/muslim-flashcard-theme/data/doa.json`
+1. **Dzikir request issue** — use the `[DZIKIR]` template
+2. **Direct contribution** — edit JSON under `data/` (see below)
 
 ### Code Contributions
-- Fork the repository
-- Create a feature branch (`git checkout -b feature/amazing-feature`)
-- Commit your changes (`git commit -m 'Add amazing feature'`)
-- Push to the branch (`git push origin feature/amazing-feature`)
-- Open a Pull Request
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit, push, and open a Pull Request
 
-### Adding New Doa Content
+---
 
-1. Edit `themes/muslim-flashcard-theme/data/doa.json`
-2. Add new doa following the existing structure:
+## Content Architecture
+
+Content is **JSON-only**. Hugo Content Adapters generate pages at build time — no per-group `.md` files.
+
+```
+data/
+├── doa.json                 # Index of all groups (source of truth for listing)
+└── groups/
+    ├── maksiat-berdosa.json # Cards for one group
+    ├── setelah-shalat.json
+    └── ...
+
+content/
+├── menghafal/
+│   ├── _index.md
+│   └── _content.gotmpl      # Adapter → virtual /menghafal/<group-id>/ pages
+└── pahami/
+    ├── _index.md
+    └── _content.gotmpl      # Adapter → virtual /pahami/<group-id>/ pages
+```
+
+| File | Role |
+|------|------|
+| `data/doa.json` | Index only: `id`, `title`, `description`, `category`, `icon`, `color`, `file`, `count` |
+| `data/groups/<id>.json` | Full group + `cards[]` (arabic, latin, translation, background, source) |
+| `_content.gotmpl` | Registers virtual pages from JSON (Hugo ≥ 0.123) |
+
+Both **Pahami** and **Menghafal** share the same group JSON; only layouts differ.
+
+---
+
+## Adding a New Group
+
+### 1. Create the group file
+
+`data/groups/nama-grup.json`:
+
+```json
+{
+  "id": "nama-grup",
+  "title": "Judul Grup",
+  "description": "Deskripsi singkat grup.",
+  "category": "Kondisi Hati & Spiritual",
+  "icon": "🤲",
+  "color": "#059669",
+  "cards": []
+}
+```
+
+### 2. Register it in the index
+
+Add an entry to `data/doa.json` → `groups`:
+
+```json
+{
+  "id": "nama-grup",
+  "title": "Judul Grup",
+  "description": "Deskripsi singkat grup.",
+  "category": "Kondisi Hati & Spiritual",
+  "icon": "🤲",
+  "color": "#059669",
+  "file": "groups/nama-grup.json",
+  "count": 0
+}
+```
+
+Keep `count` in sync with `cards.length` in the group file.
+
+### 3. Build & check
+
+```bash
+hugo server -D
+# open http://localhost:1313
+# pages appear at /pahami/nama-grup/ and /menghafal/nama-grup/
+```
+
+No new markdown files needed.
+
+---
+
+## Adding a New Doa (to an existing group)
+
+Edit `data/groups/<group-id>.json` and append to `cards`:
+
 ```json
 {
   "id": "unique-id",
-  "title": "Doa Name",
-  "arabic": "أَرْبِكُونِي",
-  "latin": "Ur biquni",
-  "translation": "Translation in Indonesian",
-  "background": "Historical context and significance",
-  "source": "Qur'an/Hadits reference",
+  "title": "Nama Doa",
+  "arabic": "النص العربي",
+  "latin": "Transliterasi latin",
+  "translation": "Arti dalam Bahasa Indonesia",
+  "background": "Asal usul dan konteks",
+  "source": "Qur'an / Hadits reference",
   "category": "category-name"
 }
 ```
-3. Update the group information if needed
-4. Test locally before pushing
+
+Then update `count` for that group in `data/doa.json`.
+
+### Content guidelines
+- Accurate Arabic with proper diacritics
+- Reliable sources (Qur'an, authentic hadits)
+- Clear Indonesian translation and background
+- Unique `id` within the whole project (kebab-case)
+
+---
 
 ## Development Setup
 
 ### Prerequisites
-- Hugo Extended v0.133.0 or later
-- Node.js (optional, for additional tools)
+- **Hugo Extended v0.123+** (Content Adapters; CI uses 0.128+)
+- Optional: Node.js for extra tooling
 
-### Local Development
+### Local development
+
 ```bash
-# Clone the repository
 git clone https://github.com/tegarimansyah/muslim-flashcard.git
 cd muslim-flashcard
 
-# Start local development server
-./hugo.exe server --buildDrafts --disableFastRender
-
-# Open http://localhost:1313 in your browser
+hugo server -D
+# http://localhost:1313
 ```
 
-## Style Guidelines
+### Production build
 
-### Content
-- Use clear, respectful language
-- Provide accurate Arabic text with proper diacritics
-- Include reliable sources (Qur'an, authentic hadits, etc.)
-- Add meaningful context and background information
+```bash
+hugo --minify
+# output in public/
+```
 
-### Code
-- Follow existing code style and conventions
-- Use semantic HTML
-- Write clean, maintainable JavaScript
-- Ensure responsive design works on mobile devices
+---
 
-### Commit Messages
-- Use clear, descriptive commit messages
-- Prefix with type: `feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `test:`, `chore:`
-- Example: `feat: add 3-zone tap areas for story navigation`
+## Code Style
 
-## Code Review Process
+- Follow existing template structure under `themes/muslim-flashcard-theme/layouts/`
+- Prefer **server-side rendering** from page params / `site.Data` — avoid `fetch()` of content JSON
+- Keep interactive JS (search, favorites, story navigation) client-side only
+- Responsive / mobile-first
 
-- All pull requests go through code review
-- Be responsive to feedback and suggestions
-- Keep discussions constructive and focused
-- Address review comments before merging
+### Commit messages
+- `feat:`, `fix:`, `docs:`, `refactor:`, `content:` prefixes preferred
+
+---
 
 ## Project Structure
 
 ```
 muslim-flashcard/
-├── content/              # Hugo content files
-│   ├── pahami/          # Pahami mode pages
-│   └── menghafal/       # Menghafal mode pages
+├── content/
+│   ├── menghafal/          # Content adapter (no stub .md pages)
+│   └── pahami/             # Content adapter (no stub .md pages)
+├── data/
+│   ├── doa.json            # Group index
+│   └── groups/             # Per-group JSON (cards)
 ├── themes/
 │   └── muslim-flashcard-theme/
-│       ├── layouts/     # Hugo templates
-│       ├── static/      # Static assets (CSS, JS)
-│       └── data/        # JSON data files
-│           └── doa.json # Main content file
+│       ├── layouts/        # Hugo templates (SSR)
+│       └── static/         # CSS, images, assets
+├── static/                 # Site-wide static files (CNAME, etc.)
 ├── .github/
-│   └── ISSUE_TEMPLATE/  # GitHub issue templates
-└── hugo.toml            # Hugo configuration
+│   └── ISSUE_TEMPLATE/
+└── hugo.toml
 ```
+
+---
 
 ## License
 
-This project is open-source. By contributing, you agree that your contributions will be licensed under the same license as the project.
+By contributing, you agree that your contributions are licensed under the same license as the project.
 
-## Questions or Issues?
+## Questions?
 
-- Open an issue using the appropriate template
-- Join our discussions for community support
-- Check existing documentation and FAQs
+- Open an issue with the appropriate template
+- Check README and existing discussions
 
-## Recognition
-
-Contributors will be credited in the project's contributor list. Thank you for helping make Muslim Flashcard better for everyone! 🤲
+Contributors are credited in the project. Thank you — 🤲

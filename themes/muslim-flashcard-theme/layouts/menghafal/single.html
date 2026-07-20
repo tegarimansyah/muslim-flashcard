@@ -232,25 +232,28 @@
         <div class="progress-container" id="progressContainer"></div>
         
         <div class="story-content" id="storyContent">
-            <!-- Server-side rendered story slides -->
-            {{ $groupId := .File.BaseFileName }}
-            {{ range $.Site.Data.doa.groups }}
-                {{ if eq .id $groupId }}
-                    {{ $groupData := . }}
-                    {{ range $index, $card := .cards }}
-                        <div class="story-slide{{ if eq $index 0 }} active{{ end }}">
-                            <div class="group-header">
-                                <div class="group-icon">{{ $groupData.icon }}</div>
-                                <p class="group-title">{{ $groupData.title }}</p>
-                            </div>
-                            <h3 class="doa-title">{{ $card.title }}</h3>
-                            
-                            <div class="arabic-text">{{ $card.arabic }}</div>
-                            <p class="latin-text">{{ $card.latin }}</p>
-                            <p class="translation-text">{{ $card.translation }}</p>
-                        </div>
-                    {{ end }}
-                {{ end }}
+            {{ $groupTitle := .Params.groupTitle }}
+            {{ $icon := .Params.icon }}
+            {{ range $index, $card := .Params.cards }}
+                <div class="story-slide{{ if eq $index 0 }} active{{ end }}">
+                    <div class="group-header">
+                        <div class="group-icon">{{ $icon }}</div>
+                        <p class="group-title">{{ $groupTitle }}</p>
+                    </div>
+                    <h3 class="doa-title">{{ $card.title }}</h3>
+                    <div class="arabic-text">{{ $card.arabic }}</div>
+                    <p class="latin-text">{{ $card.latin }}</p>
+                    <p class="translation-text">{{ $card.translation }}</p>
+                </div>
+            {{ else }}
+                <div class="story-slide active">
+                    <div class="group-header">
+                        <div class="group-icon">{{ $icon }}</div>
+                        <p class="group-title">{{ $groupTitle }}</p>
+                    </div>
+                    <h3 class="doa-title">Belum ada doa</h3>
+                    <p class="translation-text">Konten untuk grup ini masih kosong.</p>
+                </div>
             {{ end }}
         </div>
 

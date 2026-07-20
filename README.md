@@ -4,50 +4,57 @@ Kumpulan doa-doa dalam Islam untuk berbagai situasi dalam kehidupan sehari-hari.
 
 ## Fitur
 
-- 📚 Kumpulan doa-doa Islami terorganisir dalam kategori
-- 📖 Mode "Lihat untuk Pahami" dengan asal usul dan penjelasan lengkap
-- 🧠 Mode "Membaca dan Menghafal" dengan tampilan interaktif
-- 🎨 Desain responsif dan cantik
-- 🔍 Fitur pencarian doa
-- 📱 Mobile-friendly
+- 📚 Kumpulan doa Islami terorganisir per kategori
+- 📖 Mode **Pahami** — asal usul dan penjelasan lengkap
+- 🧠 Mode **Menghafal** — tampilan story interaktif
+- 🎨 Desain responsif
+- 🔍 Pencarian & filter kategori
+- ⭐ Favorit (localStorage)
 
-## Struktur Kategori
+## Struktur Konten
 
-- Ketika Merasa Terlalu Banyak Maksiat dan Berdosa
-- Doa Pagi dan Petang
-- Doa Sebelum Tidur
-- Doa Setelah Shalat
-- Doa Saat Sakit
-- Doa Musafir
+Satu sumber data JSON; halaman digenerate Hugo Content Adapters (tanpa file markdown per grup):
 
-## Cara Menambah Doa Baru
-
-Edit file `themes/muslim-flashcard-theme/data/doa.json` dan tambahkan doa baru sesuai format yang sudah ada.
-
-## Lokal Pengembangan
-
-```bash
-# Clone repository ini
-git clone https://github.com/username/muslim-flashcard.git
-cd muslim-flashcard
-
-# Jalankan Hugo server
-hugo server -D
-
-# Buka http://localhost:1313
+```
+data/
+├── doa.json              # Index grup
+└── groups/
+    └── <group-id>.json   # Detail + daftar doa
 ```
 
-## Build untuk Produksi
+| Mode | URL |
+|------|-----|
+| Pahami | `/pahami/<group-id>/` |
+| Menghafal | `/menghafal/<group-id>/?type=arabic\|latin\|indonesia` |
+
+## Cara Menambah Doa
+
+1. Edit `data/groups/<group-id>.json` — tambah item di `cards`
+2. Update `count` di `data/doa.json` untuk grup tersebut
+3. Lihat [CONTRIBUTING.md](CONTRIBUTING.md) untuk grup baru dan format lengkap
+
+## Pengembangan Lokal
+
+Butuh **Hugo Extended ≥ 0.123**.
+
+```bash
+git clone https://github.com/tegarimansyah/muslim-flashcard.git
+cd muslim-flashcard
+
+hugo server -D
+# http://localhost:1313
+```
+
+## Build Produksi
 
 ```bash
 hugo --minify
+# output: public/
 ```
 
-File yang sudah di-build akan berada di folder `public/`.
+## Deploy
 
-## Deploy ke GitHub Pages
-
-Repository ini sudah dikonfigurasi untuk auto-deploy ke GitHub Pages menggunakan GitHub Actions. Setiap kali Anda push ke branch `main`, website akan otomatis di-deploy.
+GitHub Actions men-deploy ke GitHub Pages saat push ke `main`. Domain: [dzikir.ethiqshub.com](https://dzikir.ethiqshub.com).
 
 ## Lisensi
 
