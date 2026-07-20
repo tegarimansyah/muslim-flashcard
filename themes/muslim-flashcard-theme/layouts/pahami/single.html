@@ -4,182 +4,324 @@
     {{ partial "seo.html" . }}
     <link rel="stylesheet" href="/css/styles.css">
     <style>
-        .container {
-            max-width: 800px;
+        body {
+            padding-bottom: 3rem;
+        }
+
+        .pahami-shell {
+            max-width: 720px;
             margin: 0 auto;
-            padding: 1rem;
+            padding: 0 1.25rem;
+        }
+
+        .pahami-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.25rem 0 0.5rem;
+            flex-wrap: wrap;
         }
 
         .breadcrumb {
-            padding: 1rem 0;
+            padding: 0;
         }
 
         .breadcrumb a {
-            color: var(--primary-color);
+            color: var(--leaf);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
         }
 
         .breadcrumb a:hover {
-            color: #047857;
+            color: var(--ink);
+        }
+
+        .pahami-mode-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--ink-soft);
+            text-decoration: none;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            border: 1.5px solid var(--line-strong);
+            background: var(--cream);
+            transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+        }
+
+        .pahami-mode-link:hover {
+            border-color: var(--leaf);
+            color: var(--leaf);
+            background: var(--leaf-mist);
         }
 
         .group-header {
             text-align: center;
-            padding: 2rem 0;
-            margin-bottom: 1rem;
+            padding: 1.75rem 0 2rem;
+            position: relative;
+        }
+
+        .group-header::after {
+            content: '';
+            display: block;
+            width: 64px;
+            height: 2px;
+            margin: 1.5rem auto 0;
+            background: linear-gradient(90deg, transparent, var(--gold-soft), transparent);
         }
 
         .group-icon-large {
-            width: 100px;
-            height: 100px;
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            margin: 0 auto 1.5rem;
-            box-shadow: var(--shadow-lg);
+            font-size: 2.75rem;
+            margin: 0 auto 1.25rem;
+            box-shadow: var(--shadow-lg), inset 0 0 0 1px rgba(255, 255, 255, 0.35);
         }
 
         .group-header h1 {
-            font-size: 2rem;
-            color: var(--dark-color);
-            margin-bottom: 1rem;
+            font-family: var(--font-display);
+            font-size: clamp(1.7rem, 4vw, 2.25rem);
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.6rem;
+            line-height: 1.25;
         }
 
         .group-description {
-            color: var(--gray-medium);
-            font-size: 1.1rem;
+            color: var(--ink-soft);
+            font-size: 1.05rem;
+            max-width: 32rem;
+            margin: 0 auto;
+            line-height: 1.55;
+        }
+
+        .doa-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding-bottom: 2rem;
         }
 
         .doa-section {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            background: var(--cream);
+            border-radius: var(--radius);
+            padding: 1.75rem 1.65rem;
             box-shadow: var(--shadow);
-            border: 2px solid var(--gray-light);
-            transition: all 0.3s ease;
+            border: 1.5px solid var(--line);
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .doa-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--leaf), transparent);
+            opacity: 0.45;
         }
 
         .doa-section:hover {
-            transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
-            border-color: var(--primary-color);
+            border-color: rgba(27, 94, 69, 0.2);
+        }
+
+        .doa-section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.35rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line);
         }
 
         .doa-section h2 {
-            font-size: 1.5rem;
-            color: var(--dark-color);
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--gray-light);
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .doa-index {
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--leaf);
+            display: block;
+            margin-bottom: 0.35rem;
+        }
+
+        .star-doa-btn {
+            background: var(--parchment);
+            border: 1.5px solid var(--line-strong);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 1.15rem;
+            cursor: pointer;
+            color: var(--ink-soft);
+            transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .star-doa-btn:hover {
+            transform: scale(1.1);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .star-doa-btn.starred {
+            color: var(--gold);
+            border-color: var(--gold-soft);
+            background: var(--gold-glow);
+        }
+
+        .doa-block {
+            margin-bottom: 1.35rem;
+        }
+
+        .doa-block:last-of-type {
+            margin-bottom: 0;
         }
 
         .section-label {
-            font-size: 1.1rem;
+            font-size: 0.72rem;
             font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            color: var(--leaf);
+            margin-bottom: 0.55rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
         }
 
         .arabic-text-large {
-            font-family: 'Traditional Arabic', 'Arial Unicode MS', sans-serif;
-            font-size: 1.8rem;
+            font-family: var(--font-arabic);
+            font-size: clamp(1.55rem, 3.5vw, 1.95rem);
             text-align: right;
             direction: rtl;
             line-height: 2.2;
-            color: var(--dark-color);
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
-            border-radius: 12px;
-            border-right: 4px solid var(--primary-color);
-            margin-bottom: 1.5rem;
+            color: var(--ink);
+            padding: 1.35rem 1.4rem;
+            background: linear-gradient(155deg, var(--leaf-mist) 0%, rgba(228, 240, 234, 0.35) 100%);
+            border-radius: var(--radius-sm);
+            border-right: 3px solid var(--leaf);
+            margin: 0;
         }
 
         .latin-text {
             font-style: italic;
-            color: #4b5563;
+            color: var(--ink-soft);
             line-height: 1.8;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            margin: 0;
+            padding: 0 0.15rem;
         }
 
         .translation-text {
-            color: var(--dark-color);
+            color: var(--ink);
             line-height: 1.8;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            margin: 0;
+            padding: 0 0.15rem;
         }
 
         .background-text {
-            color: #4b5563;
+            color: var(--ink-soft);
             line-height: 1.8;
-            font-size: 1rem;
-            background: var(--light-color);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--secondary-color);
-            margin-bottom: 1.5rem;
+            font-size: 0.98rem;
+            background: var(--parchment-deep);
+            padding: 1.15rem 1.3rem;
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--gold);
+            margin: 0;
         }
 
         .source-tag {
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-            color: #92400e;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
+            background: linear-gradient(135deg, var(--gold-glow), #f0d9a0);
+            color: #6b4e0a;
+            padding: 0.75rem 1.15rem;
+            border-radius: 10px;
             font-weight: 600;
+            font-size: 0.9rem;
             text-align: center;
             display: inline-block;
+            margin-top: 0.25rem;
         }
 
-        /* Responsive */
+        .empty-state {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+        }
+
+        .empty-state h2 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pahami-footer {
+            text-align: center;
+            padding: 1rem 0 2rem;
+            color: var(--ink-soft);
+            font-size: 0.88rem;
+        }
+
+        .pahami-footer a {
+            color: var(--leaf);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .pahami-footer a:hover {
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
             .doa-section {
-                padding: 1.5rem;
-            }
-
-            .arabic-text-large {
-                font-size: 1.5rem;
+                padding: 1.35rem 1.2rem;
             }
 
             .group-header h1 {
-                font-size: 1.5rem;
+                font-size: 1.55rem;
             }
-        }
 
-        /* Star Doa Button */
-        .star-doa-btn {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gray-medium);
-            transition: all 0.25s ease;
-            padding: 0.25rem;
-            line-height: 1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .star-doa-btn:hover {
-            transform: scale(1.15);
-            color: #f59e0b;
-        }
-        .star-doa-btn.starred {
-            color: #f59e0b;
+            .arabic-text-large {
+                font-size: 1.45rem;
+                padding: 1.1rem 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="breadcrumb">
-            <a href="/">← Kembali ke Beranda</a>
+    <div class="pahami-shell">
+        <div class="pahami-top">
+            <div class="breadcrumb">
+                <a href="/">← Beranda</a>
+            </div>
+            <a class="pahami-mode-link" href="/menghafal/{{ .Params.groupId }}/">Hafalkan →</a>
         </div>
 
         <div class="group-header">
@@ -188,35 +330,52 @@
             <p class="group-description">{{ .Params.description }}</p>
         </div>
 
-        {{ range $card := .Params.cards }}
-            <div class="doa-section">
-                <h2 style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 100%;">
-                    <span>{{ $card.title }}</span>
-                    <button class="star-doa-btn" data-doa-id="{{ $card.id }}" title="Star Doa">☆</button>
-                </h2>
+        <div class="doa-list">
+        {{ range $i, $card := .Params.cards }}
+            <article class="doa-section">
+                <div class="doa-section-head">
+                    <div>
+                        <span class="doa-index">Doa {{ add $i 1 }}</span>
+                        <h2>{{ $card.title }}</h2>
+                    </div>
+                    <button class="star-doa-btn" data-doa-id="{{ $card.id }}" title="Simpan doa" type="button" aria-label="Simpan doa">☆</button>
+                </div>
 
-                <div class="section-label">📜 Doa (Arab)</div>
-                <div class="arabic-text-large">{{ $card.arabic }}</div>
+                <div class="doa-block">
+                    <div class="section-label">Arab</div>
+                    <div class="arabic-text-large">{{ $card.arabic }}</div>
+                </div>
 
-                <div class="section-label">📝 Bacaan Latin</div>
-                <p class="latin-text">{{ $card.latin }}</p>
+                <div class="doa-block">
+                    <div class="section-label">Latin</div>
+                    <p class="latin-text">{{ $card.latin }}</p>
+                </div>
 
-                <div class="section-label">🌍 Arti Bahasa Indonesia</div>
-                <p class="translation-text">{{ $card.translation }}</p>
+                <div class="doa-block">
+                    <div class="section-label">Arti</div>
+                    <p class="translation-text">{{ $card.translation }}</p>
+                </div>
 
-                <div class="section-label">📚 Asal Usul dan Latar Belakang</div>
-                <div class="background-text">{{ $card.background }}</div>
+                <div class="doa-block">
+                    <div class="section-label">Latar belakang</div>
+                    <div class="background-text">{{ $card.background }}</div>
+                </div>
 
                 <div class="source-tag">
-                    <strong>📖 Sumber:</strong> {{ $card.source }}
+                    <strong>Sumber:</strong> {{ $card.source }}
                 </div>
-            </div>
+            </article>
         {{ else }}
-            <div class="doa-section">
+            <div class="doa-section empty-state">
                 <h2>Belum ada doa</h2>
                 <p class="translation-text">Konten untuk grup ini masih kosong. Silakan kontribusi di repositori.</p>
             </div>
         {{ end }}
+        </div>
+
+        <p class="pahami-footer">
+            <a href="/">← Kembali ke beranda</a>
+        </p>
     </div>
 
     <script>
@@ -234,9 +393,7 @@
             }
 
             const starred = getStarredDoas();
-            const buttons = document.querySelectorAll('.star-doa-btn');
-
-            buttons.forEach(btn => {
+            document.querySelectorAll('.star-doa-btn').forEach(function(btn) {
                 const doaId = btn.getAttribute('data-doa-id');
                 if (starred.includes(doaId)) {
                     btn.classList.add('starred');
@@ -248,7 +405,7 @@
                 btn.addEventListener('click', function() {
                     let currentStarred = getStarredDoas();
                     if (currentStarred.includes(doaId)) {
-                        currentStarred = currentStarred.filter(id => id !== doaId);
+                        currentStarred = currentStarred.filter(function(id) { return id !== doaId; });
                         btn.classList.remove('starred');
                         btn.textContent = '☆';
                     } else {

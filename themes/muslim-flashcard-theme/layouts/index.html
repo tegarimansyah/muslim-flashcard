@@ -1,19 +1,19 @@
 {{ define "main" }}
 <style>
-    /* Favorites Section */
     .favorites-section {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        background: rgba(255, 255, 255, 0.85);
-        padding: 1.5rem;
-        border-radius: 16px;
-        border: 2px dashed var(--primary-color);
+        margin-top: 1.75rem;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(145deg, var(--cream), var(--gold-glow));
+        padding: 1.35rem 1.5rem;
+        border-radius: var(--radius);
+        border: 1.5px solid rgba(184, 134, 11, 0.28);
         box-shadow: var(--shadow);
     }
     .favorites-title {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: var(--primary-color);
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: var(--ink);
         margin-bottom: 1rem;
         display: flex;
         align-items: center;
@@ -21,35 +21,34 @@
     }
     .favorites-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 0.75rem;
     }
     .fav-card {
-        background: var(--white);
-        border: 2px solid var(--gray-light);
-        border-radius: 12px;
-        padding: 0.75rem 1rem;
+        background: var(--cream);
+        border: 1.5px solid var(--line);
+        border-radius: var(--radius-sm);
+        padding: 0.7rem 0.9rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
         cursor: pointer;
-        transition: all 0.25s ease;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .fav-card:hover {
         transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
-        border-color: var(--primary-color);
+        box-shadow: var(--shadow);
+        border-color: var(--gold);
     }
     .fav-info {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
+        gap: 0.7rem;
         min-width: 0;
         flex: 1;
     }
     .fav-icon {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
         flex-shrink: 0;
     }
     .fav-text {
@@ -57,25 +56,25 @@
         flex: 1;
     }
     .fav-name {
-        font-size: 0.95rem;
+        font-size: 0.92rem;
         font-weight: 600;
-        color: var(--dark-color);
+        color: var(--ink);
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
     .fav-type {
-        font-size: 0.7rem;
-        color: var(--gray-medium);
+        font-size: 0.68rem;
+        color: var(--ink-soft);
         text-transform: uppercase;
         font-weight: 700;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.06em;
     }
     .fav-star {
         background: none;
         border: none;
-        color: #f59e0b;
-        font-size: 1.25rem;
+        color: var(--gold);
+        font-size: 1.2rem;
         cursor: pointer;
         padding: 0.25rem;
         display: flex;
@@ -84,14 +83,13 @@
         transition: transform 0.2s ease;
     }
     .fav-star:hover {
-        transform: scale(1.25);
+        transform: scale(1.2);
     }
 
-    /* Search and Filter Layout */
     .search-filter-container {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.75rem;
+        gap: 0.65rem;
         max-width: 720px;
         margin: 0 auto;
         justify-content: stretch;
@@ -107,40 +105,44 @@
         width: auto;
     }
     .category-select {
-        flex: 0 1 240px;
+        flex: 0 1 220px;
         min-width: 0;
         width: auto;
         max-width: 100%;
-        padding: 1rem 2.75rem 1rem 1.25rem;
-        font-size: 1rem;
-        border: 2px solid var(--gray-light);
-        border-radius: 50px;
+        padding: 0.95rem 2.6rem 0.95rem 1.2rem;
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        border: 1.5px solid var(--line-strong);
+        border-radius: 999px;
         outline: none;
-        transition: all 0.3s ease;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
         box-shadow: var(--shadow);
         cursor: pointer;
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
-        background-color: var(--white);
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-color: var(--cream);
+        color: var(--ink);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%233d5348' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
         background-repeat: no-repeat;
-        background-position: right 1.15rem center;
-        background-size: 0.9rem;
+        background-position: right 1.1rem center;
+        background-size: 0.85rem;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
     .category-select::-ms-expand {
         display: none;
     }
-    .category-select:focus, .category-select:hover {
-        border-color: var(--primary-color);
-        box-shadow: var(--shadow-lg);
+    .category-select:focus,
+    .category-select:hover {
+        border-color: var(--leaf);
+        box-shadow: 0 0 0 3px rgba(27, 94, 69, 0.12), var(--shadow);
+        background-color: var(--white);
     }
     @media (max-width: 640px) {
         .search-filter-container {
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 0.65rem;
             max-width: 100%;
         }
         .search-filter-container .search-input,
@@ -151,99 +153,44 @@
         }
     }
 
-    /* Star button on group cards */
-    .group-card {
-        position: relative;
-    }
     .star-group-btn {
         position: absolute;
-        top: 1rem;
-        right: 1rem;
-        background: rgba(255, 255, 255, 0.95);
-        border: 2px solid var(--gray-light);
+        top: 0.9rem;
+        right: 0.9rem;
+        background: var(--cream);
+        border: 1.5px solid var(--line-strong);
         border-radius: 50%;
-        width: 36px;
-        height: 36px;
+        width: 34px;
+        height: 34px;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        font-size: 1.1rem;
-        color: var(--gray-medium);
-        transition: all 0.25s ease;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        font-size: 1rem;
+        color: var(--ink-soft);
+        transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        box-shadow: 0 1px 4px rgba(26, 46, 36, 0.06);
         z-index: 10;
     }
     .star-group-btn:hover {
-        transform: scale(1.15);
-        border-color: #f59e0b;
-        color: #f59e0b;
-        background: var(--white);
+        transform: scale(1.12);
+        border-color: var(--gold);
+        color: var(--gold);
     }
     .star-group-btn.starred {
-        color: #f59e0b;
-        border-color: #f59e0b;
-        background: var(--white);
+        color: var(--gold);
+        border-color: var(--gold-soft);
+        background: var(--gold-glow);
     }
 
-    /* Starred Doa Modal styles inside index.html */
     .modal-large {
-        max-width: 800px;
-        width: 90%;
+        max-width: 720px;
+        width: 92%;
     }
-    .section-label {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: var(--primary-color);
-        margin-bottom: 0.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    .arabic-text-large {
-        font-family: 'Traditional Arabic', 'Arial Unicode MS', sans-serif;
-        font-size: 1.8rem;
-        text-align: right;
-        direction: rtl;
-        line-height: 2.2;
-        color: var(--dark-color);
-        padding: 1.5rem;
-        background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
-        border-radius: 12px;
-        border-right: 4px solid var(--primary-color);
-        margin-bottom: 1.5rem;
-    }
-    .latin-text {
-        font-style: italic;
-        color: #4b5563;
-        line-height: 1.8;
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
-    }
-    .translation-text {
-        color: var(--dark-color);
-        line-height: 1.8;
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
-    }
-    .background-text {
-        color: #4b5563;
-        line-height: 1.8;
-        font-size: 1rem;
-        background: var(--light-color);
-        padding: 1.5rem;
-        border-radius: 12px;
-        border-left: 4px solid var(--secondary-color);
-        margin-bottom: 1.5rem;
-    }
-    .source-tag {
-        background: linear-gradient(135deg, #fef3c7, #fde68a);
-        color: #92400e;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        font-weight: 600;
-        text-align: center;
-        display: inline-block;
+    .modal-body {
+        max-height: min(70vh, 640px);
+        overflow-y: auto;
+        padding-right: 0.25rem;
     }
 </style>
 
@@ -257,14 +204,14 @@
 
 <div class="container">
     <div id="favoritesSection" class="favorites-section" style="display: none;">
-        <h3 class="favorites-title">⭐ Favorit Anda</h3>
+        <h3 class="favorites-title">✦ Favorit Anda</h3>
         <div class="favorites-grid" id="favoritesGrid"></div>
     </div>
 
     <div class="search-section">
         <div class="search-filter-container">
-            <input type="text" id="searchInput" placeholder="🔍 Cari doa..." class="search-input">
-            <select id="categoryFilter" class="category-select">
+            <input type="text" id="searchInput" placeholder="Cari doa atau situasi..." class="search-input" aria-label="Cari doa">
+            <select id="categoryFilter" class="category-select" aria-label="Filter kategori">
                 <option value="">Semua Kategori</option>
                 {{ range sort $categories }}
                 <option value="{{ . }}">{{ . }}</option>
@@ -278,14 +225,13 @@
         {{ $detail := index site.Data.groups .id }}
         {{ $count := .count | default 0 }}
         {{ with $detail }}{{ $count = len (.cards | default (slice)) }}{{ end }}
-        <div class="group-card" data-group-id="{{ .id }}" data-category="{{ .category }}" style="border-color: {{ .color }}">
+        <div class="group-card" data-group-id="{{ .id }}" data-category="{{ .category }}" style="color: {{ .color }}; border-color: color-mix(in srgb, {{ .color }} 35%, transparent)">
             <button class="star-group-btn" data-group-id="{{ .id }}" title="Star Grup" onclick="event.stopPropagation(); toggleStarGroup('{{ .id }}')">☆</button>
             <div class="group-icon" style="background-color: {{ .color }}">{{ .icon }}</div>
             <h2>{{ .title }}</h2>
             <p class="group-description">{{ .description }}</p>
-            <p class="card-count">{{ $count }} doa</p>
             <button type="button" class="btn-explore" onclick="showOptionModal('{{ .id }}')">
-                Lihat Doa →
+                Buka {{ $count }} Doa
             </button>
         </div>
         {{ end }}
