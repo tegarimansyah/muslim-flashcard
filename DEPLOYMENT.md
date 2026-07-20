@@ -17,7 +17,7 @@ Since you've already configured Cloudflare to point to `tegarimansyah.github.io`
 
 ### Option 1: Via GitHub Web Interface (Recommended)
 
-1. Go to: https://github.com/tegarimansyah/muslim-flashcard/settings/pages
+1. Go to: https://github.com/tegarimansyah/dzikir/settings/pages
 2. Under "Custom domain", enter: `dzikir.ethiqshub.com`
 3. Click "Save"
 4. Wait for GitHub to verify the domain (this creates a DNS TXT record)
@@ -26,7 +26,7 @@ Since you've already configured Cloudflare to point to `tegarimansyah.github.io`
 ### Option 2: Via GitHub CLI
 
 ```bash
-gh api repos/tegarimansyah/muslim-flashcard/pages -X PUT -f cname=dzikir.ethiqshub.com
+gh api repos/tegarimansyah/dzikir/pages -X PUT -f cname=dzikir.ethiqshub.com
 ```
 
 ## Cloudflare Configuration:

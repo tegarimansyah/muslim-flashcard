@@ -1,6 +1,7 @@
-# Muslim Flashcard
+# Dzikir with EthiqsHub
 
-Kumpulan amalan Islami (doa, dzikir, dan bacaan) untuk berbagai situasi dalam kehidupan sehari-hari.
+Kumpulan amalan Islami (doa, dzikir, dan bacaan) untuk berbagai situasi dalam kehidupan sehari-hari.  
+Live: [dzikir.ethiqshub.com](https://dzikir.ethiqshub.com)
 
 ## Fitur
 
@@ -19,7 +20,7 @@ Satu sumber data JSON; halaman digenerate Hugo Content Adapters (tanpa file mark
 data/
 ├── amalan.json              # Index grup
 └── groups/
-    └── <group-id>.json   # Detail + daftar amalan
+    └── <group-id>.json      # Detail + daftar amalan
 ```
 
 | Mode | URL |
@@ -31,16 +32,16 @@ data/
 
 1. Edit `data/groups/<group-id>.json` — tambah item di `cards`
 2. Update `count` di `data/amalan.json` untuk grup tersebut
-3. Set `"menghafal": false` jika item hanya untuk mode Pahami (default: tampil di keduanya)
-4. Lihat [CONTRIBUTING.md](CONTRIBUTING.md) untuk grup baru dan format lengkap
+3. Set `"type": "guidance"` / `"personal"` atau `"menghafal": false` jika hanya untuk mode Pahami
+4. Lihat [CONTRIBUTING.md](CONTRIBUTING.md) untuk grup baru, tipe kartu, dan format lengkap
 
 ## Pengembangan Lokal
 
 Butuh **Hugo Extended ≥ 0.123**.
 
 ```bash
-git clone https://github.com/tegarimansyah/muslim-flashcard.git
-cd muslim-flashcard
+git clone https://github.com/tegarimansyah/dzikir.git
+cd dzikir
 
 hugo server -D
 # http://localhost:1313
@@ -59,4 +60,4 @@ GitHub Actions men-deploy ke GitHub Pages saat push ke `main`. Domain: [dzikir.e
 
 ## Lisensi
 
-Dibuat dengan ❤️ untuk umat
+Dibuat dengan ❤️ sebagai wasilah untuk mendekatkan diri kepada-Nya.

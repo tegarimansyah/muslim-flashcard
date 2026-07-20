@@ -1,6 +1,6 @@
 # Contribution Guidelines
 
-Thank you for your interest in contributing to Muslim Flashcard!
+Thank you for your interest in contributing to **Dzikir with EthiqsHub**!
 
 ## How to Contribute
 
@@ -169,8 +169,8 @@ Then update `count` for that group in `data/amalan.json` (total cards, including
 ### Local development
 
 ```bash
-git clone https://github.com/tegarimansyah/muslim-flashcard.git
-cd muslim-flashcard
+git clone https://github.com/tegarimansyah/dzikir.git
+cd dzikir
 
 hugo server -D
 # http://localhost:1313
@@ -200,15 +200,15 @@ hugo --minify
 ## Project Structure
 
 ```
-muslim-flashcard/
+dzikir/
 ├── content/
 │   ├── menghafal/          # Content adapter (no stub .md pages)
 │   └── pahami/             # Content adapter (no stub .md pages)
 ├── data/
-│   ├── amalan.json            # Group index
+│   ├── amalan.json         # Group index
 │   └── groups/             # Per-group JSON (cards)
 ├── themes/
-│   └── muslim-flashcard-theme/
+│   └── muslim-flashcard-theme/   # Hugo theme (folder name legacy)
 │       ├── layouts/        # Hugo templates (SSR)
 │       └── static/         # CSS, images, assets
 ├── static/                 # Site-wide static files (CNAME, etc.)
