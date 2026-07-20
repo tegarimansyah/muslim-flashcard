@@ -1,40 +1,173 @@
 {
   "id": "maksiat-berdosa",
   "title": "Bertaubat dari Maksiat",
-  "description": "Langkah pembersihan diri dan pemutusan lingkaran dosa saat hati dipenuhi penyesalan setelah melanggar batasan Allah.",
+  "description": "Panduan lengkap bertaubat secara bertahap — dari niat hingga amalan penghapus dosa sehari-hari.",
   "category": "Kondisi Hati & Spiritual",
   "icon": "🤲",
   "color": "#059669",
   "cards": [
     {
-      "id": "taubat-nasuh",
-      "title": "Doa Taubat Nasuha",
-      "arabic": "رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ",
-      "latin": "Rabbana zhalamna anfusana wa illam taghfir lana wa tarhamna lanakunanna minal khasirin",
-      "translation": "Ya Tuhan kami, kami telah menzalimi diri kami sendiri, dan jika Engkau tidak mengampuni kami dan memberi rahmat kepada kami, niscaya kami termasuk orang-orang yang merugi",
-      "background": "Doa ini diajarkan oleh Allah SWT dalam Surah Al-A'raf ayat 23. Diucapkan oleh Nabi Adam AS dan Hawa setelah mereka melanggar perintah Allah dengan memakan buah khuldi di surga. Doa ini menunjukkan keikhlasan dalam memohon ampunan atas segala kesalahan yang diperbuat.",
+      "id": "syarat-taubat",
+      "title": "Syarat Taubat Nasuha",
+      "source": "Qur'an Surah An-Nur: 31, Shahih Muslim",
+      "category": "taubat",
+      "menghafal": false,
+      "type": "guidance",
+      "body": "Alhamdulillah, kita masih diberi hidayah untuk mau bertaubat — karena Allah sangat mencintai hamba-hamba-Nya yang bertaubat.\n\nTaubat nasuha memiliki **tiga syarat utama**:\n\n1. **Menyesali** apa yang telah diperbuat\n2. **Segera menghentikan** maksiat tersebut\n3. **Bertekad kuat** untuk tidak mengulanginya kembali\n\nSebagaimana firman Allah: *\"Bertaubatlah kamu semua kepada Allah, wahai orang-orang yang beriman, agar kamu beruntung.\"*"
+    },
+    {
+      "id": "khauf-raja",
+      "title": "Khauf dan Raja'",
+      "source": "Madarij al-Salikin, Ibnu Qayyim",
+      "category": "taubat",
+      "menghafal": false,
+      "type": "guidance",
+      "body": "Kita memang merasa bersalah karena telah berbuat maksiat, namun **jangan sampai berputus asa** dari rahmat Allah.\n\nKita harus memiliki:\n\n- **Khauf** — takut akan adzab Allah (tidak menggampangkan dosa)\n- **Raja'** — berharap penuh diampuni oleh Allah\n\nKeseimbangan ini merupakan sifat orang-orang beriman. Imam Ibnu Qayyim menyebutkan bahwa hati seorang mukmin berputar antara *khauf* dan *raja'* — keduanya tidak bisa dipisahkan."
+    },
+    {
+      "id": "wudhu-sholat-taubat",
+      "title": "Wudhu dan Shalat Taubat",
+      "source": "Hadits Riwayat Abu Dawud (1524), Hakim (1373); Al-Tirmidzi",
+      "category": "taubat",
+      "menghafal": false,
+      "type": "guidance",
+      "body": "Langkah awal yang dianjurkan:\n\n1. **Berwudhu** dengan sempurna\n2. Membaca doa setelah wudhu\n3. Melaksanakan **shalat taubat** minimal dua rakaat dengan niat tulus\n\nNabi Muhammad SAW bersabda: *\"Tidaklah seorang hamba berbuat dosa lalu dia berwudhu dengan sempurna, kemudian berdiri dan shalat dua rakaat, lalu memohon ampunan kepada Allah, melainkan Allah akan mengampuninya.\"*"
+    },
+    {
+      "id": "asmaul-husna-taubat",
+      "title": "Memanggil Nama-Nya: Asmaul Husna",
+      "arabic": "يَا تَوَّابُ يَا غَفَّارُ",
+      "latin": "Ya Tawwabu Ya Ghaffar",
+      "translation": "Wahai Yang Maha Menerima Taubat, Wahai Yang Maha Pengampun",
+      "background": "Memanggil nama-nama Allah yang berhubungan dengan taubat sangat dianjurkan. Ya Tawwab: Allah yang menerima taubat hamba-Nya berulang kali tanpa batas. Ya Ghaffar: Allah yang mengampuni dosa secara berulang dan sempurna. Ya Ghafur: Allah yang Maha Pengampun meskipun dosa hamba-Nya sangat besar. Mengulang-ulang nama-nama ini membuka pintu harapan dan menguatkan tekad untuk kembali kepada-Nya.",
+      "source": "Asmaul Husna; Al-Ghazali, Ihya Ulumiddin",
+      "category": "taubat",
+      "menghafal": true,
+      "type": "bacaan"
+    },
+    {
+      "id": "shalawat-nabi",
+      "title": "Shalawat kepada Nabi Muhammad SAW",
+      "arabic": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+      "latin": "Allahumma sholli 'ala Muhammad wa 'ala ali Muhammad, kama shollaita 'ala Ibrahim wa 'ala ali Ibrahim, innaka hamidum majid. Allahumma barik 'ala Muhammad wa 'ala ali Muhammad, kama barokta 'ala Ibrahim wa 'ala ali Ibrahim, innaka hamidum majid.",
+      "translation": "Ya Allah, limpahkanlah shalawat kepada Muhammad dan keluarga Muhammad, sebagaimana Engkau telah melimpahkan shalawat kepada Ibrahim dan keluarga Ibrahim. Sesungguhnya Engkau Maha Terpuji lagi Maha Mulia. Ya Allah, berilah berkah kepada Muhammad dan keluarga Muhammad, sebagaimana Engkau telah memberi berkah kepada Ibrahim dan keluarga Ibrahim. Sesungguhnya Engkau Maha Terpuji lagi Maha Mulia.",
+      "background": "Shalawat kepada Nabi SAW adalah salah satu sebab diampuninya dosa. Nabi SAW bersabda: 'Barangsiapa membaca shalawat kepadaku satu kali, Allah akan membaca shalawat kepadanya sepuluh kali.' Selain itu, shalawat merupakan penggugur dosa karena merupakan wasilah (perantara) yang agung di sisi Allah, sebagaimana disebutkan dalam hadits Qudsi tentang tujuh golongan yang teduh di bawah naungan Allah.",
+      "source": "Hadits Riwayat Muslim (384), Shahih Bukhari",
+      "category": "taubat",
+      "menghafal": true,
+      "type": "bacaan"
+    },
+    {
+      "id": "istighfar",
+      "title": "Istighfar Dasar",
+      "arabic": "أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ",
+      "latin": "Astaghfirullaha al-'Azimalladzi la ilaha illa Huwal Hayyul Qayyum wa atubu ilaih",
+      "translation": "Aku memohon ampun kepada Allah Yang Maha Agung, tiada Tuhan selain Dia, Yang Maha Hidup lagi Maha Berdiri Sendiri, dan aku bertaubat kepada-Nya.",
+      "background": "Nabi Muhammad SAW bersabda: 'Demi Allah, sesungguhnya aku bertaubat kepada Allah dalam sehari lebih dari tujuh puluh kali.' Istighfar ini merupakan dzikir yang paling sering dibaca oleh Nabi SAW, membuktikan bahwa memohon ampun kepada Allah adalah kebiasaan yang harus diamalkan setiap saat — bukan hanya ketika berbuat salah.",
+      "source": "Hadits Riwayat Muslim (2702)",
+      "category": "taubat",
+      "menghafal": true,
+      "type": "bacaan"
+    },
+    {
+      "id": "sayyidul-istighfar",
+      "title": "Sayyidul Istighfar",
+      "arabic": "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
+      "latin": "Allahumma anta rabbi la ilaha illa anta khalaqtani wa ana 'abduka wa ana 'ala 'ahdika wa wa'dika mastatha'tu a'udzu bika min syarri ma shana'tu abu'u laka bi ni'matika 'alayya wa abu'u bi dzanbi faghfir li fa innahu la yaghfirudz dzunuba illa anta",
+      "translation": "Ya Allah, Engkau adalah Tuhanku, tiada Tuhan selain Engkau. Engkau telah menciptakanku dan aku adalah hamba-Mu. Dan aku berada di atas perjanjian dan janji-Mu selama aku mampu. Aku berlindung kepada-Mu dari kejahatan yang telah kuperbuat. Aku mengakui nikmat-Mu kepadaku, dan aku mengakui dosaku. Maka ampunilah aku, karena sesungguhnya tiada yang mengampuni dosa selain Engkau.",
+      "background": "Nabi SAW bersabda: 'Barangsiapa membacanya di siang hari dengan penuh keyakinan, lalu meninggal pada hari itu sebelum masuk waktu Maghrib, maka dia termasuk penghuni surga. Dan barangsiapa membacanya di malam hari dengan penuh keyakinan, lalu meninggal sebelum Subuh, maka dia termasuk penghuni surga.' Hadits ini menunjukkan betapa agungnya kedudukan sayyidul istighfar.",
+      "source": "Hadits Riwayat Bukhari (6306)",
+      "category": "taubat",
+      "menghafal": true,
+      "type": "bacaan"
+    },
+    {
+      "id": "doa-nabi-adam",
+      "title": "Doa Nabi Adam AS",
+      "arabic": "رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ",
+      "latin": "Rabbana zholamna anfusana wa ilam taghfir lana wa tarhamna lanakunanna minal khasirin",
+      "translation": "Ya Tuhan kami, kami telah menzalimi diri kami sendiri, dan jika Engkau tidak mengampuni kami dan memberi rahmat kepada kami, niscaya kami termasuk orang-orang yang merugi.",
+      "background": "Doa ini diajarkan oleh Allah SWT sendiri dalam Surah Al-A'raf ayat 23. Diucapkan oleh Nabi Adam AS dan Hawa setelah mereka melanggar perintah Allah di surga. Doa ini menjadi contoh sempurna dari pengakuan dosa (i'tiraf) dan kepasrahan total kepada Allah. Allah SWT menjawab: 'Kemudian Tuhanku menerima taubat mereka, karena sesungguhnya Dia-lah Yang Maha Menerima Taubat lagi Maha Pengampun.'",
       "source": "Qur'an Surah Al-A'raf: 23",
-      "category": "taubat"
+      "category": "taubat",
+      "menghafal": true,
+      "type": "bacaan"
     },
     {
-      "id": "astaghfirullah",
-      "title": "Istighfar",
-      "arabic": "أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ",
-      "latin": "Astaghfirullaha al-'Azima alladzi la ilaha illa Huwal Hayyul Qayyumu wa atubu ilaih",
-      "translation": "Aku memohon ampun kepada Allah yang Maha Agung, tiada Tuhan selain Dia, Yang Maha Hidup lagi Maha Berdiri Sendiri, dan aku bertaubat kepada-Nya",
-      "background": "Istighfar adalah doa yang sangat dianjurkan untuk selalu dibaca, terutama setelah melakukan kesalahan. Nabi Muhammad SAW bersabda bahwa barangsiapa yang membanyakkan istighfar, Allah akan menjadikan baginya kelapangan dari setiap kesempitan dan jalan keluar dari setiap kesulitan.",
-      "source": "Hadits Riwayat Tirmidzi",
-      "category": "taubat"
+      "id": "doa-nabi-yunus",
+      "title": "Doa Nabi Yunus AS",
+      "arabic": "لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ",
+      "latin": "La ilaha illa anta subhanaka inni kuntu minaz zalimin",
+      "translation": "Tiada Tuhan selain Engkau, Maha Suci Engkau. Sesungguhnya aku adalah termasuk orang-orang yang zalim.",
+      "background": "Nabi Yunus AS berdoa ini ketika berada di dalam perut ikan paus dalam kegelapan laut dan malam yang gelap. Nabi SAW bersabda: 'Doa seorang Muslim ketika memohon kepada Allah dengan doa yang tidak ada dosa di dalamnya, pasti dikabulkan. Salah satunya adalah doa Nabi Yunus.' Doa ini merupakan salah satu doa mustajab untuk segala kebutuhan, terutama ketika merasa terjebak dalam kesulitan atau kezaliman.",
+      "source": "Hadits Riwayat Tirmidzi (3505); Al-Bukhari dalam al-Adab al-Mufrad",
+      "category": "taubat",
+      "menghafal": true,
+      "type": "bacaan"
     },
     {
-      "id": "doa-taubat-umum",
-      "title": "Doa Taubat Umum",
-      "arabic": "اللَّهُمَّ إِنِّي ظَلَمْتُ نَفْسِي ظُلْمًا كَثِيرًا، وَلَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ، فَاغْفِرْ لِي مَغْفِرَةً مِنْ عِنْدِكَ، وَارْحَمْنِي، إِنَّكَ أَنْتَ الْغَفُورُ الرَّحِيمُ",
-      "latin": "Allahumma inni zhalamtu nafsi zhaluman katsiran, wa la yaghfirudzununuba illa anta, faghfir li maghfiratan min 'indika, warhamni, innaka antal Ghafurur Rahim",
-      "translation": "Ya Allah, sesungguhnya aku telah menzalimi diriku sendiri dengan kezaliman yang banyak, dan tidak ada yang dapat mengampuni dosa-dosa selain Engkau, maka ampunilah aku dengan ampunan dari sisi-Mu, dan sayangilah aku, sesungguhnya Engkau Maha Pengampun lagi Maha Penyayang",
-      "background": "Doa ini diajarkan oleh Nabi Muhammad SAW sebagai doa taubat yang paling utama. Doa ini menunjukkan pengakuan atas kesalahan yang diperbuat dan kepasrahan total kepada Allah dalam memohon ampunan. Dibaca setelah shalat atau kapan saja merasa telah berbuat salah.",
-      "source": "Hadits Riwayat Bukhari & Muslim",
-      "category": "taubat"
+      "id": "doa-pribadi",
+      "title": "Doa Pribadi: Curhat kepada Allah",
+      "source": "QS. Al-Baqarah: 186 — 'Dan apabila hamba-hamba-Ku bertanya kepadamu tentang Aku, maka (jawablah), bahwasanya Aku adalah dekat.'",
+      "category": "taubat",
+      "menghafal": false,
+      "type": "personal",
+      "body": "Doa yang paling bermakna adalah doa yang lahir dari lubuk hati yang paling dalam.\n\nTuliskan di sini penyesalan, pengakuan, dan permohonanmu kepada Allah. Tidak ada kata-kata yang \"benar\" atau \"salah\" dalam berdoa — yang terpenting adalah **keikhlasan**.\n\nAllah Maha Mendengar bahkan sebelum engkau bersuara.",
+      "personal": true
+    },
+    {
+      "id": "hak-orang-lain",
+      "title": "Jika Maksiat Berhubungan dengan Orang Lain",
+      "source": "Hadits Riwayat Bukhari (2442)",
+      "category": "taubat",
+      "menghafal": false,
+      "type": "guidance",
+      "body": "Taubat dari maksiat yang melibatkan **hak orang lain** memiliki langkah tambahan:\n\n1. **Mendoakan** kebaikan bagi orang tersebut\n2. **Meminta maaf** secara langsung jika memungkinkan\n3. **Mengembalikan haknya** jika berkaitan dengan harta\n\nNabi SAW bersabda: *\"Barangsiapa yang memiliki kezaliman terhadap saudaranya terkait dengan kehormatan atau sesuatu lainnya, hendaklah ia meminta hal itu darinya (minta maaf) hari ini, sebelum datang waktu di mana tidak ada lagi dinar dan dirham.\"*"
+    },
+    {
+      "id": "doa-muslimin",
+      "title": "Mendoakan Kaum Muslimin",
+      "arabic": "اللَّهُمَّ اغْفِرْ لِي وَلِوَالِدَيَّ وَلِجَمِيعِ الْمُسْلِمِينَ",
+      "latin": "Allahummaghfir lii wa liwalidayya wa lijamii'il muslimin",
+      "translation": "Ya Allah, ampunilah aku, kedua orang tuaku, dan seluruh kaum muslimin.",
+      "background": "Ketika seorang hamba mendoakan kaum muslimin secara bersama-sama, malaikat akan mengaminkan dan mendoakan kebaikan balik baginya. Nabi SAW bersabda: 'Tidaklah seorang hamba muslim berdoa untuk saudaranya di belakangnya (tanpa sepengetahuan yang didoakan) melainkan malaikat berkata: 'Dan untukmu juga (doa yang sama).' Dengan mendoakan seluruh kaum muslimin, kita memperluas pahala sekaligus mempererat ukhuwah.",
+      "source": "Hadits Riwayat Muslim (2733)",
+      "category": "taubat",
+      "menghafal": true,
+      "type": "bacaan"
+    },
+    {
+      "id": "dzikir-penghapus-dosa-1",
+      "title": "Dzikir Penghapus Dosa",
+      "arabic": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+      "latin": "Subhanallahi wabihamdih",
+      "translation": "Maha Suci Allah dan segala puji bagi-Nya",
+      "background": "Nabi SAW bersabda: 'Barangsiapa mengucapkan Subhanallahi wabihamdih seratus kali dalam sehari, maka dosa-dosanya akan dihapuskan meskipun sebanyak buih laut.' Dzikir ini merupakan salah satu amalan paling ringan namun paling agung pahalanya. Dapat dibaca kapan saja — saat berjalan, berbaring, atau menunggu.",
+      "source": "Hadits Riwayat Bukhari (6403), Muslim (2698)",
+      "category": "taubat",
+      "menghafal": true,
+      "type": "bacaan"
+    },
+    {
+      "id": "dzikir-penghapus-dosa-2",
+      "title": "Tasbih, Tahmid, dan Takbir",
+      "arabic": "سُبْحَانَ اللَّهِ ۖ وَالْحَمْدُ لِلَّهِ ۖ وَلَا إِلَٰهَ إِلَّا اللَّهُ ۖ وَاللَّهُ أَكْبَرُ",
+      "latin": "Subhanallah (33x), walhamdulillah (33x), wala ilaha illallah (33x), wallahu akbar (33x). Wa akhiru da'wana anil hamdulillahi rabbil 'alamin. Lailaha illallah wahdahu la syarika lah, lahul mulku wa lahul hamdu wa huwa 'ala kulli syai-in qodir.",
+      "translation": "Maha Suci Allah (33x), segala puji bagi Allah (33x), tiada Tuhan selain Allah (33x), dan Allah Maha Besar (33x). Dan penutup doa kami adalah segala puji bagi Allah semesta alam. Tiada Tuhan selain Allah semata, tidak ada sekutu bagi-Nya. Milik-Nya segala kerajaan dan segala puji, dan Dia Maha Kuasa atas segala sesuatu.",
+      "background": "Nabi SAW bersabda kepada Abu Hurairah: 'Ucapkan Subhanallah 33 kali, Alhamdulillah 33 kali, dan Allahu Akbar 33 kali setelah shalat, lalu ucapkan: Lailaha illallah wahdahu la syarika lah, lahul mulku wa lahul hamdu wa huwa 'ala kulli syai-in qadir. Maka dosa-dosamu akan diampuni meskipun sebanyak buih laut.' Ini adalah wirid harian yang sangat ringan namun sangat agung.",
+      "source": "Hadits Riwayat Muslim (596)",
+      "category": "taubat",
+      "menghafal": true,
+      "type": "bacaan"
+    },
+    {
+      "id": "amalan-penghapus-dosa",
+      "title": "Amalan Penghapus Dosa Sehari-hari",
+      "source": "QS. Hud: 114; Hadits Riwayat Bukhari (526), Muslim (223); At-Tirmidzi",
+      "category": "taubat",
+      "menghafal": false,
+      "type": "guidance",
+      "body": "Selain dzikir dan doa, amalan sehari-hari yang dijanjikan sebagai penghapus dosa:\n\n1. **Sedekah** — sedekah dapat menghapus dosa sebagaimana air memadamkan api\n2. **Memperbanyak wudhu** — wudhu menghilangkan dosa-dosa\n3. **Melangkah ke masjid** — berjalan menuju masjid dengan niat ibadah\n4. **Bersabar atas musibah dan sakit** — kesabaran dapat menggugurkan dosa\n5. **Berhijrah dari maksiat** — segera meninggalkan dosa"
     }
   ]
 }
