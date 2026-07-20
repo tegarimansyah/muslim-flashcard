@@ -1,7 +1,7 @@
 baseURL = "https://dzikir.ethiqshub.com/"
 languageCode = "id"
 title = "Dzikir with EthiqsHub"
-theme = "muslim-flashcard-theme"
+theme = "dzikir-theme"
 
 disableKinds = ["taxonomy", "term"]
 

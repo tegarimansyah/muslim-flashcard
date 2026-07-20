@@ -187,7 +187,7 @@ hugo --minify
 
 ## Code Style
 
-- Follow existing template structure under `themes/muslim-flashcard-theme/layouts/`
+- Follow existing template structure under `themes/dzikir-theme/layouts/`
 - Prefer **server-side rendering** from page params / `site.Data` — avoid `fetch()` of content JSON
 - Keep interactive JS (search, favorites, story navigation) client-side only
 - Responsive / mobile-first
@@ -208,7 +208,7 @@ dzikir/
 │   ├── amalan.json         # Group index
 │   └── groups/             # Per-group JSON (cards)
 ├── themes/
-│   └── muslim-flashcard-theme/   # Hugo theme (folder name legacy)
+│   └── dzikir-theme/           # Hugo theme
 │       ├── layouts/        # Hugo templates (SSR)
 │       └── static/         # CSS, images, assets
 ├── static/                 # Site-wide static files (CNAME, etc.)
