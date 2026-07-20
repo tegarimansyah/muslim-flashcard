@@ -561,7 +561,49 @@ footer p {
 
     .groups-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 0.65rem;
+        padding: 1rem 0 3rem;
+    }
+
+    .group-card {
+        padding: 0.9rem 1rem 0.85rem;
+        text-align: left;
+        border-radius: 12px;
+    }
+
+    .group-card:hover {
+        transform: none;
+    }
+
+    .group-icon {
+        display: none;
+    }
+
+    .group-card h2 {
+        font-size: 1.05rem;
+        margin-bottom: 0.25rem;
+        padding-right: 1.75rem;
+    }
+
+    .group-description {
+        font-size: 0.82rem;
+        margin-bottom: 0.65rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .btn-explore {
+        padding: 0.45rem 0.85rem;
+        font-size: 0.8rem;
+        width: 100%;
+    }
+
+    .star-group-btn {
+        top: 0.55rem;
+        right: 0.55rem;
+        font-size: 1.1rem;
     }
 
     .cards-grid {
@@ -593,7 +635,21 @@ footer p {
     }
 
     .group-card {
-        padding: 1.4rem 1.2rem;
+        padding: 0.75rem 0.85rem 0.7rem;
+    }
+
+    .group-card h2 {
+        font-size: 0.98rem;
+    }
+
+    .group-description {
+        font-size: 0.78rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .btn-explore {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.78rem;
     }
 
     .flashcard {
