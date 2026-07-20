@@ -103,24 +103,51 @@ No new markdown files needed.
 
 Edit `data/groups/<group-id>.json` and append to `cards`:
 
+### Card types
+
+| `type` | Purpose | Menghafal | Key fields |
+|--------|---------|-----------|------------|
+| `bacaan` | Doa / dzikir to memorize | Yes (default) | `arabic`, `latin`, `translation`, optional `background`/`body` |
+| `guidance` | Explanation / steps only (markdown) | No | `body` (markdown), `source` |
+| `personal` | User note (textarea → localStorage) | No | `body` (optional intro), `personal: true` |
+
 ```json
 {
   "id": "unique-id",
   "title": "Nama Amalan",
+  "type": "bacaan",
   "arabic": "النص العربي",
   "latin": "Transliterasi latin",
   "translation": "Arti dalam Bahasa Indonesia",
-  "background": "Asal usul dan konteks",
+  "background": "Asal usul dan konteks (atau gunakan body markdown)",
   "source": "Qur'an / Hadits reference",
   "category": "category-name",
   "menghafal": true
 }
 ```
 
+Guidance example:
+
+```json
+{
+  "id": "syarat-taubat",
+  "title": "Syarat Taubat Nasuha",
+  "type": "guidance",
+  "body": "Teks **markdown** multi-baris.\n\n1. Langkah satu\n2. Langkah dua",
+  "source": "QS. An-Nur: 31",
+  "category": "taubat",
+  "menghafal": false
+}
+```
+
 | Field | Required | Notes |
 |-------|----------|--------|
-| `id` … `category` | yes | Core amalan content |
-| `menghafal` | no | Default `true`. Set `false` for pahami-only items (story, background-only cards, etc.) that should not appear in mode Menghafal |
+| `id`, `title`, `type` | yes | `type`: `bacaan` \| `guidance` \| `personal` |
+| `arabic` / `latin` / `translation` | for `bacaan` | Core memorization content |
+| `body` | for `guidance` / `personal` | Markdown (lists, bold, italics). Prefer over plain `background` |
+| `background` | optional | Plain/markdown fallback if `body` absent |
+| `menghafal` | no | Default true for `bacaan`. Always false for `guidance` / `personal` |
+| `personal` | for type personal | Enables textarea saved to `localStorage` |
 
 Then update `count` for that group in `data/amalan.json` (total cards, including pahami-only).
 
@@ -129,7 +156,7 @@ Then update `count` for that group in `data/amalan.json` (total cards, including
 - Reliable sources (Qur'an, authentic hadits)
 - Clear Indonesian translation and background
 - Unique `id` within the whole project (kebab-case)
-- Use `"menghafal": false` for content that only belongs on Pahami
+- Use `type: "guidance"` or `"menghafal": false` for pahami-only content
 
 ---
 
