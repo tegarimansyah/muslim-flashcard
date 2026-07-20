@@ -1,0 +1,22 @@
+{{ range site.Data.doa.groups }}
+  {{ $detail := index site.Data.groups .id }}
+  {{ $cards := slice }}
+  {{ with $detail }}{{ $cards = .cards | default (slice) }}{{ end }}
+  {{ $page := dict
+    "kind" "page"
+    "path" .id
+    "title" (printf "Pahami: %s" .title)
+    "type" "pahami"
+    "description" .description
+    "params" (dict
+      "groupId" .id
+      "groupTitle" .title
+      "description" .description
+      "category" .category
+      "icon" .icon
+      "color" .color
+      "cards" $cards
+    )
+  }}
+  {{ $.AddPage $page }}
+{{ end }}

@@ -1,0 +1,30 @@
+{
+  "id": "setelah-shalat",
+  "title": "Sesaat Setelah Shalat",
+  "description": "Rangkaian dzikir ma'tsur dan waktu mustajab untuk memohon kebaikan dunia serta akhirat setelah salam.",
+  "category": "Ibadah & Rutinitas",
+  "icon": "🧎",
+  "color": "#0891b2",
+  "cards": [
+    {
+      "id": "istighfar-shalat",
+      "title": "Istighfar Setelah Shalat",
+      "arabic": "أَسْتَغْفِرُ اللَّهَ (٣×)",
+      "latin": "Astaghfirullahu (3x)",
+      "translation": "Aku memohon ampun kepada Allah (3 kali)",
+      "background": "Dibaca 3 kali setelah selesai shalat fardhu sebelum membaca dzikir dan doa lainnya. Ini adalah permulaan dari wirid setelah shalat untuk membersihkan diri dari segala kelalaian dalam shalat.",
+      "source": "Hadits Riwayat Tirmidzi",
+      "category": "shalat"
+    },
+    {
+      "id": "tahlil-takbir-tahmid",
+      "title": "Tahlil, Takbir, Tahmid",
+      "arabic": "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ (٣٣×)",
+      "latin": "La ilaha illallahu wahdahu la syarikalahu, lahul mulku wa lahul hamdu wa huwa 'ala kulli syai'in qadir (33x)",
+      "translation": "Tiada Tuhan selain Allah semata, tiada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian dan Dia Maha Kuasa atas segala sesuatu (33 kali)",
+      "background": "Dibaca 33 kali setelah istighfar. Ini adalah dzikir tahlil yang mengingatkan akan keesaan Allah. Dianjurkan untuk dibaca dengan penuh penghayatan.",
+      "source": "Hadits Riwayat Bukhari & Muslim",
+      "category": "shalat"
+    }
+  ]
+}

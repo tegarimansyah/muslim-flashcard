@@ -90,42 +90,64 @@
     /* Search and Filter Layout */
     .search-filter-container {
         display: flex;
-        gap: 1rem;
-        max-width: 800px;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        max-width: 720px;
         margin: 0 auto;
-        justify-content: center;
-        align-items: center;
+        justify-content: stretch;
+        align-items: stretch;
         width: 100%;
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+    }
+    .search-filter-container .search-input {
+        flex: 1 1 220px;
+        min-width: 0;
+        max-width: none;
+        width: auto;
     }
     .category-select {
-        flex: 1;
-        max-width: 250px;
-        padding: 1rem 1.5rem;
-        font-size: 1.1rem;
+        flex: 0 1 240px;
+        min-width: 0;
+        width: auto;
+        max-width: 100%;
+        padding: 1rem 2.75rem 1rem 1.25rem;
+        font-size: 1rem;
         border: 2px solid var(--gray-light);
         border-radius: 50px;
         outline: none;
         transition: all 0.3s ease;
         box-shadow: var(--shadow);
-        background-color: var(--white);
         cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: var(--white);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1.15rem center;
+        background-size: 0.9rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .category-select::-ms-expand {
+        display: none;
     }
     .category-select:focus, .category-select:hover {
         border-color: var(--primary-color);
         box-shadow: var(--shadow-lg);
     }
-    @media (max-width: 768px) {
+    @media (max-width: 640px) {
         .search-filter-container {
             flex-direction: column;
             gap: 0.75rem;
-        }
-        .category-select {
             max-width: 100%;
-            width: 100%;
         }
-        .search-input {
-            max-width: 100% !important;
+        .search-filter-container .search-input,
+        .category-select {
+            flex: 1 1 auto;
             width: 100%;
+            max-width: 100%;
         }
     }
 
@@ -225,6 +247,14 @@
     }
 </style>
 
+{{ $groups := site.Data.doa.groups }}
+{{ $categories := slice }}
+{{ range $groups }}
+  {{ if and .category (not (in $categories .category)) }}
+    {{ $categories = $categories | append .category }}
+  {{ end }}
+{{ end }}
+
 <div class="container">
     <div id="favoritesSection" class="favorites-section" style="display: none;">
         <h3 class="favorites-title">⭐ Favorit Anda</h3>
@@ -236,12 +266,29 @@
             <input type="text" id="searchInput" placeholder="🔍 Cari doa..." class="search-input">
             <select id="categoryFilter" class="category-select">
                 <option value="">Semua Kategori</option>
+                {{ range sort $categories }}
+                <option value="{{ . }}">{{ . }}</option>
+                {{ end }}
             </select>
         </div>
     </div>
 
     <div class="groups-grid" id="groupsGrid">
-        <!-- Groups will be populated by JavaScript -->
+        {{ range $groups }}
+        {{ $detail := index site.Data.groups .id }}
+        {{ $count := .count | default 0 }}
+        {{ with $detail }}{{ $count = len (.cards | default (slice)) }}{{ end }}
+        <div class="group-card" data-group-id="{{ .id }}" data-category="{{ .category }}" style="border-color: {{ .color }}">
+            <button class="star-group-btn" data-group-id="{{ .id }}" title="Star Grup" onclick="event.stopPropagation(); toggleStarGroup('{{ .id }}')">☆</button>
+            <div class="group-icon" style="background-color: {{ .color }}">{{ .icon }}</div>
+            <h2>{{ .title }}</h2>
+            <p class="group-description">{{ .description }}</p>
+            <p class="card-count">{{ $count }} doa</p>
+            <button type="button" class="btn-explore" onclick="showOptionModal('{{ .id }}')">
+                Lihat Doa →
+            </button>
+        </div>
+        {{ end }}
     </div>
 </div>
 
@@ -274,22 +321,27 @@
     </div>
 </div>
 
+{{/* Embed full group data for favorites lookup (SSR, no fetch) */}}
+{{- $full := slice -}}
+{{- range $groups -}}
+  {{- $detail := index site.Data.groups .id -}}
+  {{- if $detail -}}
+    {{- $full = $full | append $detail -}}
+  {{- else -}}
+    {{- $full = $full | append (dict "id" .id "title" .title "description" .description "category" .category "icon" .icon "color" .color "cards" (slice)) -}}
+  {{- end -}}
+{{- end -}}
 <script>
-    // Getters and setters for favorites
+    window.doaData = {{ dict "groups" $full | jsonify | safeJS }};
+
     function getStarredGroups() {
-        try {
-            return JSON.parse(localStorage.getItem('starredGroups')) || [];
-        } catch (e) {
-            return [];
-        }
+        try { return JSON.parse(localStorage.getItem('starredGroups')) || []; }
+        catch (e) { return []; }
     }
 
     function getStarredDoas() {
-        try {
-            return JSON.parse(localStorage.getItem('starredDoas')) || [];
-        } catch (e) {
-            return [];
-        }
+        try { return JSON.parse(localStorage.getItem('starredDoas')) || []; }
+        catch (e) { return []; }
     }
 
     function saveStarredGroups(groups) {
@@ -303,45 +355,10 @@
     function getDoaById(doaId) {
         if (!window.doaData || !window.doaData.groups) return null;
         for (const group of window.doaData.groups) {
-            const card = group.cards.find(c => c.id === doaId);
-            if (card) {
-                return { card, group };
-            }
+            const card = (group.cards || []).find(c => c.id === doaId);
+            if (card) return { card, group };
         }
         return null;
-    }
-
-    // Load doa data from JSON file
-    fetch('/doa.json')
-        .then(response => response.json())
-        .then(data => {
-            window.doaData = data;
-            renderGroups(data.groups);
-            renderFavorites();
-            populateCategories(data.groups);
-        })
-        .catch(error => {
-            console.error('Error loading doa data:', error);
-        });
-
-    function populateCategories(groups) {
-        const categoryFilter = document.getElementById('categoryFilter');
-        if (!categoryFilter) return;
-
-        const categories = new Set();
-        groups.forEach(group => {
-            if (group.category) {
-                categories.add(group.category);
-            }
-        });
-
-        categoryFilter.innerHTML = '<option value="">Semua Kategori</option>';
-        Array.from(categories).sort().forEach(category => {
-            const option = document.createElement('option');
-            option.value = category;
-            option.textContent = category;
-            categoryFilter.appendChild(option);
-        });
     }
 
     function toggleStarGroup(groupId) {
@@ -352,11 +369,8 @@
             starred.push(groupId);
         }
         saveStarredGroups(starred);
-
-        if (window.doaData) {
-            renderGroups(window.doaData.groups);
-            renderFavorites();
-        }
+        updateStarButtons();
+        renderFavorites();
     }
 
     function toggleStarDoa(doaId) {
@@ -373,42 +387,47 @@
     function openStarredDoaModal(doaId) {
         const detail = getDoaById(doaId);
         if (!detail) return;
-
-        const { card, group } = detail;
-
+        const { card } = detail;
         document.getElementById('starred-doa-title').textContent = card.title;
         document.getElementById('starred-doa-arabic').textContent = card.arabic;
         document.getElementById('starred-doa-latin').textContent = card.latin;
         document.getElementById('starred-doa-translation').textContent = card.translation;
         document.getElementById('starred-doa-background').textContent = card.background;
         document.getElementById('starred-doa-source').textContent = card.source;
-
         openModal('starred-doa-modal');
+    }
+
+    function updateStarButtons() {
+        const starred = getStarredGroups();
+        document.querySelectorAll('.star-group-btn').forEach(btn => {
+            const id = btn.getAttribute('data-group-id');
+            if (starred.includes(id)) {
+                btn.classList.add('starred');
+                btn.textContent = '⭐';
+            } else {
+                btn.classList.remove('starred');
+                btn.textContent = '☆';
+            }
+        });
     }
 
     function renderFavorites() {
         const section = document.getElementById('favoritesSection');
         const grid = document.getElementById('favoritesGrid');
-
         grid.innerHTML = '';
 
         const starredGroups = getStarredGroups();
         const starredDoas = getStarredDoas();
-
         let hasFavorites = false;
 
-        // Render Starred Groups
         starredGroups.forEach(groupId => {
-            if (!window.doaData) return;
             const group = window.doaData.groups.find(g => g.id === groupId);
             if (!group) return;
-
             hasFavorites = true;
 
             const favCard = document.createElement('div');
             favCard.className = 'fav-card';
             favCard.style.borderLeft = `4px solid ${group.color}`;
-
             favCard.innerHTML = `
                 <div class="fav-info">
                     <span class="fav-icon">${group.icon}</span>
@@ -419,142 +438,61 @@
                 </div>
                 <button class="fav-star" title="Unstar">⭐</button>
             `;
-
-            // Clicking the card opens options modal
-            favCard.addEventListener('click', function() {
-                showOptionModal(groupId);
-            });
-
-            // Clicking the star unstars it
-            favCard.querySelector('.fav-star').addEventListener('click', function(e) {
+            favCard.addEventListener('click', () => showOptionModal(groupId));
+            favCard.querySelector('.fav-star').addEventListener('click', (e) => {
                 e.stopPropagation();
                 toggleStarGroup(groupId);
             });
-
             grid.appendChild(favCard);
         });
 
-        // Render Starred Doas
         starredDoas.forEach(doaId => {
             const detail = getDoaById(doaId);
             if (!detail) return;
-
-            const { card, group } = detail;
-
             hasFavorites = true;
+            const { card, group } = detail;
 
             const favCard = document.createElement('div');
             favCard.className = 'fav-card';
-            favCard.style.borderLeft = `4px solid ${group.color}`;
-
+            favCard.style.borderLeft = `4px solid ${group.color || '#059669'}`;
             favCard.innerHTML = `
                 <div class="fav-info">
-                    <span class="fav-icon">🤲</span>
+                    <span class="fav-icon">${group.icon || '🤲'}</span>
                     <div class="fav-text">
                         <div class="fav-name">${card.title}</div>
-                        <div class="fav-type">Doa (${group.title})</div>
+                        <div class="fav-type">Doa</div>
                     </div>
                 </div>
                 <button class="fav-star" title="Unstar">⭐</button>
             `;
-
-            // Clicking the card opens details modal
-            favCard.addEventListener('click', function() {
-                openStarredDoaModal(doaId);
-            });
-
-            // Clicking the star unstars it
-            favCard.querySelector('.fav-star').addEventListener('click', function(e) {
+            favCard.addEventListener('click', () => openStarredDoaModal(doaId));
+            favCard.querySelector('.fav-star').addEventListener('click', (e) => {
                 e.stopPropagation();
                 toggleStarDoa(doaId);
             });
-
             grid.appendChild(favCard);
         });
 
-        if (hasFavorites) {
-            section.style.display = 'block';
-        } else {
-            section.style.display = 'none';
-        }
+        section.style.display = hasFavorites ? 'block' : 'none';
     }
-
-    function renderGroups(groups) {
-        const grid = document.getElementById('groupsGrid');
-        grid.innerHTML = '';
-
-        const starredGroups = getStarredGroups();
-
-        groups.forEach(group => {
-            const card = document.createElement('div');
-            card.className = 'group-card';
-            card.setAttribute('data-group-id', group.id);
-            card.style.borderColor = group.color;
-            card.style.cursor = 'pointer';
-            
-            // Make entire card clickable
-            card.addEventListener('click', function(e) {
-                showOptionModal(group.id);
-            });
-            
-            const isStarred = starredGroups.includes(group.id);
-            const starClass = isStarred ? 'star-group-btn starred' : 'star-group-btn';
-            const starText = isStarred ? '⭐' : '☆';
-
-            card.innerHTML = `
-                <button class="${starClass}" title="Star Group">
-                    ${starText}
-                </button>
-                <div class="group-icon" style="background-color: ${group.color}">${group.icon}</div>
-                <h2>${group.title}</h2>
-                <p class="group-description">${group.description}</p>
-                <p class="card-count">${group.cards.length} doa</p>
-                <button class="btn-explore">
-                    Lihat Doa →
-                </button>
-            `;
-            
-            // Handle Star Button Click
-            const starBtn = card.querySelector('.star-group-btn');
-            starBtn.addEventListener('click', function(e) {
-                e.stopPropagation(); // Prevent card click!
-                toggleStarGroup(group.id);
-            });
-
-            grid.appendChild(card);
-        });
-    }
-</script>
-
-<script>
-    // Search and category filter functionality
-    const searchInput = document.getElementById('searchInput');
-    const categoryFilter = document.getElementById('categoryFilter');
-    const groupsGrid = document.getElementById('groupsGrid');
 
     function filterGroups() {
-        const searchTerm = searchInput.value.toLowerCase();
-        const selectedCategory = categoryFilter.value;
-        const groupCards = groupsGrid.querySelectorAll('.group-card');
-
-        groupCards.forEach(card => {
-            const groupId = card.getAttribute('data-group-id');
-            const group = window.doaData && window.doaData.groups.find(g => g.id === groupId);
-            const categoryMatch = !selectedCategory || (group && group.category === selectedCategory);
-
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const selectedCategory = document.getElementById('categoryFilter').value;
+        document.querySelectorAll('#groupsGrid .group-card').forEach(card => {
+            const category = card.getAttribute('data-category') || '';
+            const categoryMatch = !selectedCategory || category === selectedCategory;
             const title = card.querySelector('h2').textContent.toLowerCase();
             const description = card.querySelector('.group-description').textContent.toLowerCase();
             const textMatch = title.includes(searchTerm) || description.includes(searchTerm);
-
-            if (categoryMatch && textMatch) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
+            card.style.display = (categoryMatch && textMatch) ? 'block' : 'none';
         });
     }
 
-    searchInput.addEventListener('input', filterGroups);
-    categoryFilter.addEventListener('change', filterGroups);
+    document.getElementById('searchInput').addEventListener('input', filterGroups);
+    document.getElementById('categoryFilter').addEventListener('change', filterGroups);
+
+    updateStarButtons();
+    renderFavorites();
 </script>
 {{ end }}

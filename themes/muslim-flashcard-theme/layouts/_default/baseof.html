@@ -253,27 +253,27 @@
             }
         };
 
-        function showOptionModal(groupId) {
+        window.showOptionModal = function(groupId) {
             currentGroupId = groupId;
             openModal('option-modal');
-        }
+        };
 
-        function navigateToPahami() {
+        window.navigateToPahami = function() {
             if (currentGroupId) {
                 window.location.href = `/pahami/${currentGroupId}/`;
             }
-        }
+        };
 
-        function showContentSelection() {
+        window.showContentSelection = function() {
             closeModal('option-modal');
             openModal('content-modal');
-        }
+        };
 
-        function navigateToMenghafal(contentType) {
+        window.navigateToMenghafal = function(contentType) {
             if (currentGroupId) {
                 window.location.href = `/menghafal/${currentGroupId}/?type=${contentType}`;
             }
-        }
+        };
 
         document.querySelectorAll('.modal').forEach(modal => {
             modal.addEventListener('click', function(e) {
