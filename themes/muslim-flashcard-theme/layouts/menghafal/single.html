@@ -491,13 +491,15 @@
             });
         }
 
+        const groupId = {{ .Params.groupId | jsonify }};
+
         function nextStory() {
             if (currentSlide < totalSlides - 1) {
                 currentSlide++;
                 updateProgress();
                 startSlideTimer();
             } else {
-                goBack();
+                finishStory();
             }
         }
 
@@ -510,8 +512,12 @@
             }
         }
 
+        function finishStory() {
+            window.location.href = groupId ? `/pahami/${groupId}/` : '/';
+        }
+
         function goBack() {
-            window.location.href = '/';
+            window.location.href = groupId ? `/pahami/${groupId}/` : '/';
         }
 
         // Keyboard navigation
