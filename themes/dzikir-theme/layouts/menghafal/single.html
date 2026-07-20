@@ -154,36 +154,22 @@
             transform: translateX(100%);
         }
 
-        .group-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .group-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .group-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
         .amalan-title {
-            font-size: 1.8rem;
+            font-size: 1.45rem;
             font-weight: 600;
             color: var(--white);
-            margin-bottom: 2rem;
+            margin: 3.25rem 0 1.25rem;
             text-align: center;
+            line-height: 1.35;
         }
 
         .arabic-text {
             font-family: 'Traditional Arabic', 'Arial Unicode MS', sans-serif;
-            font-size: 2rem;
+            font-size: 1.75rem;
             text-align: right;
             direction: rtl;
-            line-height: 2.2;
-            padding: 2rem;
+            line-height: 2.1;
+            padding: 1.35rem 1.25rem;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             border-right: 4px solid var(--primary-color);
@@ -191,19 +177,19 @@
 
         .latin-text {
             color: #d1d5db;
-            line-height: 1.8;
-            font-size: 1.2rem;
+            line-height: 1.75;
+            font-size: 1.1rem;
             text-align: center;
-            padding: 1.5rem;
+            padding: 1.1rem 0.5rem;
             font-style: italic;
         }
 
         .translation-text {
             color: var(--white);
-            line-height: 1.8;
-            font-size: 1.1rem;
+            line-height: 1.75;
+            font-size: 1.05rem;
             text-align: center;
-            padding: 1.5rem;
+            padding: 1.1rem 0.5rem;
         }
 
         .tap-zones {
@@ -232,14 +218,8 @@
         <div class="progress-container" id="progressContainer"></div>
         
         <div class="story-content" id="storyContent">
-            {{ $groupTitle := .Params.groupTitle }}
-            {{ $icon := .Params.icon }}
             {{ range $index, $card := .Params.cards }}
                 <div class="story-slide{{ if eq $index 0 }} active{{ end }}">
-                    <div class="group-header">
-                        <div class="group-icon">{{ $icon }}</div>
-                        <p class="group-title">{{ $groupTitle }}</p>
-                    </div>
                     <h3 class="amalan-title">{{ $card.title }}</h3>
                     {{ with $card.arabic }}<div class="arabic-text">{{ . }}</div>{{ end }}
                     {{ with $card.latin }}<p class="latin-text">{{ . }}</p>{{ end }}
@@ -247,10 +227,6 @@
                 </div>
             {{ else }}
                 <div class="story-slide active">
-                    <div class="group-header">
-                        <div class="group-icon">{{ $icon }}</div>
-                        <p class="group-title">{{ $groupTitle }}</p>
-                    </div>
                     <h3 class="amalan-title">Belum ada amalan</h3>
                     <p class="translation-text">Konten untuk grup ini masih kosong.</p>
                 </div>
@@ -491,7 +467,7 @@
             });
         }
 
-        const groupId = {{ .Params.groupId | jsonify }};
+        const groupId = {{ .Params.groupId | jsonify | safeJS }};
 
         function nextStory() {
             if (currentSlide < totalSlides - 1) {
@@ -512,12 +488,17 @@
             }
         }
 
+        function pahamiUrl() {
+            if (!groupId) return '/';
+            return '/pahami/' + encodeURIComponent(groupId) + '/';
+        }
+
         function finishStory() {
-            window.location.href = groupId ? `/pahami/${groupId}/` : '/';
+            window.location.href = pahamiUrl();
         }
 
         function goBack() {
-            window.location.href = groupId ? `/pahami/${groupId}/` : '/';
+            window.location.href = pahamiUrl();
         }
 
         // Keyboard navigation
