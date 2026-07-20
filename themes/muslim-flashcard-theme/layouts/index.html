@@ -225,12 +225,12 @@
         {{ $detail := index site.Data.groups .id }}
         {{ $count := .count | default 0 }}
         {{ with $detail }}{{ $count = len (.cards | default (slice)) }}{{ end }}
-        <div class="group-card" data-group-id="{{ .id }}" data-category="{{ .category }}" style="color: {{ .color }}; border-color: color-mix(in srgb, {{ .color }} 35%, transparent)">
+        <div class="group-card" data-group-id="{{ .id }}" data-category="{{ .category }}" role="button" tabindex="0" onclick="showOptionModal('{{ .id }}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showOptionModal('{{ .id }}')}" style="color: {{ .color }}; border-color: color-mix(in srgb, {{ .color }} 35%, transparent)">
             <button class="star-group-btn" data-group-id="{{ .id }}" title="Star Grup" onclick="event.stopPropagation(); toggleStarGroup('{{ .id }}')">☆</button>
             <div class="group-icon" style="background-color: {{ .color }}">{{ .icon }}</div>
             <h2>{{ .title }}</h2>
             <p class="group-description">{{ .description }}</p>
-            <button type="button" class="btn-explore" onclick="showOptionModal('{{ .id }}')">
+            <button type="button" class="btn-explore" onclick="event.stopPropagation(); showOptionModal('{{ .id }}')">
                 Buka {{ $count }} Amalan
             </button>
         </div>
