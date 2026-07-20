@@ -426,23 +426,41 @@
             pauseBtn.textContent = isPaused ? '▶️' : '⏸️';
         }
 
+        function setProgressWidth(fill, width, animateMs) {
+            if (animateMs > 0) {
+                fill.style.transition = `width ${animateMs}ms linear`;
+                fill.style.width = width;
+            } else {
+                fill.style.transition = 'none';
+                fill.style.width = width;
+                void fill.offsetWidth;
+            }
+        }
+
+        function restartCurrentProgress() {
+            if (totalSlides === 0) return;
+            const progressBars = document.querySelectorAll('.progress-bar');
+            const fill = progressBars[currentSlide].querySelector('.progress-fill');
+            const bar = progressBars[currentSlide];
+            bar.classList.remove('paused');
+            bar.classList.add('active');
+
+            // Snap to 0, paint, then animate 0 → 100 (works when revisiting a filled bar)
+            setProgressWidth(fill, '0%', 0);
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    if (isPaused || !fill) return;
+                    setProgressWidth(fill, '100%', 8000);
+                });
+            });
+        }
+
         function startSlideTimer() {
             clearInterval(slideTimer);
-            const progressBars = document.querySelectorAll('.progress-bar');
-            
-            // Reset progress for current slide
-            const currentProgressBar = progressBars[currentSlide];
-            const currentProgressFill = currentProgressBar.querySelector('.progress-fill');
-            currentProgressFill.style.width = '0';
-            currentProgressFill.style.transition = 'width 8s linear';
-            
-            // Start progress animation
-            setTimeout(() => {
-                if (!isPaused) {
-                    currentProgressFill.style.width = '100%';
-                }
-            }, 10);
-            
+            if (isPaused || totalSlides === 0) return;
+
+            restartCurrentProgress();
+
             slideTimer = setInterval(() => {
                 if (!isPaused) {
                     nextStory();
@@ -453,22 +471,23 @@
         function updateProgress() {
             const slides = document.querySelectorAll('.story-slide');
             const progressBars = document.querySelectorAll('.progress-bar');
-            
+
             slides.forEach((slide, index) => {
                 slide.classList.remove('active', 'prev', 'next');
+                const fill = progressBars[index].querySelector('.progress-fill');
+                const bar = progressBars[index];
+
                 if (index === currentSlide) {
                     slide.classList.add('active');
-                    progressBars[index].classList.add('active');
+                    bar.classList.add('active');
                 } else if (index < currentSlide) {
                     slide.classList.add('prev');
-                    progressBars[index].classList.remove('active');
-                    // Keep previous progress in previous state
-                    progressBars[index].querySelector('.progress-fill').style.width = '100%';
-                    progressBars[index].querySelector('.progress-fill').style.transition = 'none';
+                    bar.classList.remove('active');
+                    setProgressWidth(fill, '100%', 0);
                 } else {
                     slide.classList.add('next');
-                    progressBars[index].classList.remove('active');
-                    progressBars[index].querySelector('.progress-fill').style.width = '0';
+                    bar.classList.remove('active');
+                    setProgressWidth(fill, '0%', 0);
                 }
             });
         }
@@ -485,6 +504,7 @@
 
         function previousStory() {
             if (currentSlide > 0) {
+                clearInterval(slideTimer);
                 currentSlide--;
                 updateProgress();
                 startSlideTimer();
