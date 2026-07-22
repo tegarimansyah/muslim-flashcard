@@ -192,6 +192,40 @@
         overflow-y: auto;
         padding-right: 0.25rem;
     }
+
+    .coming-soon-badge {
+        position: absolute;
+        top: 0.9rem;
+        right: 0.9rem;
+        background: var(--gold-soft);
+        color: var(--gold);
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        border: 1.5px solid var(--gold);
+        box-shadow: 0 1px 3px rgba(184, 134, 11, 0.12);
+        z-index: 10;
+    }
+
+    .group-card.coming-soon {
+        opacity: 0.7;
+        filter: grayscale(0.15);
+    }
+
+    .group-card.coming-soon .btn-explore {
+        background: var(--line-soft);
+        color: var(--ink-soft);
+        cursor: not-allowed;
+        border-color: var(--line-strong);
+    }
+
+    .group-card.coming-soon:hover {
+        transform: none;
+        box-shadow: none;
+    }
 </style>
 
 {{ $groups := site.Data.amalan.groups }}
@@ -201,6 +235,22 @@
     {{ $categories = $categories | append .category }}
   {{ end }}
 {{ end }}
+
+{{/* Sort groups: ready ones first (count > 0), then coming soon */}}
+{{ $sortedGroups := slice }}
+{{ $readyGroups := slice }}
+{{ $comingSoonGroups := slice }}
+{{ range $groups }}
+  {{ $detail := index site.Data.groups .id }}
+  {{ $count := .count | default 0 }}
+  {{ with $detail }}{{ $count = len (.cards | default (slice)) }}{{ end }}
+  {{ if gt $count 0 }}
+    {{ $readyGroups = $readyGroups | append (dict "group" . "count" $count) }}
+  {{ else }}
+    {{ $comingSoonGroups = $comingSoonGroups | append (dict "group" . "count" $count) }}
+  {{ end }}
+{{ end }}
+{{ $sortedGroups = $readyGroups | append $comingSoonGroups }}
 
 <div class="container">
     <div id="favoritesSection" class="favorites-section" style="display: none;">
@@ -221,17 +271,20 @@
     </div>
 
     <div class="groups-grid" id="groupsGrid">
-        {{ range $groups }}
-        {{ $detail := index site.Data.groups .id }}
-        {{ $count := .count | default 0 }}
-        {{ with $detail }}{{ $count = len (.cards | default (slice)) }}{{ end }}
-        <div class="group-card" data-group-id="{{ .id }}" data-category="{{ .category }}" role="button" tabindex="0" onclick="showOptionModal('{{ .id }}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showOptionModal('{{ .id }}')}" style="color: {{ .color }}; border-color: color-mix(in srgb, {{ .color }} 35%, transparent)">
-            <button class="star-group-btn" data-group-id="{{ .id }}" title="Star Grup" onclick="event.stopPropagation(); toggleStarGroup('{{ .id }}')">☆</button>
-            <div class="group-icon" style="background-color: {{ .color }}">{{ .icon }}</div>
-            <h2>{{ .title }}</h2>
-            <p class="group-description">{{ .description }}</p>
-            <button type="button" class="btn-explore" onclick="event.stopPropagation(); showOptionModal('{{ .id }}')">
-                Buka {{ $count }} Amalan
+        {{ range $sortedGroups }}
+        {{ $g := .group }}
+        {{ $count := .count }}
+        <div class="group-card{{ if eq $count 0 }} coming-soon{{ end }}" data-group-id="{{ $g.id }}" data-category="{{ $g.category }}" data-ready="{{ if eq $count 0 }}false{{ else }}true{{ end }}" role="button" tabindex="{{ if eq $count 0 }}-1{{ else }}0{{ end }}" {{ if gt $count 0 }}onclick="showOptionModal('{{ $g.id }}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showOptionModal('{{ $g.id }}')}"{{ end }} style="color: {{ $g.color }}; border-color: color-mix(in srgb, {{ $g.color }} 35%, transparent)">
+            {{ if eq $count 0 }}
+            <span class="coming-soon-badge">Coming Soon</span>
+            {{ else }}
+            <button class="star-group-btn" data-group-id="{{ $g.id }}" title="Star Grup" onclick="event.stopPropagation(); toggleStarGroup('{{ $g.id }}')">☆</button>
+            {{ end }}
+            <div class="group-icon" style="background-color: {{ $g.color }}">{{ $g.icon }}</div>
+            <h2>{{ $g.title }}</h2>
+            <p class="group-description">{{ $g.description }}</p>
+            <button type="button" class="btn-explore" {{ if eq $count 0 }}disabled{{ else }}onclick="event.stopPropagation(); showOptionModal('{{ $g.id }}')"{{ end }}>
+                {{ if eq $count 0 }}Segera Hadir{{ else }}Buka {{ $count }} Amalan{{ end }}
             </button>
         </div>
         {{ end }}
@@ -436,10 +489,27 @@
         });
     }
 
+    function sortGroupsByReadiness() {
+        const grid = document.getElementById('groupsGrid');
+        const cards = Array.from(grid.querySelectorAll('.group-card'));
+        
+        cards.sort((a, b) => {
+            const aReady = a.getAttribute('data-ready') === 'true';
+            const bReady = b.getAttribute('data-ready') === 'true';
+            
+            if (aReady && !bReady) return -1;
+            if (!aReady && bReady) return 1;
+            return 0;
+        });
+        
+        cards.forEach(card => grid.appendChild(card));
+    }
+
     document.getElementById('searchInput').addEventListener('input', filterGroups);
     document.getElementById('categoryFilter').addEventListener('change', filterGroups);
 
     updateStarButtons();
     renderFavorites();
+    sortGroupsByReadiness();
 </script>
 {{ end }}

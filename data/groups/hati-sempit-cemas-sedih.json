@@ -5,5 +5,90 @@
   "category": "Kondisi Hati & Spiritual",
   "icon": "🥺",
   "color": "#059669",
-  "cards": []
+  "cards": [
+    {
+      "id": "orientasi-hati-sempit",
+      "title": "Orientasi: Mengapa Hati Terasa Sempit",
+      "type": "guidance",
+      "menghafal": false,
+      "category": "hati-sempit",
+      "body": "Alhamdulillah, kamu sadar bahwa hati sedang tidak nyaman. Rasulullah shallallahu 'alaihi wa sallam bersabda:\n\n*\"Dua nikmat yang banyak manusia tertipu di dalamnya: nikmat kesehatan dan nikmat waktu luang.\"*\n\nHati yang sempit bisa jadi cara Allah memanggil kita untuk kembali. Saat cemas dan sedih melanda, itu berarti:\n\n1. **Allah ingin dekat** — kesempatan memperbanyak doa dan munajat\n2. **Dosa sedang terhapus** — kesabaran dalam kesulitan menghapus dosa\n3. **Ada hikmah tertentu** — apa yang kita anggap buruk mungkin jalan kebaikan\n\nIngat, **la haula wa la quwwata illa billah** — tiada daya dan kekuatan kecuali dengan Allah."
+    },
+    {
+      "id": "hasbunallah",
+      "title": "Doa Pertama: Hasbunallah (Cukuplah Allah)",
+      "type": "bacaan",
+      "menghafal": true,
+      "category": "hati-sempit",
+      "arabic": "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
+      "latin": "Hasbunallahu wa ni'mal wakil",
+      "translation": "Cukuplah Allah bagi kami, dan Dia adalah sebaik-baik pelindung",
+      "background": "Doa ini dibaca Nabi Ibrahim 'alaihis salam saat dilempar ke api dan dibaca Rasulullah saat ditgepung musuh di perang Uhud. Mengucapkannya saat cemas melahirkan ketenangan luar biasa.",
+      "source": "QS. Ali Imran: 173"
+    },
+    {
+      "id": "la-ilaha-illallah",
+      "title": "Dzikir Penenang: La Ilaha Illallah",
+      "type": "bacaan",
+      "menghafal": true,
+      "category": "hati-sempit",
+      "arabic": "لَا إِلَهَ إِلَّا اللَّهُ",
+      "latin": "La ilaha illallah",
+      "translation": "Tiada tuhan selain Allah",
+      "background": "Dzikir paling agung yang menjadi kunci surga. Saat hati gelisah, ulangkan sebanyak mungkin. Rasulullah bersabda: *\"Perbanyaklah dzikir 'La ilaha illallah', karena ia akan menghapus kekhawatiran dan dosa-dosa.\"*",
+      "source": "HR. Ahmad dan Tirmidzi"
+    },
+    {
+      "id": "taubat-hati-sempit",
+      "title": "Langkah Taubat: Mengakui Kekurangan",
+      "type": "guidance",
+      "menghafal": false,
+      "category": "hati-sempit",
+      "body": "Terkadang hati sempit karena kita terlalu banyak menuntut dari manusia atau terlalu percaya pada kemampuan diri.\n\nCoba refleksi:\n\n1. **Adakah amalan yang terabaikan?** Shalat tepat waktu, dzikir pagi-petang?\n2. **Adakah dosa yang belum diakui?** Istighfar dengan sungguh-sungguh\n3. **Adakah terlalu bergantung pada manusia?** Ingat, manusia bisa mengecewakan, Allah tidak\n\nIstighfar bukan tanda lemah, tapi tanda kekuatan. Kita sadar butuh pertolongan Allah.",
+      "source": "QS. Hud: 52"
+    },
+    {
+      "id": "rabbana-atina",
+      "title": "Doa Memohon Ketenteraman Hati",
+      "type": "bacaan",
+      "menghafal": true,
+      "category": "hati-sempit",
+      "arabic": "رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا وَثَبِّتْ أَقْدَامَنَا",
+      "latin": "Rabbana afrigh 'alaina sabran wa thabbit aqdamana",
+      "translation": "Ya Tuhan kami, curahkanlah kesabaran atas kami dan teguhkanlah pendirian kami",
+      "background": "Doa ini dibaca para Nabi saat menghadapi ujian berat. Cocok dibaca saat tekanan hidup membuat kita ingin menyerah.",
+      "source": "QS. Al-Baqarah: 250"
+    },
+    {
+      "id": "doa-kesedihan",
+      "title": "Doa Saat Sedih Mendalam",
+      "type": "bacaan",
+      "menghafal": true,
+      "category": "hati-sempit",
+      "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحُزْنِ",
+      "latin": "Allahumma inni a'udhu bika minal-hammi wal-hazan",
+      "translation": "Ya Allah, aku berlindung kepada-Mu dari kecemasan dan kesedihan",
+      "background": "Rasulullah shallallahu 'alaihi wa sallam mengajarkan doa ini untuk menghilangkan rasa cemas dan sedih yang berat. Baca dengan sungguh-sungguh setelah shalat atau saat hati terasa sesak.",
+      "source": "HR. Bukhari (6339)"
+    },
+    {
+      "id": "sholat-tahajud",
+      "title": "Amalan Rutin: Shalat Tahajud",
+      "type": "guidance",
+      "menghafal": false,
+      "category": "hati-sempit",
+      "body": "Shalat tahajud di sepertiga malam adalah waktu mustajab untuk melapangkan dada. Allah berfirman:\n\n*\"Dan pada sepertiga malam, berdoalah kepada-Nya.\"*\n\nWaktu paling sunyi dan paling dekat dengan Allah. Jadikan tahajud sebagai tempat curhat:\n\n1. Shalat 2 rakaat\n2. Duduk setelah salam\n3. Curahkan semua kecemasan dalam doa\n4. Yakin Allah mendengar",
+      "source": "QS. As-Sajdah: 16"
+    },
+    {
+      "id": "personal-hati-sempit",
+      "title": "Personal: Catatan Hati Sendiri",
+      "type": "personal",
+      "personal": true,
+      "menghafal": false,
+      "category": "hati-sempit",
+      "body": "Tuliskan apa yang membuat hatimu sempit hari ini. Sampaikan kepada Allah dalam bahasamu sendiri. Tidak perlu formal, yang penting jujur dari lubuk hati.",
+      "source": "QS. Al-Baqarah: 186"
+    }
+  ]
 }

@@ -1,30 +1,91 @@
 {
   "id": "setelah-shalat",
-  "title": "Sesaat Setelah Shalat",
-  "description": "Rangkaian dzikir ma'tsur dan waktu mustajab untuk memohon kebaikan dunia serta akhirat setelah salam.",
+  "title": "Dzikir Setelah Shalat",
+  "description": "Rangkaian dzikir ma'tsunah setelah selesai shalat fardhu — dari istighfar hingga doa khusus setelah Subuh. Amalan ringan namun agung pahalanya.",
   "category": "Ibadah & Rutinitas",
   "icon": "🧎",
   "color": "#0891b2",
   "cards": [
     {
-      "id": "istighfar-shalat",
-      "title": "Istighfar Setelah Shalat",
-      "arabic": "أَسْتَغْفِرُ اللَّهَ (٣×)",
-      "latin": "Astaghfirullahu (3x)",
-      "translation": "Aku memohon ampun kepada Allah (3 kali)",
-      "background": "Dibaca 3 kali setelah selesai shalat fardhu sebelum membaca dzikir dan doa lainnya. Ini adalah permulaan dari wirid setelah shalat untuk membersihkan diri dari segala kelalaian dalam shalat.",
-      "source": "Hadits Riwayat Tirmidzi",
-      "category": "shalat"
+      "id": "istighfar-dan-salam",
+      "title": "Istighfar dan Doa Salam",
+      "arabic": "أَسْتَغْفِرُ اللَّهَ (٣×) ۞ اَللَّهُمَّ أَنْتَ السَّلَامُ، وَمِنْكَ السَّلَامُ، تَبَارَكْتَ يَا ذَا الْجَلَالِ وَاْلإِكْرَامِ",
+      "latin": "Astaghfirullah (3x). Allahumma antas salaam, wa minkas salaam, tabaarakta yaa dzal jalaali wal ikram.",
+      "translation": "Aku memohon ampun kepada Allah (3 kali). Ya Allah, Engkau pemberi keselamatan, dan dari-Mu keselamatan, Maha Suci Engkau, wahai Tuhan Yang Pemilik Keagungan dan Kemuliaan.",
+      "background": "Rasulullah SAW jika selesai dari shalatnya beliau beristighfar sebanyak tiga kali dan membaca dzikir di atas. Al Auza'i menyatakan bahwa bacaan istighfar adalah *astaghfirullah*, *astaghfirullah*. Ini adalah permulaan dari wirid setelah shalat.",
+      "source": "Hadits Riwayat Muslim (591)",
+      "category": "shalat",
+      "menghafal": true,
+      "type": "bacaan"
     },
     {
-      "id": "tahlil-takbir-tahmid",
-      "title": "Tahlil, Takbir, Tahmid",
-      "arabic": "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ (٣٣×)",
-      "latin": "La ilaha illallahu wahdahu la syarikalahu, lahul mulku wa lahul hamdu wa huwa 'ala kulli syai'in qadir (33x)",
-      "translation": "Tiada Tuhan selain Allah semata, tiada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian dan Dia Maha Kuasa atas segala sesuatu (33 kali)",
-      "background": "Dibaca 33 kali setelah istighfar. Ini adalah dzikir tahlil yang mengingatkan akan keesaan Allah. Dianjurkan untuk dibaca dengan penuh penghayatan.",
-      "source": "Hadits Riwayat Bukhari & Muslim",
-      "category": "shalat"
+      "id": "tahlil-lengkap-1",
+      "title": "Tahlil Lengkap (Pertama)",
+      "arabic": "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ. اَللَّهُمَّ لَا مَانِعَ لِمَا أَعْطَيْتَ، وَلَا مُعْطِيَ لِمَا مَنَعْتَ، وَلَا يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُّ",
+      "latin": "La ilaha illallah wahdahu la syarika lah, lahul mulku wa lahul hamdu wa huwa 'ala kulli syai-in qadir. Allahumma la maani'a lima a'tayta wa la mu'tiya lima mana'ta wa la yanfa'u dzal jaddi minkal jaddu.",
+      "translation": "Tiada Tuhan selain Allah Yang Maha Esa, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian dan Dia Maha Kuasa atas segala sesuatu. Ya Allah, tidak ada yang mencegah apa yang Engkau berikan dan tidak ada yang memberi apa yang Engkau cegah. Tidak berguna kekayaan dan kemuliaan itu bagi pemiliknya (selain iman dan amal shalihnya yang menyelamatkan dari siksaan). Hanya dari-Mu kekayaan dan kemuliaan.",
+      "background": "Tahlil ini dilengkapi dengan doa yang menunjukkan ketundukan kepada Allah dalam pemberian dan penahanan, serta pengakuan bahwa kekayaan dan kemuliaan hanyalah dari Allah.",
+      "source": "Hadits Riwayat Bukhari (844), Muslim (593)",
+      "category": "shalat",
+      "menghafal": true,
+      "type": "bacaan"
+    },
+    {
+      "id": "tahlil-lengkap-2",
+      "title": "Tahlil Lengkap (Kedua)",
+      "arabic": "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ. لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ، لَا إِلَهَ إِلَّا اللَّهُ، وَلَا نَعْبُدُ إِلَّا إِيَّاهُ، لَهُ النِّعْمَةُ وَلَهُ الْفَضْلُ وَلَهُ الثَّنَاءُ الْحَسَنُ، لَا إِلَهَ إِلَّا اللَّهُ مُخْلِصِينَ لَهُ الدِّينَ وَلَوْ كَرِهَ الْكَافِرُونَ",
+      "latin": "La ilaha illallah wahdahu la syarika lah, lahul mulku wa lahul hamdu wa huwa 'ala kulli syai-in qadir. La hawla wa la quwwata illa billah. La ilaha illallah wa la na'budu illa iyyah, lahun ni'mah wa lahul fadlu wa lahuts tsanaaul hasan. La ilaha illallah mukhlishina lahud din wa lau karihal kafirun.",
+      "translation": "Tiada Tuhan selain Allah Yang Maha Esa, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian dan Dia Maha Kuasa atas segala sesuatu. Tidak ada daya dan kekuatan kecuali dengan pertolongan Allah. Tiada Tuhan selain Allah, kami tidak menyembah kecuali kepada-Nya. Bagi-Nya nikmat, anugerah dan pujaan yang baik. Tiada Tuhan selain Allah, dengan memurnikan ibadah kepada-Nya, sekalipun orang-orang kafir membenci.",
+      "background": "Dikatakan oleh Abdullah bin Zubair, Nabi SAW biasa membaca tahlil (Laa ilaha illallah) di akhir shalat. Tahlil ini diperluas dengan penegasan kesetiaan ibadah dan penolakan terhadap kekafiran.",
+      "source": "Hadits Riwayat Muslim (594)",
+      "category": "shalat",
+      "menghafal": true,
+      "type": "bacaan"
+    },
+    {
+      "id": "tasbih-tahmid-takbir",
+      "title": "Tasbih, Tahmid, dan Takbir",
+      "arabic": "سُبْحَانَ اللَّهِ (٣٣×) ۞ اَلْحَمْدُ لِلَّهِ (٣٣×) ۞ اَللَّهُ أَكْبَرُ (٣٣×) ۞ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+      "latin": "Subhanallah (33×), Alhamdulillah (33×), Allahu Akbar (33×). La ilaha illallah wahdahu la syarika lah, lahul mulku wa lahul hamdu wa huwa 'ala kulli syai-in qadir.",
+      "translation": "Maha Suci Allah (33 kali), segala puji bagi Allah (33 kali), Allah Maha Besar (33 kali). Tiada Tuhan selain Allah Yang Maha Esa, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian dan Dia Maha Kuasa atas segala sesuatu.",
+      "background": "Siapa yang membaca dzikir ini, maka dosa-dosanya diampuni walau sebanyak buih di lautan. Menurut Imam Nawawi RA, tekstual hadits menunjukkan bahwa bacaan Subhanallah, Alhamdulillah, dan Allahu Akbar masing-masing dibaca 33 kali secara terpisah.",
+      "source": "Hadits Riwayat Muslim (597)",
+      "category": "shalat",
+      "menghafal": true,
+      "type": "bacaan"
+    },
+    {
+      "id": "ayat-kursi",
+      "title": "Ayat Kursi",
+      "arabic": "اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+      "latin": "Allahu la ilaha illa huwal hayyul qayyum, la ta'khudzuhu sinatun wa la naum, lahuma fis samawati wa ma fil ard, man dzalladzi yasyfa'u indahu illa bi idznih, ya'lamu ma bayna aydihim wa ma khalfahum, wa la yuhithuna bisyai'in min ilmihi illa bima sya', wasi'a kursiyyuhus samawati wal ard, wa la ya'uduhu hifdhuhuma, wahuwal 'aliyyul 'azhim.",
+      "translation": "Allah, tidak ada Tuhan selain Dia, Yang Maha Hidup lagi Maha Berdiri Sendiri. Tidak mengantuk dan tidak tidur. Milik-Nya segala yang ada di langit dan di bumi. Tidak ada yang dapat memberi syafa'at di sisi-Nya tanpa izin-Nya. Dia mengetahui apa yang di hadapan mereka dan di belakang mereka, dan mereka tidak mengetahui sesuatu dari ilmu-Nya melainkan apa yang Dia kehendaki. Kursi-Nya meliputi langit dan bumi, dan Dia tidak merasa berat memelihara keduanya, dan Dia Maha Tinggi lagi Maha Agung.",
+      "background": "Siapa yang membaca Ayat Kursi setiap selesai shalat, tidak ada yang menghalanginya masuk surga selain kematian.",
+      "source": "Hadits Riwayat An-Nasai dalam Al Kubro (9:44); shahih menurut Ibnu Hibban",
+      "category": "shalat",
+      "menghafal": true,
+      "type": "bacaan"
+    },
+    {
+      "id": "muawwidzhat",
+      "title": "Al-Ikhlas, Al-Falaq, dan An-Naas",
+      "source": "Hadits Riwayat Abu Dawud (1523), An-Nasai (1337); hasan menurut Al Hafizh Abu Thohir",
+      "category": "shalat",
+      "menghafal": false,
+      "type": "guidance",
+      "body": "Setelah selesai shalat fardhu, dianjurkan membaca tiga surat:\n\n1. **Surat Al-Ikhlas** — Qul huwallahu ahad\n2. **Surat Al-Falaq** — Qul a'udzu birabbil falaq\n3. **Surat An-Naas** — Qul a'udzu birabbin nas\n\nTiga surat ini disebut *Mu'awwidzhot* (tiga surat perlindungan) karena di dalamnya terdapat permohonan perlindungan kepada Allah dari berbagai kejahatan, baik yang tampak maupun yang tidak terlihat."
+    },
+    {
+      "id": "doa-setelah-subuh",
+      "title": "Doa Setelah Shalat Subuh",
+      "arabic": "اَللَّهُمَّ إِنِّيْ أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلاً مُتَقَبَّلاً",
+      "latin": "Allahumma inni as-aluka 'ilman naafi'an, wa rizqon thoyyiba, wa 'amalan mutaqabbala.",
+      "translation": "Ya Allah, sungguh aku memohon kepada-Mu ilmu yang bermanfaat (bagi diriku dan orang lain), rizki yang halal, dan amal yang diterima (di sisi-Mu dan mendapatkan ganjaran yang baik).",
+      "background": "Doa ini khusus dibaca setelah salam dari shalat Subuh. Memohon tiga hal yang sangat penting dalam kehidupan seorang Muslim: ilmu yang bermanfaat, rizki yang baik (halal), dan amal yang diterima oleh Allah.",
+      "source": "Hadits Riwayat Ibnu Majah (925), Ahmad (6: 305, 322); shahih menurut Al Hafizh Abu Thohir",
+      "category": "shalat",
+      "menghafal": true,
+      "type": "bacaan"
     }
   ]
 }

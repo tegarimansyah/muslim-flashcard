@@ -5,5 +5,87 @@
   "category": "Kondisi Hati & Spiritual",
   "icon": "😡",
   "color": "#059669",
-  "cards": []
+  "cards": [
+    {
+      "id": "orientasi-marah",
+      "title": "Orientasi: Marah adalah Hasutan Setan",
+      "type": "guidance",
+      "menghafal": false,
+      "category": "marah",
+      "body": "Rasulullah shallallahu 'alaihi wa sallam bersabda:\n\n*\"Marah itu dari setan, dan setan itu dari api. Api hanya bisa dipadamkan dengan air.\"*\n\nSaat amarah memuncak, itu adalah saat setan paling kuat menguasai diri kita. Kenali tandanya:\n\n1. **Wajah memerah** — darah naik ke kepala\n2. **Suara meninggi** — ingin melampiaskan\n3. **Tangan gemetar** — ingin memukul atau melempar\n4. **Pikiran kosong** — hanya ingin menghancurkan\n\nIngat: menahan marah saat mampu melampiaskannya adalah kekuatan seorang mukmin."
+    },
+    {
+      "id": "taawudz-marah",
+      "title": "Langkah Fisik: A'udzu Billah (Istighfar Cepat)",
+      "type": "bacaan",
+      "menghafal": true,
+      "category": "marah",
+      "arabic": "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ",
+      "latin": "A'udzu billahi minasy-syaitanirrajim",
+      "translation": "Aku berlindung kepada Allah dari setan yang terkutuk",
+      "background": "Ini adalah tindakan pertama saat amarah naik. Rasulullah bersabda: *\"Jika salah seorang di antara kalian marah, beristighfarlah kepada Allah.\"* Karena setan ada di dalam darah yang mendidih saat marah.",
+      "source": "HR. Abu Dawud dan Tirmidzi"
+    },
+    {
+      "id": "diam-marah",
+      "title": "Langkah Lisan: Diam Saja (Jangan Bicara)",
+      "type": "guidance",
+      "menghafal": false,
+      "category": "marah",
+      "body": "Saat marah, mulut kita bisa jadi senjata paling berbahaya. Kata-kata yang keluar sulit ditarik kembali.\n\n**Tindakan yang harus dilakukan:**\n\n1. **Tutup mulut** — jangan berkata apapun\n2. **Jangan tanggapi** — abaikan provokasi\n3. **Jangan putuskan** — jangan buat keputusan saat marah\n4. **Jangan tulis pesan** — jangan kirim WA/tweet saat emosi\n\nDiam saat marah adalah bukti kekuatan. Orang lemah baru bisa berteriak.",
+      "source": "HR. Ahmad dan Tirmidzi"
+    },
+    {
+      "id": "ubah-posisi",
+      "title": "Langkah Fisik: Ubah Posisi Tubuh",
+      "type": "guidance",
+      "menghafal": false,
+      "category": "marah",
+      "body": "Rasulullah mengajarkan cara fisik untuk meredam marah:\n\n1. **Jika berdiri → duduk**\n   *\"Jika salah seorang marah sedang berdiri, maka duduklah. Maka lenyaplah marahnya.\"*\n\n2. **Jika masih marah → berbaring**\n   *\"Jika masih marah, maka berbaringlah.\"*\n\n3. **Jika masih marah → ambil wudhu**\n   Air dingin akan menenangkan tubuh dan menghilangkan panas kemarahan.",
+      "source": "HR. Abu Dawud dan Tirmidzi"
+    },
+    {
+      "id": "wudhu-marah",
+      "title": "Amalan Penyejuk: Ambil Wudhu",
+      "type": "bacaan",
+      "menghafal": true,
+      "category": "marah",
+      "arabic": "الْوُضُوءُ يُطْفِئُ الْغَضَبَ",
+      "latin": "Al-wudhu' yuthfi'ul-ghadab",
+      "translation": "Wudhu itu memadamkan amarah",
+      "background": "Rasulullah shallallahu 'alaihi wa sallam bersabda: *\"Sesungguhnya marah itu bara di dalam jantung anak Adam. Tidakkah kalian melihat apabila salah seorang di antara kalian marah, maka matanya merah dan lehernya membesar? Jika demikian, berdirilah dia dan ambillah wudhu.\"*",
+      "source": "HR. Ahmad dan Tirmidzi"
+    },
+    {
+      "id": "doa-marah",
+      "title": "Doa Saat Marah Memuncak",
+      "type": "bacaan",
+      "menghafal": true,
+      "category": "marah",
+      "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ أَنْ أَظْلِمَ أَوْ أُظْلَمَ",
+      "latin": "Allahumma inni a'udhu bika min an azlima aw uzlam",
+      "translation": "Ya Allah, aku berlindung kepada-Mu dari berbuat zalim atau dizalimi",
+      "background": "Saat marah, kita bisa jadi pelaku atau korban. Doa ini melindungi dari keduanya: mencegah kita menzalimi orang lain, dan memohon pertolongan jika sedang dizalimi.",
+      "source": "HR. Abu Dawud"
+    },
+    {
+      "id": "shalat-marah",
+      "title": "Amalan Penutup: Shalat Dua Rakaat",
+      "type": "guidance",
+      "menghafal": false,
+      "category": "marah",
+      "body": "Setelah reda, segera shalat dua rakaat sunnah. Rasulullah bersabda:\n\n*\"Apabila salah seorang di antara kalian marah, maka shalatlah dua rakaat.\"*\n\nShalat akan:\n\n1. **Menenangkan jantung** — gerakan sujud menenangkan fisik\n2. **Mengembalikan fokus** — mengalihkan dari kemarahan kepada Allah\n3. **Menghapus dosa** — jika marah menyebabkan kita berbuat salah\n\nSetelah shalat, baru bicara dengan tenang atau maafkan.",
+      "source": "HR. Abu Dawud"
+    },
+    {
+      "id": "personal-marah",
+      "title": "Personal: Catat Pemicu Marah",
+      "type": "personal",
+      "personal": true,
+      "menghafal": false,
+      "category": "marah",
+      "body": "Tuliskan apa yang memicu kemarahanmu hari ini. Apakah kata-kata tertentu? Perlakuan orang lain? Kelelahan? Catat agar bisa diantisipasi di masa depan.",
+      "source": "HR. Bukhari"
+    }
+  ]
 }

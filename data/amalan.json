@@ -7,8 +7,7 @@
       "category": "Kondisi Hati & Spiritual",
       "icon": "🤲",
       "color": "#059669",
-      "file": "groups/maksiat-berdosa.json",
-      "count": 17
+      "file": "groups/maksiat-berdosa.json"
     },
     {
       "id": "sebelum-shalat",
@@ -17,8 +16,7 @@
       "category": "Ibadah & Rutinitas",
       "icon": "🕌",
       "color": "#0891b2",
-      "file": "groups/sebelum-shalat.json",
-      "count": 0
+      "file": "groups/sebelum-shalat.json"
     },
     {
       "id": "dalam-shalat",
@@ -27,8 +25,7 @@
       "category": "Ibadah & Rutinitas",
       "icon": "🛐",
       "color": "#0891b2",
-      "file": "groups/dalam-shalat.json",
-      "count": 0
+      "file": "groups/dalam-shalat.json"
     },
     {
       "id": "setelah-shalat",
@@ -37,8 +34,7 @@
       "category": "Ibadah & Rutinitas",
       "icon": "🧎",
       "color": "#0891b2",
-      "file": "groups/setelah-shalat.json",
-      "count": 2
+      "file": "groups/setelah-shalat.json"
     },
     {
       "id": "pagi-malam",
@@ -47,8 +43,7 @@
       "category": "Ibadah & Rutinitas",
       "icon": "🌅",
       "color": "#d97706",
-      "file": "groups/pagi-malam.json",
-      "count": 2
+      "file": "groups/pagi-malam.json"
     },
     {
       "id": "sebelum-tidur",
@@ -57,8 +52,7 @@
       "category": "Ibadah & Rutinitas",
       "icon": "🌙",
       "color": "#7c3aed",
-      "file": "groups/sebelum-tidur.json",
-      "count": 2
+      "file": "groups/sebelum-tidur.json"
     },
     {
       "id": "sakit",
@@ -67,8 +61,7 @@
       "category": "Krisis & Musibah",
       "icon": "🤒",
       "color": "#dc2626",
-      "file": "groups/sakit.json",
-      "count": 2
+      "file": "groups/sakit.json"
     },
     {
       "id": "menjenguk-orang-sakit",
@@ -77,8 +70,7 @@
       "category": "Sosial & Keluarga",
       "icon": "🤝",
       "color": "#4b5563",
-      "file": "groups/menjenguk-orang-sakit.json",
-      "count": 0
+      "file": "groups/menjenguk-orang-sakit.json"
     },
     {
       "id": "menyiapkan-kematian-diri",
@@ -87,8 +79,7 @@
       "category": "Kondisi Hati & Spiritual",
       "icon": "⚰️",
       "color": "#059669",
-      "file": "groups/menyiapkan-kematian-diri.json",
-      "count": 0
+      "file": "groups/menyiapkan-kematian-diri.json"
     },
     {
       "id": "keluarga-meninggal-dunia",
@@ -97,8 +88,7 @@
       "category": "Krisis & Musibah",
       "icon": "😢",
       "color": "#dc2626",
-      "file": "groups/keluarga-meninggal-dunia.json",
-      "count": 0
+      "file": "groups/keluarga-meninggal-dunia.json"
     },
     {
       "id": "orang-lain-meninggal",
@@ -107,8 +97,7 @@
       "category": "Sosial & Keluarga",
       "icon": "🖤",
       "color": "#4b5563",
-      "file": "groups/orang-lain-meninggal.json",
-      "count": 0
+      "file": "groups/orang-lain-meninggal.json"
     },
     {
       "id": "musafir",
@@ -117,8 +106,7 @@
       "category": "Ibadah & Rutinitas",
       "icon": "✈️",
       "color": "#0891b2",
-      "file": "groups/musafir.json",
-      "count": 1
+      "file": "groups/musafir.json"
     },
     {
       "id": "futur",
@@ -127,8 +115,7 @@
       "category": "Kondisi Hati & Spiritual",
       "icon": "📉",
       "color": "#059669",
-      "file": "groups/futur.json",
-      "count": 0
+      "file": "groups/futur.json"
     },
     {
       "id": "marah",
@@ -138,7 +125,7 @@
       "icon": "😡",
       "color": "#059669",
       "file": "groups/marah.json",
-      "count": 0
+      "count": 8
     },
     {
       "id": "ragu-pilihan-sulit",
@@ -147,8 +134,7 @@
       "category": "Kondisi Hati & Spiritual",
       "icon": "❓",
       "color": "#059669",
-      "file": "groups/ragu-pilihan-sulit.json",
-      "count": 0
+      "file": "groups/ragu-pilihan-sulit.json"
     },
     {
       "id": "umroh-makkah",
@@ -157,8 +143,7 @@
       "category": "Ibadah Khusus",
       "icon": "🕋",
       "color": "#2563eb",
-      "file": "groups/umroh-makkah.json",
-      "count": 0
+      "file": "groups/umroh-makkah.json"
     },
     {
       "id": "ziarah-madinah",
@@ -167,8 +152,7 @@
       "category": "Ibadah Khusus",
       "icon": "🕌",
       "color": "#2563eb",
-      "file": "groups/ziarah-madinah.json",
-      "count": 0
+      "file": "groups/ziarah-madinah.json"
     },
     {
       "id": "hati-sempit-cemas-sedih",
@@ -178,7 +162,7 @@
       "icon": "🥺",
       "color": "#059669",
       "file": "groups/hati-sempit-cemas-sedih.json",
-      "count": 0
+      "count": 8
     },
     {
       "id": "hati-bahagia-nikmat",
@@ -187,8 +171,7 @@
       "category": "Kondisi Hati & Spiritual",
       "icon": "😊",
       "color": "#059669",
-      "file": "groups/hati-bahagia-nikmat.json",
-      "count": 0
+      "file": "groups/hati-bahagia-nikmat.json"
     },
     {
       "id": "kerugian-musibah",
@@ -197,8 +180,7 @@
       "category": "Krisis & Musibah",
       "icon": "💔",
       "color": "#dc2626",
-      "file": "groups/kerugian-musibah.json",
-      "count": 0
+      "file": "groups/kerugian-musibah.json"
     },
     {
       "id": "takut-khawatir",
@@ -207,8 +189,7 @@
       "category": "Kondisi Hati & Spiritual",
       "icon": "😰",
       "color": "#059669",
-      "file": "groups/takut-khawatir.json",
-      "count": 0
+      "file": "groups/takut-khawatir.json"
     },
     {
       "id": "memulai-pekerjaan-usaha",
@@ -217,8 +198,7 @@
       "category": "Aktivitas & Finansial",
       "icon": "💼",
       "color": "#4f46e5",
-      "file": "groups/memulai-pekerjaan-usaha.json",
-      "count": 0
+      "file": "groups/memulai-pekerjaan-usaha.json"
     },
     {
       "id": "terlilit-utang-finansial",
@@ -227,8 +207,7 @@
       "category": "Aktivitas & Finansial",
       "icon": "💸",
       "color": "#4f46e5",
-      "file": "groups/terlilit-utang-finansial.json",
-      "count": 0
+      "file": "groups/terlilit-utang-finansial.json"
     },
     {
       "id": "konflik-dizalimi-difitnah",
@@ -237,8 +216,7 @@
       "category": "Sosial & Keluarga",
       "icon": "🛡️",
       "color": "#4b5563",
-      "file": "groups/konflik-dizalimi-difitnah.json",
-      "count": 0
+      "file": "groups/konflik-dizalimi-difitnah.json"
     },
     {
       "id": "ingin-bersiap-menikah",
@@ -247,8 +225,7 @@
       "category": "Sosial & Keluarga",
       "icon": "💍",
       "color": "#4b5563",
-      "file": "groups/ingin-bersiap-menikah.json",
-      "count": 0
+      "file": "groups/ingin-bersiap-menikah.json"
     },
     {
       "id": "masalah-rumah-tangga",
@@ -257,8 +234,7 @@
       "category": "Krisis & Musibah",
       "icon": "🏠",
       "color": "#dc2626",
-      "file": "groups/masalah-rumah-tangga.json",
-      "count": 0
+      "file": "groups/masalah-rumah-tangga.json"
     }
   ]
 }
