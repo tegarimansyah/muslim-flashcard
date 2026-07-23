@@ -8,6 +8,12 @@ disableKinds = ["taxonomy", "term"]
 [params]
   description = "Kumpulan amalan Islami untuk berbagai situasi"
   author = "Tegar Imansyah"
+  
+  # PWA Configuration
+  [params.pwa]
+    enabled = true
+    manifest = "/manifest.json"
+    serviceWorker = "/sw.js"
 
 [markup]
   [markup.goldmark]

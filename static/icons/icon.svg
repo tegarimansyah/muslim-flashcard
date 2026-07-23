@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main background -->
+  <circle cx="256" cy="256" r="240" fill="url(#bg-gradient)"/>
+  
+  <!-- Decorative Islamic pattern elements -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="#fff" stroke-width="2" opacity="0.3"/>
+  <circle cx="256" cy="256" r="160" fill="none" stroke="#fff" stroke-width="2" opacity="0.2"/>
+  
+  <!-- Central symbol - Open book with Islamic geometric pattern -->
+  <g transform="translate(256, 256)">
+    <!-- Book spine -->
+    <rect x="-8" y="-80" width="16" height="160" fill="#fff" rx="2"/>
+    
+    <!-- Left page -->
+    <path d="M-12 -70 Q-80 -60 -100 0 Q-80 60 -12 70 L-8 70 L-8 -70 Z" fill="#fff" opacity="0.9"/>
+    
+    <!-- Right page -->
+    <path d="M12 -70 Q80 -60 100 0 Q80 60 12 70 L8 70 L8 -70 Z" fill="#fff" opacity="0.9"/>
+    
+    <!-- Islamic star pattern on pages -->
+    <circle cx="-60" cy="0" r="20" fill="none" stroke="#059669" stroke-width="2"/>
+    <circle cx="60" cy="0" r="20" fill="none" stroke="#059669" stroke-width="2"/>
+    
+    <!-- Dots/ornaments -->
+    <circle cx="-60" cy="-30" r="4" fill="#059669"/>
+    <circle cx="-60" cy="30" r="4" fill="#059669"/>
+    <circle cx="60" cy="-30" r="4" fill="#059669"/>
+    <circle cx="60" cy="30" r="4" fill="#059669"/>
+  </g>
+  
+  <!-- Arabic calligraphy placeholder (geometric representation) -->
+  <text x="256" y="380" text-anchor="middle" font-family="Arial" font-size="48" fill="#fff" opacity="0.9">ذ</text>
+</svg>
