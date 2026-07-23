@@ -1,0 +1,62 @@
+[
+  {
+    "id": "puasa-senin-kamis",
+    "title": "Puasa Senin Kamis",
+    "arabic": "نَوَيْتُ أَنْ أُصُومَ صَوْمَ يَوْمِ الِاثْنَيْنِ/الْخَمِيسِ سُنَّةً لِلَّهِ تَعَالَى",
+    "latin": "Nawaitu an asuma sauma yaumal ithnaina/al-khamis sunnatan lillahi ta'ala",
+    "translation": "Aku niat berpuasa sunnah hari Senin/Kamis karena Allah Ta'ala",
+    "background": "Puasa Senin Kamis adalah puasa sunnah yang sangat dianjurkan Nabi Muhammad SAW. Beliau biasa berpuasa pada kedua hari tersebut karena amalan-amalan akan diserahkan kepada Allah pada hari Senin dan Kamis. Puasa ini menjadi pembersih dosa-dosa kecil dan pembuka pintu kebaikan.",
+    "source": "Hadits Riwayat Tirmidzi",
+    "category": "puasa-mingguan"
+  },
+  {
+    "id": "puasa-ayyamul-bidh",
+    "title": "Puasa Ayyamul Bidh (13, 14, 15 Hijriah)",
+    "arabic": "نَوَيْتُ أَنْ أُصُومَ أَيَّامَ الْبِيضِ سُنَّةً لِلَّهِ تَعَالَى",
+    "latin": "Nawaitu an asuma ayyamal bidi sunnatan lillahi ta'ala",
+    "translation": "Aku niat berpuasa hari-hari putih (13, 14, 15 Hijriah) sunnah karena Allah Ta'ala",
+    "background": "Ayyamul Bidh adalah tanggal 13, 14, dan 15 setiap bulan Hijriah. Nabi Muhammad SAW dianjurkan untuk berpuasa pada ketiga hari ini karena pahalanya setara dengan berpuasa sebulan penuh. Hari-hari ini dipilih karena bulan sedang purnama, sehingga mudah dikenali dan diingat.",
+    "source": "Hadits Riwayat Nasa'i",
+    "category": "puasa-bulanan"
+  },
+  {
+    "id": "puasa-tasua-asyura",
+    "title": "Puasa Tasu'a dan Asyura (9-10 Muharram)",
+    "arabic": "نَوَيْتُ أَنْ أُصُومَ يَوْمَ عَاشُورَاءَ/تَاسُوعَاءَ سُنَّةً لِلَّهِ تَعَالَى",
+    "latin": "Nawaitu an asuma yauma 'Asyura'/Tasu'a sunnatan lillahi ta'ala",
+    "translation": "Aku niat berpuasa hari Asyura/Tasu'a sunnah karena Allah Ta'ala",
+    "background": "Puasa Asyura (10 Muharram) adalah puasa yang paling utama setelah Ramadhan. Nabi Muhammad SAW berpuasa pada hari ini dan menganjurkan umatnya juga berpuasa pada Tasu'a (9 Muharram) untuk membedakan dengan puasa orang Yahudi. Puasa ini menghapus dosa-dosa setahun yang lalu.",
+    "source": "Hadits Riwayat Muslim",
+    "category": "puasa-bulan-muharram"
+  },
+  {
+    "id": "puasa-syaban",
+    "title": "Puasa Bulan Sya'ban",
+    "arabic": "نَوَيْتُ أَنْ أُصُومَ شَهْرَ شَعْبَانَ سُنَّةً لِلَّهِ تَعَالَى",
+    "latin": "Nawaitu an asuma syahra Sya'ban sunnatan lillahi ta'ala",
+    "translation": "Aku niat berpuasa bulan Sya'ban sunnah karena Allah Ta'ala",
+    "background": "Bulan Sya'ban adalah bulan yang sangat dicintai Nabi Muhammad SAW. Beliau berpuasa hampir sebulan penuh pada bulan ini sebagai persiapan untuk Ramadhan. Puasa Sya'ban menjadi penghubung antara Rajab dan Ramadhan, menyiapkan fisik dan spiritual untuk bulan suci.",
+    "source": "Hadits Riwayat Bukhari & Muslim",
+    "category": "puasa-persiapan-ramadhan"
+  },
+  {
+    "id": "puasa-syawal",
+    "title": "Puasa Enam Hari di Bulan Syawal",
+    "arabic": "نَوَيْتُ أَنْ أُصُومَ سِتَّةً مِنْ شَوَّالٍ سُنَّةً لِلَّهِ تَعَالَى",
+    "latin": "Nawaitu an asuma sittatan min Syawal sunnatan lillahi ta'ala",
+    "translation": "Aku niat berpuasa enam hari di bulan Syawal sunnah karena Allah Ta'ala",
+    "background": "Puasa enam hari di bulan Syawal setelah Ramadhan sangat dianjurkan. Nabi Muhammad SAW bersabda bahwa barangsiapa yang berpuasa Ramadhan kemudian diikuti puasa enam hari Syawal, seperti berpuasa sepanjang tahun. Ini adalah pembuka keberkahan setelah bulan suci Ramadhan.",
+    "source": "Hadits Riwayat Muslim",
+    "category": "puasa-setelah-ramadhan"
+  },
+  {
+    "id": "puasa-arafah",
+    "title": "Puasa Arafah (9 Dzulhijjah)",
+    "arabic": "نَوَيْتُ أَنْ أُصُومَ يَوْمَ عَرَفَةَ سُنَّةً لِلَّهِ تَعَالَى",
+    "latin": "Nawaitu an asuma yauma 'Arafah sunnatan lillahi ta'ala",
+    "translation": "Aku niat berpuasa hari Arafah sunnah karena Allah Ta'ala",
+    "background": "Puasa Arafah (9 Dzulhijjah) adalah puasa yang paling utama yang dapat menghapus dosa dua tahun: tahun lalu dan tahun depan. Namun puasa ini tidak untuk jamaah haji yang sedang wukuf di Arafah. Nabi Muhammad SAW mendorong umatnya yang tidak berhaji untuk berpuasa pada hari ini.",
+    "source": "Hadits Riwayat Muslim",
+    "category": "puasa-bulan-dzulhijjah"
+  }
+]

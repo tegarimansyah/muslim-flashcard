@@ -1,0 +1,52 @@
+[
+  {
+    "id": "doa-sahur-ramadhan",
+    "title": "Doa Sahur Ramadhan",
+    "arabic": "نَوَيْتُ أَنْ أُصُومَ غَدًا مِنْ شَهْرِ رَمَضَانَ",
+    "latin": "Nawaitu an asuma ghadan min syahri Ramadhan",
+    "translation": "Aku niat berpuasa esok hari dari bulan Ramadhan",
+    "background": "Sahur adalah makan sahur sebelum fajar untuk mempersiapkan fisik dan spiritual untuk puasa. Niat sahur harus diucapkan di hati setiap malam selama bulan Ramadhan. Nabi Muhammad SAW bersabda bahwa sahur adalah keberkahan, jangan tinggalkan walaupun hanya seteguk air.",
+    "source": "Hadits Riwayat Bukhari & Muslim",
+    "category": "sahur"
+  },
+  {
+    "id": "doa-berbuka-ramadhan",
+    "title": "Doa Berbuka Puasa Ramadhan",
+    "arabic": "اللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ",
+    "latin": "Allahumma laka sumtu wa 'ala rizqika aftartu",
+    "translation": "Ya Allah, untuk-Mu aku berpuasa dan dengan rezeki-Mu aku berbuka",
+    "background": "Doa ini dibaca saat akan berbuka puasa, sebaiknya menggunakan kurma atau air putih. Nabi Muhammad SAW mengajarkan doa ini sebagai bentuk pengakuan bahwa puasa adalah untuk Allah dan berbuka adalah dengan rahmat-Nya. Berbuka dengan doa ini menutup hari puasa dengan penuh syukur.",
+    "source": "Hadits Riwayat Abu Dawud",
+    "category": "berbuka"
+  },
+  {
+    "id": "doa-lailatul-qadar",
+    "title": "Doa Lailatul Qadar",
+    "arabic": "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
+    "latin": "Allahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'anni",
+    "translation": "Ya Allah, sesungguhnya Engkau Maha Pengampun, Engkau menyukai pengampunan, maka ampunilah aku",
+    "background": "Lailatul Qadar adalah malam yang lebih baik dari seribu bulan yang terjadi di 10 malam terakhir Ramadhan. Nabi Muhammad SAW mengajarkan doa ini sebagai doa yang paling utama dibaca pada malam-malam tersebut. Malam ini adalah waktu mustajab untuk memohon ampunan dan ridha Allah.",
+    "source": "Hadits Riwayat Tirmidzi",
+    "category": "malam-ramadhan"
+  },
+  {
+    "id": "itikaf-ramadhan",
+    "title": "I'tikaf di Masjid",
+    "arabic": "اللَّهُمَّ إِنَّكَ تَعْلَمُ مَا نُخْفِي وَمَا نُعْلِنُ، فَاقْبَلْ مَعْذِرَتِي وَاعْلَمْ حَاجَتِي وَاغْفِرْ لِي ذَنْبِي",
+    "latin": "Allahumma innaka ta'lamu ma nufi wa ma nu'lin, faqbal ma'dhirati wa'lam hajati waghfir li dzanbi",
+    "translation": "Ya Allah, sesungguhnya Engkau mengetahui apa yang kami sembunyikan dan apa yang kami nyatakan, terimalah permohonan maafku, ketahuilah kebutuhanku, dan ampunilah dosa-dosaku",
+    "background": "I'tikaf adalah berdiam diri di masjid untuk ibadah, biasanya dilakukan pada 10 malam terakhir Ramadhan. Nabi Muhammad SAW selalu beri'tikaf setiap tahun, menunjukkan pentingnya mengisolasi diri dari kesibukan dunia untuk fokus ibadah. Ini adalah waktu yang sangat mustajab untuk mendekatkan diri kepada Allah.",
+    "source": "Hadits Riwayat Bukhari",
+    "category": "ibadah-ramadhan"
+  },
+  {
+    "id": "doa-akhir-ramadhan",
+    "title": "Doa Akhir Ramadhan",
+    "arabic": "اللَّهُمَّ اجْعَلْ صِيَامِي فِيهِ صِيَامَ الصَّائِمِينَ، وَقِيَامِي فِيهِ قِيَامَ الْقَائِمِينَ، وَنَوْمِي فِيهِ نَوْمَ التَّائِبِينَ",
+    "latin": "Allahumma ij'al siyami fihi siyamas sa'imina, wa qiyami fihi qiyamal qa'imina, wa nawmi fihi nawmat ta'ibina",
+    "translation": "Ya Allah, jadikanlah puasaku dalam bulan ini sebagai puasa orang-orang yang berpuasa, dan qiyamku sebagai qiyam orang-orang yang berqiyam, dan tidurku sebagai tidur orang-orang yang bertaubat",
+    "background": "Doa ini dibaca di akhir bulan Ramadhan sebagai penutup ibadah sebulan penuh. Nabi Muhammad SAW mendorong umatnya untuk memohon agar semua amalan Ramadhan diterima Allah dan menjadi bekal untuk tahun depan. Ini adalah waktu refleksi dan evaluasi kualitas ibadah selama bulan suci.",
+    "source": "Hadits Riwayat Tirmidzi",
+    "category": "penutup-ramadhan"
+  }
+]

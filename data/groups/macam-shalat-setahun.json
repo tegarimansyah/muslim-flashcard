@@ -1,0 +1,62 @@
+[
+  {
+    "id": "shalat-tahajud",
+    "title": "Shalat Tahajud",
+    "arabic": "اللَّهُمَّ لَكَ الْحَمْدُ أَنْتَ قَيُّومُ السَّمَاوَاتِ وَالْأَرْضِ وَمَنْ فِيهِنَّ، وَلَكَ الْحَمْدُ لَكَ مُلْكُ السَّمَاوَاتِ وَالْأَرْضِ وَمَنْ فِيهِنَّ، وَلَكَ الْحَمْدُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ وَمَنْ فِيهِنَّ",
+    "latin": "Allahumma lakal hamdu anta qayyumus samawati wal ard wa man fihinna, wa lakal hamdu lakal mulkus samawati wal ard wa man fihinna, wa lakal hamdu nurus samawati wal ard wa man fihinna",
+    "translation": "Ya Allah, bagi-Mu segala puji, Engkau Yang Menghidupkan langit dan bumi dan apa yang ada di antara keduanya, dan bagi-Mu segala puji, bagi-Mu kerajaan langit dan bumi dan apa yang ada di antara keduanya, dan bagi-Mu segala puji, Engkau adalah cahaya langit dan bumi dan apa yang ada di antara keduanya",
+    "background": "Shalat Tahajud adalah shalat malam yang paling utama setelah shalat witir. Waktu pelaksanaannya adalah sepertiga malam terakhir, sebelum waktu Subuh. Nabi Muhammad SAW tidak pernah meninggalkan shalat ini meskipun sedang dalam perjalanan. Shalat tahajud merupakan waktu yang mustajab untuk memohon doa dan dikabulkan oleh Allah.",
+    "source": "Hadits Riwayat Bukhari & Muslim",
+    "category": "shalat-malam"
+  },
+  {
+    "id": "shalat-witir",
+    "title": "Shalat Witir",
+    "arabic": "اللَّهُمَّ اهْدِنِي لِمَا اخْتُلِفَ فِيهِ مِنَ الْحَقِّ بِإِذْنِكَ، إِنَّكَ تَهْدِي مَنْ تَشَاءُ إِلَى صِرَاطٍ مُسْتَقِيمٍ",
+    "latin": "Allahumma ihdini lima ikhtulifa fihi minal haqqi bi idznika, innaka tahdi man tasya'u ila sirathin mustaqim",
+    "translation": "Ya Allah, berilah aku petunjuk kepada kebenaran dalam perkara yang diperselisihkan dengan izin-Mu, sesungguhnya Engkau memberi petunjuk kepada siapa saja yang Engkau kehendaki ke jalan yang lurus",
+    "background": "Shalat Witir adalah penutup shalat malam dan sangat dianjurkan. Jumlah rakaatnya ganjil, minimal satu rakaat dan maksimal sebelas rakaat. Nabi Muhammad SAW bersabda bahwa shalat witir adalah hak Allah atas hamba-Nya, barangsiapa yang mengerjakannya akan mendapatkan cinta Allah.",
+    "source": "Hadits Riwayat Muslim",
+    "category": "shalat-malam"
+  },
+  {
+    "id": "shalat-dhuha",
+    "title": "Shalat Dhuha",
+    "arabic": "اللَّهُمَّ إِنَّ الدُّحَى دُحَاؤُكَ، وَالْبَهَاءَ بَهَاؤُكَ، وَالْجَمَالَ جَمَالُكَ، وَالْقُوَّةَ قُوَّتُكَ، وَالْقُدْرَةَ قُدْرَتُكَ، وَالْعَفْوَ عَفْوُكَ",
+    "latin": "Allahumma inna ad-duha duha'uka, wal baha'a baha'uka, wal jamala jamaluka, wal quwwata quwwatuka, wal qudrata qudratuka, wal 'afwa 'afwuka",
+    "translation": "Ya Allah, sesungguhnya waktu dhuha adalah dhuha-Mu, keagungan adalah keagungan-Mu, keindahan adalah keindahan-Mu, kekuatan adalah kekuatan-Mu, kemampuan adalah kemampuan-Mu, dan pengampunan adalah pengampunan-Mu",
+    "background": "Shalat Dhuha dilaksanakan ketika matahari sudah naik tinggi sekitar seperempat hari (sekitar pukul 09.00-11.00). Jumlah minimal dua rakaat dan maksimal delapan rakaat. Nabi Muhammad SAW bersabda bahwa shalat dhuha dapat menghapus dosa-dosa kecil dan menjadi pembuka rezeki yang berkah.",
+    "source": "Hadits Riwayat Muslim",
+    "category": "shalat-pagi"
+  },
+  {
+    "id": "shalat-jumat",
+    "title": "Shalat Jumat",
+    "arabic": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ",
+    "latin": "Allahumma shalli 'ala Muhammad wa 'ala ali Muhammad kama shallaita 'ala Ibrahim wa 'ala ali Ibrahim, innaka Hamidum Majid",
+    "translation": "Ya Allah, limpahkanlah rahmat kepada Muhammad dan keluarga Muhammad sebagaimana Engkau telah melimpahkan rahmat kepada Ibrahim dan keluarga Ibrahim, sesungguhnya Engkau Maha Terpuji lagi Maha Mulia",
+    "background": "Shalat Jumat adalah shalat wajib yang dilaksanakan berjamaah setiap hari Jumat siang. Keutamaannya sangat besar, pahala satu shalat Jumat setara dengan 70 shalat biasa. Sebelum shalat Jumat, dianjurkan membaca Surah Al-Kahfi dan memperbanyak shalawat kepada Nabi Muhammad SAW.",
+    "source": "Hadits Riwayat Bukhari & Muslim",
+    "category": "shalat-jumat"
+  },
+  {
+    "id": "shalat-tarawih",
+    "title": "Shalat Tarawih",
+    "arabic": "سُبْحَانَ ذِي الْمُلْكِ وَالْمَلَكُوتِ، سُبْحَانَ ذِي الْعِزَّةِ وَالْعَظَمَةِ وَالْكِبْرِيَاءِ وَالْجَبَرُوتِ، سُبْحَانَ الْمَلِكِ الْحَيِّ الَّذِي لَا يَمُوتُ، سُبُّوحٌ قُدُّوسٌ، رَبُّنَا وَرَبُّ الْمَلَائِكَةِ وَالرُّوحِ",
+    "latin": "Subhana dzil mulki wal malakut, subhana dzil 'izzati wal 'azhamati wal kibriya'i wal jabarut, subhanal malikil hayyi alladzi la yamut, subbuhun quddus, rabbuna wa rabbul mala'ikati war ruh",
+    "translation": "Maha Suci Yang memiliki kerajaan dan kekuasaan, Maha Suci Yang memiliki keagungan, kebesaran, dan kesombongan, Maha Suci Raja Yang Hidup yang tidak mati, Maha Suci dan Maha Menguduskan, Tuhan kami dan Tuhan malaikat serta ruh",
+    "background": "Shalat Tarawih adalah shalat sunnah yang dilaksanakan khusus pada bulan Ramadhan setelah shalat Isya. Jumlahnya dua puluh rakaat atau delapan rakaat, dilakukan berjamaah di masjid. Nabi Muhammad SAW sangat menganjurkan shalat ini karena pahalanya sangat besar sebagai amalan bulan suci Ramadhan.",
+    "source": "Hadits Riwayat Abu Dawud",
+    "category": "shalat-ramadhan"
+  },
+  {
+    "id": "shalat-istisqa",
+    "title": "Shalat Istisqa (Memohon Hujan)",
+    "arabic": "اللَّهُمَّ اسْقِنَا غَيْثًا مُغِيثًا مَرِيئًا مُرِيبًا نَافِعًا غَيْرَ ضَارٍ",
+    "latin": "Allahumma isqina ghaitsan mughitsan mari'an muriban na'ian ghaira darr",
+    "translation": "Ya Allah, turunkanlah kepada kami hujan yang membawa rahmat, yang menyegarkan, yang melimpah, yang memberi manfaat dan tidak merusak",
+    "background": "Shalat Istisqa adalah shalat sunnah yang dilaksanakan ketika terjadi kemarau panjang untuk memohon hujan kepada Allah. Dilaksanakan berjamaah di lapangan terbuka dengan jumlah dua rakaat, kemudian dilanjutkan dengan khutbah dan doa memohon hujan. Nabi Muhammad SAW pernah mengerjakan shalat ini bersama para sahabatnya.",
+    "source": "Hadits Riwayat Bukhari",
+    "category": "shalat-khusus"
+  }
+]

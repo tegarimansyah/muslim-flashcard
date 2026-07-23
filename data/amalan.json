@@ -10,13 +10,87 @@
       "file": "groups/maksiat-berdosa.json"
     },
     {
-      "id": "sebelum-shalat",
-      "title": "Sesaat Sebelum Shalat",
+      "id": "futur",
+      "title": "Saat Futur",
+      "description": "Strategi memantik kembali semangat ibadah yang sedang hambar atau lesu tanpa membuat batin tertekan (burnout).",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "📉",
+      "color": "#059669",
+      "file": "groups/futur.json"
+    },
+    {
+      "id": "marah",
+      "title": "Saat Marah",
+      "description": "Manajemen emosi spontan secara fisik dan lisan untuk meredam hasutan setan saat amarah memuncak.",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "😡",
+      "color": "#059669",
+      "file": "groups/marah.json",
+      "count": 8
+    },
+    {
+      "id": "takut-khawatir",
+      "title": "Saat Menghadapi Rasa Takut & Khawatir",
+      "description": "Amalan untuk mengusir rasa takut terhadap masa depan, ancaman manusia, atau situasi mencekam agar hati kembali berani.",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "😰",
+      "color": "#059669",
+      "file": "groups/takut-khawatir.json"
+    },
+    {
+      "id": "hati-sempit-cemas-sedih",
+      "title": "Saat Hati Merasa Sempit (Cemas & Sedih)",
+      "description": "Panduan menenangkan pikiran saat dirundung gelisah, ekspektasi yang gagal, atau tekanan hidup yang membuat dada sesak.",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "🥺",
+      "color": "#059669",
+      "file": "groups/hati-sempit-cemas-sedih.json",
+      "count": 8
+    },
+    {
+      "id": "terlalu-disibukan-dunia",
+      "title": "Saat Terlalu Disibukan oleh Dunia",
+      "description": "Panduan mengembalikan fokus ibadah saat kegiatan duniawi menghancurkan keseimbangan spiritual dan mengabaikan kewajiban.",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "🌍",
+      "color": "#059669",
+      "file": "groups/terlalu-disibukan-dunia.json"
+    },
+    {
+      "id": "hati-bahagia-nikmat",
+      "title": "Saat Hati Sedang Bahagia (Mendapat Nikmat)",
+      "description": "Respons terbaik saat meraih keberhasilan atau rezeki agar terhindar dari sifat ujub/sombong dan penyakit 'Ain.",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "😊",
+      "color": "#059669",
+      "file": "groups/hati-bahagia-nikmat.json"
+    },
+    {
+      "id": "menyiapkan-kematian-diri",
+      "title": "Menyiapkan Kematian Diri Sendiri",
+      "description": "Panduan produktif mempersiapkan bekal akhirat, menyusun wasiat syar'i, dan mengikis kecemasan terhadap ajal melalui husnuzan kepada Allah.",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "⚰️",
+      "color": "#059669",
+      "file": "groups/menyiapkan-kematian-diri.json"
+    },
+    {
+      "id": "ragu-pilihan-sulit",
+      "title": "Saat Ragu dan Pilihan Sulit",
+      "description": "Langkah penyerahan keputusan kepada Allah melalui Shalat Istikharah saat menghadapi persimpangan jalan hidup.",
+      "category": "Kondisi Hati & Spiritual",
+      "icon": "❓",
+      "color": "#059669",
+      "file": "groups/ragu-pilihan-sulit.json"
+    },
+    {
+      "id": "persiapan-shalat",
+      "title": "Persiapan Shalat",
       "description": "Amalan penenang pikiran dan persiapan batin untuk membangun kekhusyukan sebelum takbiratul ihram.",
       "category": "Ibadah & Rutinitas",
       "icon": "🕌",
       "color": "#0891b2",
-      "file": "groups/sebelum-shalat.json"
+      "file": "groups/persiapan-shalat.json"
     },
     {
       "id": "dalam-shalat",
@@ -37,6 +111,15 @@
       "file": "groups/setelah-shalat.json"
     },
     {
+      "id": "macam-shalat-setahun",
+      "title": "Macam-macam Shalat dalam Setahun",
+      "description": "Panduan lengkap shalat-sunnah dan shalat khusus yang dianjurkan sepanjang tahun sesuai musim dan momentum spiritual.",
+      "category": "Ibadah & Rutinitas",
+      "icon": "📅",
+      "color": "#0891b2",
+      "file": "groups/macam-shalat-setahun.json"
+    },
+    {
       "id": "pagi-malam",
       "title": "Dzikir Pagi & Petang",
       "description": "Benteng perlindungan harian dan pembuka pintu rezeki yang dibaca di awal dan di penghujung hari.",
@@ -55,86 +138,22 @@
       "file": "groups/sebelum-tidur.json"
     },
     {
-      "id": "sakit",
-      "title": "Saat Sakit",
-      "description": "Ikhtiar batin untuk menggugurkan dosa melalui kesabaran dan doa memohon kesembuhan fisik dari penyakit.",
-      "category": "Krisis & Musibah",
-      "icon": "🤒",
-      "color": "#dc2626",
-      "file": "groups/sakit.json"
-    },
-    {
-      "id": "menjenguk-orang-sakit",
-      "title": "Saat Menjenguk Orang Sakit",
-      "description": "Adab kunjungan dan doa kesembuhan yang dibaca di hadapan orang yang sakit sebagai bentuk dukungan moral yang kuat.",
-      "category": "Sosial & Keluarga",
-      "icon": "🤝",
-      "color": "#4b5563",
-      "file": "groups/menjenguk-orang-sakit.json"
-    },
-    {
-      "id": "menyiapkan-kematian-diri",
-      "title": "Menyiapkan Kematian Diri Sendiri",
-      "description": "Panduan produktif mempersiapkan bekal akhirat, menyusun wasiat syar'i, dan mengikis kecemasan terhadap ajal melalui husnuzan kepada Allah.",
-      "category": "Kondisi Hati & Spiritual",
-      "icon": "⚰️",
-      "color": "#059669",
-      "file": "groups/menyiapkan-kematian-diri.json"
-    },
-    {
-      "id": "keluarga-meninggal-dunia",
-      "title": "Ketika Keluarga Meninggal Dunia",
-      "description": "Langkah pertama mengelola syok dan duka mendalam saat kehilangan orang tercinta, serta adab awal memperlakukan jenazah keluarga.",
-      "category": "Krisis & Musibah",
-      "icon": "😢",
-      "color": "#dc2626",
-      "file": "groups/keluarga-meninggal-dunia.json"
-    },
-    {
-      "id": "orang-lain-meninggal",
-      "title": "Saat Orang Lain Meninggal Dunia",
-      "description": "Respons terbaik, kalimat istirja, dan doa bagi jenazah serta keluarga yang ditinggalkan sebagai wujud empati tertinggi.",
-      "category": "Sosial & Keluarga",
-      "icon": "🖤",
-      "color": "#4b5563",
-      "file": "groups/orang-lain-meninggal.json"
+      "id": "sesudah-tidur",
+      "title": "Sesaat Setelah Tidur",
+      "description": "Amalan pembuka hari setelah bangun tidur untuk memulai aktivitas dengan berkah dan khusyuk.",
+      "category": "Ibadah & Rutinitas",
+      "icon": "☀️",
+      "color": "#7c3aed",
+      "file": "groups/sesudah-tidur.json"
     },
     {
       "id": "musafir",
       "title": "Saat Safar",
       "description": "Panduan memanfaatkan waktu mustajab di perjalanan dan memohon keselamatan hingga sampai ke tujuan.",
-      "category": "Ibadah & Rutinitas",
+      "category": "Ibadah Khusus",
       "icon": "✈️",
-      "color": "#0891b2",
+      "color": "#2563eb",
       "file": "groups/musafir.json"
-    },
-    {
-      "id": "futur",
-      "title": "Saat Futur",
-      "description": "Strategi memantik kembali semangat ibadah yang sedang hambar atau lesu tanpa membuat batin tertekan (burnout).",
-      "category": "Kondisi Hati & Spiritual",
-      "icon": "📉",
-      "color": "#059669",
-      "file": "groups/futur.json"
-    },
-    {
-      "id": "marah",
-      "title": "Saat Marah",
-      "description": "Manajemen emosi spontan secara fisik dan lisan untuk meredam hasutan setan saat amarah memuncak.",
-      "category": "Kondisi Hati & Spiritual",
-      "icon": "😡",
-      "color": "#059669",
-      "file": "groups/marah.json",
-      "count": 8
-    },
-    {
-      "id": "ragu-pilihan-sulit",
-      "title": "Saat Ragu dan Pilihan Sulit",
-      "description": "Langkah penyerahan keputusan kepada Allah melalui Shalat Istikharah saat menghadapi persimpangan jalan hidup.",
-      "category": "Kondisi Hati & Spiritual",
-      "icon": "❓",
-      "color": "#059669",
-      "file": "groups/ragu-pilihan-sulit.json"
     },
     {
       "id": "umroh-makkah",
@@ -155,23 +174,31 @@
       "file": "groups/ziarah-madinah.json"
     },
     {
-      "id": "hati-sempit-cemas-sedih",
-      "title": "Saat Hati Merasa Sempit (Cemas & Sedih)",
-      "description": "Panduan menenangkan pikiran saat dirundung gelisah, ekspektasi yang gagal, atau tekanan hidup yang membuat dada sesak.",
-      "category": "Kondisi Hati & Spiritual",
-      "icon": "🥺",
-      "color": "#059669",
-      "file": "groups/hati-sempit-cemas-sedih.json",
-      "count": 8
+      "id": "puasa-ramadhan",
+      "title": "Puasa Ramadhan",
+      "description": "Panduan lengkap berpuasa di bulan suci Ramadhan, dari niat hingga amalan pahala berlipat ganda.",
+      "category": "Ibadah Khusus",
+      "icon": "🌙",
+      "color": "#2563eb",
+      "file": "groups/puasa-ramadhan.json"
     },
     {
-      "id": "hati-bahagia-nikmat",
-      "title": "Saat Hati Sedang Bahagia (Mendapat Nikmat)",
-      "description": "Respons terbaik saat meraih keberhasilan atau rezeki agar terhindar dari sifat ujub/sombong dan penyakit 'Ain.",
-      "category": "Kondisi Hati & Spiritual",
-      "icon": "😊",
-      "color": "#059669",
-      "file": "groups/hati-bahagia-nikmat.json"
+      "id": "puasa-sunnah-setahun",
+      "title": "Puasa Sunnah Setahun",
+      "description": "Panduan puasa sunnah yang dianjurkan sepanjang tahun, seperti puasa Ayyamul Bidh, Senin Kamis, dan puasa bulan Muharram.",
+      "category": "Ibadah Khusus",
+      "icon": "🗓️",
+      "color": "#2563eb",
+      "file": "groups/puasa-sunnah-setahun.json"
+    },
+    {
+      "id": "sakit",
+      "title": "Saat Sakit",
+      "description": "Ikhtiar batin untuk menggugurkan dosa melalui kesabaran dan doa memohon kesembuhan fisik dari penyakit.",
+      "category": "Krisis & Musibah",
+      "icon": "🤒",
+      "color": "#dc2626",
+      "file": "groups/sakit.json"
     },
     {
       "id": "kerugian-musibah",
@@ -183,31 +210,40 @@
       "file": "groups/kerugian-musibah.json"
     },
     {
-      "id": "takut-khawatir",
-      "title": "Saat Menghadapi Rasa Takut & Khawatir",
-      "description": "Amalan untuk mengusir rasa takut terhadap masa depan, ancaman manusia, atau situasi mencekam agar hati kembali berani.",
-      "category": "Kondisi Hati & Spiritual",
-      "icon": "😰",
-      "color": "#059669",
-      "file": "groups/takut-khawatir.json"
+      "id": "keluarga-meninggal-dunia",
+      "title": "Ketika Keluarga Meninggal Dunia",
+      "description": "Langkah pertama mengelola syok dan duka mendalam saat kehilangan orang tercinta, serta adab awal memperlakukan jenazah keluarga.",
+      "category": "Krisis & Musibah",
+      "icon": "😢",
+      "color": "#dc2626",
+      "file": "groups/keluarga-meninggal-dunia.json"
     },
     {
-      "id": "memulai-pekerjaan-usaha",
-      "title": "Saat Memulai Pekerjaan atau Usaha",
-      "description": "Penataan niat and amalan sebelum bekerja agar energi yang dikeluarkan bernilai pahala dan menjemput rezeki yang berkah.",
-      "category": "Aktivitas & Finansial",
-      "icon": "💼",
-      "color": "#4f46e5",
-      "file": "groups/memulai-pekerjaan-usaha.json"
+      "id": "masalah-rumah-tangga",
+      "title": "Saat Ada Masalah di Rumah Tangga",
+      "description": "Peta tindakan batin saat menghadapi konflik dengan pasangan, ujian keharmonisan, atau badai dalam keluarga.",
+      "category": "Krisis & Musibah",
+      "icon": "🏠",
+      "color": "#dc2626",
+      "file": "groups/masalah-rumah-tangga.json"
     },
     {
-      "id": "terlilit-utang-finansial",
-      "title": "Saat Terlilit Utang atau Kesulitan Finansial",
-      "description": "Ikhtiar batin untuk mengurai beban pikiran akibat tekanan ekonomi dan memohon jalan keluar yang tidak disangka-sangka.",
-      "category": "Aktivitas & Finansial",
-      "icon": "💸",
-      "color": "#4f46e5",
-      "file": "groups/terlilit-utang-finansial.json"
+      "id": "menjenguk-orang-sakit",
+      "title": "Saat Menjenguk Orang Sakit",
+      "description": "Adab kunjungan dan doa kesembuhan yang dibaca di hadapan orang yang sakit sebagai bentuk dukungan moral yang kuat.",
+      "category": "Sosial & Keluarga",
+      "icon": "🤝",
+      "color": "#4b5563",
+      "file": "groups/menjenguk-orang-sakit.json"
+    },
+    {
+      "id": "orang-lain-meninggal",
+      "title": "Saat Orang Lain Meninggal Dunia",
+      "description": "Respons terbaik, kalimat istirja, dan doa bagi jenazah serta keluarga yang ditinggalkan sebagai wujud empati tertinggi.",
+      "category": "Sosial & Keluarga",
+      "icon": "🖤",
+      "color": "#4b5563",
+      "file": "groups/orang-lain-meninggal.json"
     },
     {
       "id": "konflik-dizalimi-difitnah",
@@ -228,13 +264,22 @@
       "file": "groups/ingin-bersiap-menikah.json"
     },
     {
-      "id": "masalah-rumah-tangga",
-      "title": "Saat Ada Masalah di Rumah Tangga",
-      "description": "Peta tindakan batin saat menghadapi konflik dengan pasangan, ujian keharmonisan, atau badai dalam keluarga.",
-      "category": "Krisis & Musibah",
-      "icon": "🏠",
-      "color": "#dc2626",
-      "file": "groups/masalah-rumah-tangga.json"
+      "id": "memulai-pekerjaan-usaha",
+      "title": "Saat Memulai Pekerjaan atau Usaha",
+      "description": "Penataan niat and amalan sebelum bekerja agar energi yang dikeluarkan bernilai pahala dan menjemput rezeki yang berkah.",
+      "category": "Aktivitas & Finansial",
+      "icon": "💼",
+      "color": "#4f46e5",
+      "file": "groups/memulai-pekerjaan-usaha.json"
+    },
+    {
+      "id": "terlilit-utang-finansial",
+      "title": "Saat Terlilit Utang atau Kesulitan Finansial",
+      "description": "Ikhtiar batin untuk mengurai beban pikiran akibat tekanan ekonomi dan memohon jalan keluar yang tidak disangka-sangka.",
+      "category": "Aktivitas & Finansial",
+      "icon": "💸",
+      "color": "#4f46e5",
+      "file": "groups/terlilit-utang-finansial.json"
     }
   ]
 }
