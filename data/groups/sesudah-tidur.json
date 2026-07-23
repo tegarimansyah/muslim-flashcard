@@ -1,32 +1,40 @@
-[
-  {
-    "id": "doa-bangun-tidur",
-    "title": "Doa Bangun Tidur",
-    "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
-    "latin": "Alhamdu lillahi alladzi ahyana ba'da ma amatana wa ilaihin nushur",
-    "translation": "Segala puji bagi Allah yang menghidupkan kami setelah mematikan kami, dan kepada-Nya kami akan dikembalikan",
-    "background": "Doa ini dibaca segera setelah bangun tidur sebagai bentuk syukur karena masih diberi kesempatan hidup. Nabi Muhammad SAW mengajarkan doa ini sebagai pengingat bahwa tidur adalah bentuk kematian kecil (wafat sementara) dan bangun tidur adalah kehidupan kembali. Doa ini menandai awal hari dengan niat yang baik dan kesadaran bahwa hidup adalah amanah dari Allah.",
-    "source": "Hadits Riwayat Bukhari",
-    "category": "pagi"
-  },
-  {
-    "id": "persiapan-aktivitas",
-    "title": "Doa Persiapan Aktivitas",
-    "arabic": "اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ",
-    "latin": "Allahumma bika ashbahna wa bika amsayna wa bika nahya wa bika namutu wa ilaikan nushur",
-    "translation": "Ya Allah, dengan rahmat-Mu kami memasuki waktu pagi, dan dengan rahmat-Mu kami memasuki waktu petang, dengan kehendak-Mu kami hidup dan dengan kehendak-Mu kami mati, dan kepada-Mu kami akan dikembalikan",
-    "background": "Doa ini mengingatkan bahwa semua aktivitas harian, baik pagi maupun petang, harus dimulai dan diakhiri dengan niat ibadah kepada Allah. Nabi Muhammad SAW membaca doa ini setiap bangun tidur dan memulai aktivitas, menunjukkan bahwa ketergantungan kepada Allah harus menjadi dasar setiap langkah kehidupan.",
-    "source": "Hadits Riwayat Tirmidzi",
-    "category": "pagi"
-  },
-  {
-    "id": "doa-masuk-kamar-mandi",
-    "title": "Doa Masuk Kamar Mandi",
-    "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ",
-    "latin": "Allahumma inni a'udzu bika minal khubtsi wal khaba'its",
-    "translation": "Ya Allah, aku berlindung kepada-Mu dari syaitan laki-laki dan syaitan perempuan",
-    "background": "Sebelum mandi atau masuk kamar mandi, Nabi Muhammad SAW mengajarkan doa perlindungan ini. Kamar mandi dan toilet adalah tempat yang sering dikunjungi setan, sehingga perlindungan Allah sangat diperlukan untuk menjaga kebersihan spiritual dan menghindari bisikan-bisikan jahat.",
-    "source": "Hadits Riwayat Bukhari & Muslim",
-    "category": "pagi"
-  }
-]
+{
+  "id": "sesudah-tidur",
+  "title": "Sesaat Setelah Tidur",
+  "description": "Amalan pembuka hari setelah bangun tidur untuk memulai aktivitas dengan berkah dan khusyuk.",
+  "category": "Ibadah & Rutinitas",
+  "icon": "☀️",
+  "color": "#7c3aed",
+  "cards": [
+    {
+      "id": "doa-bangun-tidur",
+      "title": "Doa Bangun Tidur",
+      "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
+      "latin": "Alhamdu lillahi alladzi ahyana ba'da ma amatana wa ilaihin nushur",
+      "translation": "Segala puji bagi Allah yang menghidupkan kami setelah mematikan kami, dan kepada-Nya kami akan dikembalikan",
+      "background": "Doa ini dibaca segera setelah bangun tidur sebagai bentuk syukur karena masih diberi kesempatan hidup. Nabi Muhammad SAW mengajarkan doa ini sebagai pengingat bahwa tidur adalah bentuk kematian kecil (wafat sementara) dan bangun tidur adalah kehidupan kembali. Doa ini menandai awal hari dengan niat yang baik dan kesadaran bahwa hidup adalah amanah dari Allah.",
+      "source": "Hadits Riwayat Bukhari",
+      "category": "pagi"
+    },
+    {
+      "id": "persiapan-aktivitas",
+      "title": "Doa Persiapan Aktivitas",
+      "arabic": "اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ",
+      "latin": "Allahumma bika ashbahna wa bika amsayna wa bika nahya wa bika namutu wa ilaikan nushur",
+      "translation": "Ya Allah, dengan rahmat-Mu kami memasuki waktu pagi, dan dengan rahmat-Mu kami memasuki waktu petang, dengan kehendak-Mu kami hidup dan dengan kehendak-Mu kami mati, dan kepada-Mu kami akan dikembalikan",
+      "background": "Doa ini mengingatkan bahwa semua aktivitas harian, baik pagi maupun petang, harus dimulai dan diakhiri dengan niat ibadah kepada Allah. Nabi Muhammad SAW membaca doa ini setiap bangun tidur dan memulai aktivitas, menunjukkan bahwa ketergantungan kepada Allah harus menjadi dasar setiap langkah kehidupan.",
+      "source": "Hadits Riwayat Tirmidzi",
+      "category": "pagi"
+    },
+    {
+      "id": "doa-masuk-kamar-mandi",
+      "title": "Doa Masuk Kamar Mandi",
+      "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ",
+      "latin": "Allahumma inni a'udzu bika minal khubtsi wal khaba'its",
+      "translation": "Ya Allah, aku berlindung kepada-Mu dari syaitan laki-laki dan syaitan perempuan",
+      "background": "Sebelum mandi atau masuk kamar mandi, Nabi Muhammad SAW mengajarkan doa perlindungan ini. Kamar mandi dan toilet adalah tempat yang sering dikunjungi setan, sehingga perlindungan Allah sangat diperlukan untuk menjaga kebersihan spiritual dan menghindari bisikan-bisikan jahat.",
+      "source": "Hadits Riwayat Bukhari & Muslim",
+      "category": "pagi"
+    }
+  ]
+}

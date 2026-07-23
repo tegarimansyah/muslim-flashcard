@@ -1,7 +1,16 @@
 {{ range site.Data.amalan.groups }}
   {{ $detail := index site.Data.groups .id }}
   {{ $cards := slice }}
-  {{ with $detail }}{{ $cards = .cards | default (slice) }}{{ end }}
+  {{ with $detail }}
+    {{/* Safe access to cards with robust type checking */}}
+    {{ $rawCards := .cards }}
+    {{ if reflect.IsSlice $rawCards }}
+      {{ range $rawCards }}
+        {{/* Include all cards for pahami mode (no filtering) */}}
+        {{ $cards = $cards | append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
   {{ $page := dict
     "kind" "page"
     "path" .id

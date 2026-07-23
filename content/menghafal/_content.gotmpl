@@ -2,12 +2,16 @@
   {{ $detail := index site.Data.groups .id }}
   {{ $cards := slice }}
   {{ with $detail }}
-    {{ range (.cards | default (slice)) }}
-      {{/* Skip pahami-only: menghafal:false, or type guidance/personal */}}
-      {{ $type := .type | default "" }}
-      {{ $skip := or (eq .menghafal false) (eq $type "guidance") (eq $type "personal") (eq .personal true) }}
-      {{ if not $skip }}
-        {{ $cards = $cards | append . }}
+    {{/* Safe access to cards with robust type checking */}}
+    {{ $rawCards := .cards }}
+    {{ if reflect.IsSlice $rawCards }}
+      {{ range $rawCards }}
+        {{/* Skip pahami-only: menghafal:false, or type guidance/personal */}}
+        {{ $type := .type | default "" }}
+        {{ $skip := or (eq .menghafal false) (eq $type "guidance") (eq $type "personal") (eq .personal true) }}
+        {{ if not $skip }}
+          {{ $cards = $cards | append . }}
+        {{ end }}
       {{ end }}
     {{ end }}
   {{ end }}
